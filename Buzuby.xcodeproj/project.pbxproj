@@ -48,6 +48,13 @@
 		2C5193031CE25DCE00B99FC9 /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C5192FD1CE25DCE00B99FC9 /* Readme.txt */; };
 		2C5193041CE25DCE00B99FC9 /* DateTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5192FF1CE25DCE00B99FC9 /* DateTimeUtil.m */; };
 		2C5193051CE25DCE00B99FC9 /* NSString+CommonForApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5193011CE25DCE00B99FC9 /* NSString+CommonForApp.m */; };
+		2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */; };
+		2C72EB2A1CE38DE9005E03A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB291CE38DE9005E03A6 /* BaseViewController.m */; };
+		2C72EB2D1CE38E52005E03A6 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB2C1CE38E52005E03A6 /* LoginVC.m */; };
+		2C72EB301CE38E65005E03A6 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB2F1CE38E65005E03A6 /* RegisterVC.m */; };
+		2C72EB331CE38E70005E03A6 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB321CE38E70005E03A6 /* PreferenceViewController.m */; };
+		2C72EB361CE38E7B005E03A6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB351CE38E7B005E03A6 /* SearchViewController.m */; };
+		2C72EB3A1CE38F8D005E03A6 /* DefaultTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB391CE38F8D005E03A6 /* DefaultTextField.m */; };
 		8C0B2F321CE09BDF008C6A2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B2F311CE09BDF008C6A2E /* main.m */; };
 		8C0B2F351CE09BE0008C6A2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B2F341CE09BE0008C6A2E /* AppDelegate.m */; };
 		8C0B2F381CE09BE0008C6A2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B2F371CE09BE0008C6A2E /* ViewController.m */; };
@@ -219,6 +226,20 @@
 		2C5193011CE25DCE00B99FC9 /* NSString+CommonForApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CommonForApp.m"; sourceTree = "<group>"; };
 		2C5193091CE25DDF00B99FC9 /* KeyConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyConstants.h; sourceTree = "<group>"; };
 		2C51930A1CE25DDF00B99FC9 /* WSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSConstant.h; sourceTree = "<group>"; };
+		2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
+		2C72EB241CE379B1005E03A6 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
+		2C72EB281CE38DE9005E03A6 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		2C72EB291CE38DE9005E03A6 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		2C72EB2B1CE38E52005E03A6 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		2C72EB2C1CE38E52005E03A6 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		2C72EB2E1CE38E65005E03A6 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		2C72EB2F1CE38E65005E03A6 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		2C72EB311CE38E70005E03A6 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
+		2C72EB321CE38E70005E03A6 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
+		2C72EB341CE38E7B005E03A6 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		2C72EB351CE38E7B005E03A6 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		2C72EB381CE38F8D005E03A6 /* DefaultTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTextField.h; sourceTree = "<group>"; };
+		2C72EB391CE38F8D005E03A6 /* DefaultTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTextField.m; sourceTree = "<group>"; };
 		8C0B2F2D1CE09BDF008C6A2E /* Buzuby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buzuby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C0B2F311CE09BDF008C6A2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C0B2F331CE09BDF008C6A2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -525,6 +546,48 @@
 			path = Utilities/Constants;
 			sourceTree = "<group>";
 		};
+		2C72EB221CE379B1005E03A6 /* AppContext */ = {
+			isa = PBXGroup;
+			children = (
+				2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */,
+				2C72EB241CE379B1005E03A6 /* ConnectionsManager.h */,
+			);
+			path = AppContext;
+			sourceTree = "<group>";
+		};
+		2C72EB261CE38DAA005E03A6 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				2C72EB2B1CE38E52005E03A6 /* LoginVC.h */,
+				2C72EB2C1CE38E52005E03A6 /* LoginVC.m */,
+				2C72EB2E1CE38E65005E03A6 /* RegisterVC.h */,
+				2C72EB2F1CE38E65005E03A6 /* RegisterVC.m */,
+				2C72EB311CE38E70005E03A6 /* PreferenceViewController.h */,
+				2C72EB321CE38E70005E03A6 /* PreferenceViewController.m */,
+				2C72EB341CE38E7B005E03A6 /* SearchViewController.h */,
+				2C72EB351CE38E7B005E03A6 /* SearchViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		2C72EB271CE38DCE005E03A6 /* BaveView */ = {
+			isa = PBXGroup;
+			children = (
+				2C72EB281CE38DE9005E03A6 /* BaseViewController.h */,
+				2C72EB291CE38DE9005E03A6 /* BaseViewController.m */,
+			);
+			path = BaveView;
+			sourceTree = "<group>";
+		};
+		2C72EB371CE38F66005E03A6 /* SubClass */ = {
+			isa = PBXGroup;
+			children = (
+				2C72EB381CE38F8D005E03A6 /* DefaultTextField.h */,
+				2C72EB391CE38F8D005E03A6 /* DefaultTextField.m */,
+			);
+			path = SubClass;
+			sourceTree = "<group>";
+		};
 		8C0B2F241CE09BDF008C6A2E = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +611,10 @@
 		8C0B2F2F1CE09BDF008C6A2E /* Buzuby */ = {
 			isa = PBXGroup;
 			children = (
+				2C72EB371CE38F66005E03A6 /* SubClass */,
+				2C72EB271CE38DCE005E03A6 /* BaveView */,
+				2C72EB261CE38DAA005E03A6 /* VC */,
+				2C72EB221CE379B1005E03A6 /* AppContext */,
 				2C51927A1CE25BBD00B99FC9 /* Library */,
 				8C0B2F651CE09D85008C6A2E /* Resources */,
 				8C0B2F331CE09BDF008C6A2E /* AppDelegate.h */,
@@ -887,12 +954,15 @@
 				8C0B2F381CE09BE0008C6A2E /* ViewController.m in Sources */,
 				2C5192901CE25C1700B99FC9 /* AFHTTPRequestOperationManager.m in Sources */,
 				2C5192E81CE25DB900B99FC9 /* IQUIView+Hierarchy.m in Sources */,
+				2C72EB2D1CE38E52005E03A6 /* LoginVC.m in Sources */,
 				2C5192F41CE25DB900B99FC9 /* SVIndefiniteAnimatedView.m in Sources */,
 				2C5192E71CE25DB900B99FC9 /* IQNSArray+Sort.m in Sources */,
+				2C72EB361CE38E7B005E03A6 /* SearchViewController.m in Sources */,
 				2C5192AF1CE25DA400B99FC9 /* UIProgressView+AFNetworking.m in Sources */,
 				2C5192921CE25C1700B99FC9 /* AFNetworkReachabilityManager.m in Sources */,
 				2C5192961CE25C1700B99FC9 /* AFURLResponseSerialization.m in Sources */,
 				2C5192941CE25C1700B99FC9 /* AFURLConnectionOperation.m in Sources */,
+				2C72EB331CE38E70005E03A6 /* PreferenceViewController.m in Sources */,
 				2C5193041CE25DCE00B99FC9 /* DateTimeUtil.m in Sources */,
 				2C5192F81CE25DB900B99FC9 /* SVRadialGradientLayer.m in Sources */,
 				2C5192EA1CE25DB900B99FC9 /* IQKeyboardManager.m in Sources */,
@@ -901,6 +971,7 @@
 				2C5192EB1CE25DB900B99FC9 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				2C5193051CE25DCE00B99FC9 /* NSString+CommonForApp.m in Sources */,
 				2C5192AB1CE25DA400B99FC9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				2C72EB2A1CE38DE9005E03A6 /* BaseViewController.m in Sources */,
 				2C5192931CE25C1700B99FC9 /* AFSecurityPolicy.m in Sources */,
 				2C5192B01CE25DA400B99FC9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				2C5192B11CE25DA400B99FC9 /* UIWebView+AFNetworking.m in Sources */,
@@ -916,10 +987,13 @@
 				2C5192F11CE25DB900B99FC9 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2C5192E51CE25DB900B99FC9 /* JMImageCache.m in Sources */,
 				2C5192F31CE25DB900B99FC9 /* NSUserDefaults+Helpers.m in Sources */,
+				2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */,
 				2C5192951CE25C1700B99FC9 /* AFURLRequestSerialization.m in Sources */,
 				2C5192AA1CE25DA400B99FC9 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2C5192EE1CE25DB900B99FC9 /* IQBarButtonItem.m in Sources */,
+				2C72EB3A1CE38F8D005E03A6 /* DefaultTextField.m in Sources */,
 				2C5192971CE25C1700B99FC9 /* AFURLSessionManager.m in Sources */,
+				2C72EB301CE38E65005E03A6 /* RegisterVC.m in Sources */,
 				8C0B2F351CE09BE0008C6A2E /* AppDelegate.m in Sources */,
 				8C0B2F321CE09BDF008C6A2E /* main.m in Sources */,
 			);

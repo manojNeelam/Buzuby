@@ -12,4 +12,9 @@
 
 #endif /* KeyConstants_h */
 
+#define LoginSBID   @"LoginVC_SB_ID"
+#define RegisterSBID    @"RegisterVC_SB_ID"
+#define PreferenceSBID  @"PreferenceViewController_SB_ID"
+#define SearchSBID  @"SearchViewController_SB_ID"
+
 // SEGUE

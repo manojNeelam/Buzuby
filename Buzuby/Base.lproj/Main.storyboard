@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tpz-BH-SXP">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC_SB_ID" id="BYZ-38-t0r" customClass="LoginVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-ls-hPO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-ls-hPO">
                                 <rect key="frame" x="58" y="40" width="205" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="205" id="N0I-Oz-dRZ"/>
                                     <constraint firstAttribute="height" constant="92" id="dqi-Dx-Iuf"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpI-bs-CiT">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpI-bs-CiT">
                                 <rect key="frame" x="0.0" y="152" width="320" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_part.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co9-GO-BSs">
@@ -47,7 +46,7 @@
                                             <constraint firstAttribute="height" constant="70" id="Aun-6e-kyN"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S9z-bi-gKb">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S9z-bi-gKb" customClass="DefaultTextField">
                                         <rect key="frame" x="40" y="10" width="236" height="57"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="arb-SR-rdk"/>
@@ -71,7 +70,7 @@
                                     <constraint firstItem="S9z-bi-gKb" firstAttribute="top" secondItem="cpI-bs-CiT" secondAttribute="top" constant="10" id="yhd-KM-nQu"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-gI-JOm">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-gI-JOm">
                                 <rect key="frame" x="0.0" y="247" width="320" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_part.png" translatesAutoresizingMaskIntoConstraints="NO" id="1q0-dJ-SxS">
@@ -94,13 +93,13 @@
                                             <constraint firstAttribute="height" constant="70" id="Swh-4B-gjV"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CyI-iy-KNK">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CyI-iy-KNK" customClass="DefaultTextField">
                                         <rect key="frame" x="40" y="10" width="236" height="57"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="5Dl-ad-TNb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,11 +134,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="158" height="90"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Register"/>
+                                        <connections>
+                                            <action selector="onClickRegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jtk-o3-Hro"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UU-Aj-zzg">
                                         <rect key="frame" x="162" y="0.0" width="158" height="90"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Forgot Password?"/>
+                                        <connections>
+                                            <action selector="onClickForgotPasswordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="csK-rw-dNm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,6 +175,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-Hc-grB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="onClickLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oFz-jO-0a3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,16 +212,24 @@
                             <constraint firstItem="8dL-ls-hPO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="xf4-Xy-hzD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Oss-ht-mpz"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="btnForgotPassword" destination="5UU-Aj-zzg" id="WMI-HH-Adr"/>
+                        <outlet property="btnLogin" destination="l0k-Hc-grB" id="STS-PS-dof"/>
+                        <outlet property="btnRegister" destination="SH7-JA-S6S" id="fDp-PQ-974"/>
+                        <outlet property="txtFldPasword" destination="CyI-iy-KNK" id="4fp-ud-RoT"/>
+                        <outlet property="txtFldUserName" destination="S9z-bi-gKb" id="iTd-Rj-M5D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="404"/>
+            <point key="canvasLocation" x="707" y="404"/>
         </scene>
-        <!--View Controller-->
+        <!--RegisterVC-->
         <scene sceneID="ibE-Iy-fnX">
             <objects>
-                <viewController id="mdA-RH-MPu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC_SB_ID" id="mdA-RH-MPu" customClass="RegisterVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ajl-TN-1YB"/>
                         <viewControllerLayoutGuide type="bottom" id="SzX-Oy-5F6"/>
@@ -245,7 +261,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4d-KL-YfC">
                                                 <rect key="frame" x="40" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSX-ss-11Z">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSX-ss-11Z" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -262,7 +278,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYl-ww-kDD">
                                                 <rect key="frame" x="165" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbj-DG-PfX">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbj-DG-PfX" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -315,7 +331,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4A-v8-JcA">
                                                 <rect key="frame" x="40" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhx-ej-cua">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhx-ej-cua" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -332,7 +348,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGd-ag-Nds">
                                                 <rect key="frame" x="165" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Re enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jlU-e9-Gl5">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Re enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jlU-e9-Gl5" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -385,7 +401,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpA-zM-Jfr">
                                                 <rect key="frame" x="40" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+001" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-CJ-Xuy">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+001" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-CJ-Xuy" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -402,7 +418,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQd-Bg-y5T">
                                                 <rect key="frame" x="165" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0000000000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AiH-ci-quF">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0000000000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AiH-ci-quF" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -455,7 +471,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ZI-J5-Aw1">
                                                 <rect key="frame" x="40" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qxi-dw-fDw">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qxi-dw-fDw" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -472,7 +488,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rK7-Zz-Gqd">
                                                 <rect key="frame" x="165" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ReR-7F-7wb">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ReR-7F-7wb" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -525,7 +541,7 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T88-su-J1d">
                                                 <rect key="frame" x="40" y="10" width="73" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Day" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bif-xI-bDy">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Day" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bif-xI-bDy" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -536,7 +552,7 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oh5-ZM-cqL">
                                                 <rect key="frame" x="206" y="10" width="73" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-mT-hP4">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-mT-hP4" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -547,7 +563,7 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="koD-wd-mRt">
                                                 <rect key="frame" x="123" y="10" width="73" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-BC-GOS">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-BC-GOS" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -585,7 +601,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkd-At-uXk">
                                                 <rect key="frame" x="40" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Province" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-bu-6lf">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Province" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-bu-6lf" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -602,7 +618,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrK-dh-ejr">
                                                 <rect key="frame" x="165" y="10" width="115" height="57"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Suburb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5D-7C-tZV">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Suburb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5D-7C-tZV" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="57"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -658,7 +674,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="uLE-s0-vqX"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYP-iI-Idm">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYP-iI-Idm" customClass="DefaultTextField">
                                                 <rect key="frame" x="40" y="10" width="236" height="57"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="9Nu-Jd-qgV"/>
@@ -705,7 +721,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="xJx-Xj-du3"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6By-Eo-dik">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6By-Eo-dik" customClass="DefaultTextField">
                                                 <rect key="frame" x="40" y="10" width="236" height="57"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="XnM-Tk-Hrt"/>
@@ -752,7 +768,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="6f0-da-cf1"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Qu-yNx">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Qu-yNx" customClass="DefaultTextField">
                                                 <rect key="frame" x="40" y="10" width="236" height="57"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="bJz-mP-wvJ"/>
@@ -826,11 +842,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="90"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="GPS"/>
+                                        <connections>
+                                            <action selector="onClickGPSButton:" destination="mdA-RH-MPu" eventType="touchUpInside" id="6T3-Zd-hzk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsS-Qp-eQE">
                                         <rect key="frame" x="163" y="0.0" width="157" height="90"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="NEXT"/>
+                                        <connections>
+                                            <action selector="onClickNextButton:" destination="mdA-RH-MPu" eventType="touchUpInside" id="VIm-8w-c3b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -866,15 +888,35 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="btnGPS" destination="cAa-fO-3zL" id="iHn-M7-JcF"/>
+                        <outlet property="btnNext" destination="IsS-Qp-eQE" id="ga2-oh-w39"/>
+                        <outlet property="txtFldAddress" destination="2yP-Qu-yNx" id="eAA-fK-Ycc"/>
+                        <outlet property="txtFldCity" destination="ReR-7F-7wb" id="AUo-Kc-U69"/>
+                        <outlet property="txtFldCountry" destination="Qxi-dw-fDw" id="TpP-wN-xtE"/>
+                        <outlet property="txtFldCountryCode" destination="Qm7-CJ-Xuy" id="ExW-7r-2Cr"/>
+                        <outlet property="txtFldDay" destination="bif-xI-bDy" id="FzK-qb-S3h"/>
+                        <outlet property="txtFldEmail" destination="6By-Eo-dik" id="VOu-kC-gu0"/>
+                        <outlet property="txtFldFirstName" destination="NSX-ss-11Z" id="hk1-st-ndR"/>
+                        <outlet property="txtFldLastName" destination="mbj-DG-PfX" id="UgQ-rj-gHV"/>
+                        <outlet property="txtFldMonth" destination="biZ-BC-GOS" id="0cb-R0-39Z"/>
+                        <outlet property="txtFldPassword" destination="Uhx-ej-cua" id="KJ5-t1-oht"/>
+                        <outlet property="txtFldPhoneNumber" destination="AiH-ci-quF" id="hiH-WI-gfa"/>
+                        <outlet property="txtFldProvience" destination="M4r-bu-6lf" id="hye-xu-YOX"/>
+                        <outlet property="txtFldReenterPassword" destination="jlU-e9-Gl5" id="pr7-jM-Ycq"/>
+                        <outlet property="txtFldSearch" destination="f5D-7C-tZV" id="Qap-Cz-iTK"/>
+                        <outlet property="txtFldUserName" destination="jYP-iI-Idm" id="TSc-x1-Jvf"/>
+                        <outlet property="txtFldYear" destination="y1w-mT-hP4" id="BEU-Bt-xLN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWb-UV-a8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="404"/>
+            <point key="canvasLocation" x="1479" y="404"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="9Mz-Dt-luT">
             <objects>
-                <viewController id="z2O-zA-tmz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController_SB_ID" id="z2O-zA-tmz" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yXX-g6-oBr"/>
                         <viewControllerLayoutGuide type="bottom" id="pYm-f8-bBm"/>
@@ -958,6 +1000,9 @@
                                             <constraint firstAttribute="height" constant="90" id="9ll-iB-XF7"/>
                                         </constraints>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="onClickNextButton:" destination="z2O-zA-tmz" eventType="touchUpInside" id="eMw-qf-Fwd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxh-YF-r30">
                                         <rect key="frame" x="20" y="5" width="158" height="40"/>
@@ -966,11 +1011,17 @@
                                             <constraint firstAttribute="height" constant="40" id="HTy-Ix-RTm"/>
                                         </constraints>
                                         <state key="normal" title="Preferences"/>
+                                        <connections>
+                                            <action selector="onClickPreferenceButton:" destination="z2O-zA-tmz" eventType="touchUpInside" id="Vv4-ym-EbF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFN-1j-DMF">
                                         <rect key="frame" x="198" y="5" width="157" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="onClickSearchbutton:" destination="z2O-zA-tmz" eventType="touchUpInside" id="aaQ-d6-6N0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1008,7 +1059,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KK6-hw-z0j">
                                                 <rect key="frame" x="62" y="5" width="273" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MA-4c-amh">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SEARCH" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MA-4c-amh" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1054,7 +1105,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkq-WA-rBk">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Zg-gee">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Zg-gee" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1071,7 +1122,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhx-9K-Bb1">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cg-kh-kwq">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cg-kh-kwq" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1140,7 +1191,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-WI-yI2">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-XZ-9ee">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-XZ-9ee" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1157,7 +1208,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-ju-fgu">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ik-5s-Kjd">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ik-5s-Kjd" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1219,7 +1270,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-Hl-Ng1">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-HL-UP9">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-HL-UP9" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1236,7 +1287,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keB-op-5YN">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnA-V2-tti">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnA-V2-tti" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1305,15 +1356,24 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnNext" destination="xn5-0F-khm" id="Blb-GG-vZP"/>
+                        <outlet property="btnPreference" destination="Jxh-YF-r30" id="gsU-XD-jaW"/>
+                        <outlet property="btnSearch" destination="JFN-1j-DMF" id="xHT-tA-AKr"/>
+                        <outlet property="txtFldCatOption" destination="8cg-kh-kwq" id="AKu-eO-a1t"/>
+                        <outlet property="txtFldSearch" destination="2MA-4c-amh" id="unT-Jz-Ve8"/>
+                        <outlet property="txtFldSubCatOption" destination="1ik-5s-Kjd" id="KPl-Do-IYX"/>
+                        <outlet property="txtFldSubCatOption2" destination="KnA-V2-tti" id="y83-ig-GmQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rz9-AO-i8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053.5" y="161.5"/>
+            <point key="canvasLocation" x="1865.5" y="161.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Preference View Controller-->
         <scene sceneID="rc4-aE-TCB">
             <objects>
-                <viewController id="fDr-zf-k24" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreferenceViewController_SB_ID" id="fDr-zf-k24" customClass="PreferenceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t1Q-h6-OSt"/>
                         <viewControllerLayoutGuide type="bottom" id="mtZ-vB-Lgo"/>
@@ -1397,6 +1457,9 @@
                                             <constraint firstAttribute="height" constant="90" id="xiv-D1-gD8"/>
                                         </constraints>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="onClickNextButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="76e-Ly-u5m"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lo-mW-dbJ">
                                         <rect key="frame" x="20" y="5" width="158" height="40"/>
@@ -1405,11 +1468,17 @@
                                             <constraint firstAttribute="height" constant="40" id="WJs-OR-ZNe"/>
                                         </constraints>
                                         <state key="normal" title="Preferences"/>
+                                        <connections>
+                                            <action selector="onClickPreferenceButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="58R-OZ-sJL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI5-b7-IYU">
                                         <rect key="frame" x="198" y="5" width="157" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="onClickSearchButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="GmM-RS-7Az"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1454,7 +1523,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-ZZ-uIR">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pF7-DY-IXz">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pF7-DY-IXz" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1471,7 +1540,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8e-vD-BKp">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfB-hy-TdY">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfB-hy-TdY" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1533,7 +1602,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-n3-bB6">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzB-07-x6w">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzB-07-x6w" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1550,7 +1619,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNX-7D-Xqp">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzW-PX-XSH">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzW-PX-XSH" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1619,7 +1688,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7s6-hE-4WY">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HA7-jf-9vC">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HA7-jf-9vC" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1636,7 +1705,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZR1-Zj-dHh">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7N9-88-vVg">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7N9-88-vVg" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1698,7 +1767,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGm-sY-6Iu">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-hf-765">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-hf-765" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1715,7 +1784,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UC-Nz-CTz">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uG3-DR-oJe">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uG3-DR-oJe" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1777,7 +1846,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGP-M3-3A8">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGz-yd-Atn">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGz-yd-Atn" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1794,7 +1863,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtK-zC-VqQ">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-QO-X33">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-QO-X33" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1866,10 +1935,20 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnNext" destination="7LZ-4s-rpN" id="cc9-rH-TWi"/>
+                        <outlet property="btnPreference" destination="9lo-mW-dbJ" id="Dfs-OF-r9V"/>
+                        <outlet property="btnSearch" destination="iI5-b7-IYU" id="W2o-bs-eOC"/>
+                        <outlet property="txtFldCatOption" destination="XzW-PX-XSH" id="KDA-Ua-zfV"/>
+                        <outlet property="txtFldCategoryOption" destination="7N9-88-vVg" id="tgV-Ah-4qF"/>
+                        <outlet property="txtFldPriceOption" destination="uG3-DR-oJe" id="D6W-dy-25t"/>
+                        <outlet property="txtFldRadiusOption" destination="xfB-hy-TdY" id="iAy-oo-Wl0"/>
+                        <outlet property="txtFldShowResultOption" destination="OJF-QO-X33" id="AKK-L9-DYA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0q-Rz-PeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053.5" y="947.5"/>
+            <point key="canvasLocation" x="1865.5" y="947.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vpn-5f-QMP">
@@ -1948,7 +2027,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pE-0W-PA3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498" y="112"/>
+            <point key="canvasLocation" x="2310" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vdD-lF-jES">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Tpz-BH-SXP" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d1E-OO-TtZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iU1-Oh-idB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IwE-cb-JUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="404"/>
         </scene>
     </scenes>
     <resources>
