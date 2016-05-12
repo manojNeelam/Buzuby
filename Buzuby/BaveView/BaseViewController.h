@@ -10,6 +10,7 @@
 #import "DefaultTextField.h"
 #import "WSConstant.h"
 #import "KeyConstants.h"
+#import "SWRevealViewController.h"
 
 @interface BaseViewController : UIViewController
 

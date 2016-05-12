@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SWRevealViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,11 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //[self showLoginVC];
+    
     return YES;
 }
 
@@ -41,5 +45,22 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)showHomeVC
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"SWRevealViewController_SB_ID"];
+    [self.window setRootViewController:vc];
+}
+
+-(void)showLoginVC
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"LoginVC_SB_ID"];
+    UINavigationController *navLogim = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self.window setRootViewController:navLogim];
+}
+
 
 @end

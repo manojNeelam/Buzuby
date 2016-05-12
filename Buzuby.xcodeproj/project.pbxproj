@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C280FF71CE48AA100D95B0E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C280FF61CE48AA100D95B0E /* SWRevealViewController.m */; };
+		2C280FFB1CE48BF700D95B0E /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C280FFA1CE48BF700D95B0E /* HomeVC.m */; };
+		2C280FFF1CE48C2400D95B0E /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C280FFE1CE48C2400D95B0E /* SettingsVC.m */; };
+		2C2810021CE4967700D95B0E /* SettingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2810011CE4967700D95B0E /* SettingTitleCell.m */; };
+		2C2810051CE4968B00D95B0E /* SettingDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2810041CE4968B00D95B0E /* SettingDefaultCell.m */; };
+		2C2810081CE4A2FD00D95B0E /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2810071CE4A2FD00D95B0E /* TestObj.m */; };
 		2C51928F1CE25C1700B99FC9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C51927D1CE25C1700B99FC9 /* AFHTTPRequestOperation.m */; };
 		2C5192901CE25C1700B99FC9 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C51927F1CE25C1700B99FC9 /* AFHTTPRequestOperationManager.m */; };
 		2C5192911CE25C1700B99FC9 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5192811CE25C1700B99FC9 /* AFHTTPSessionManager.m */; };
@@ -139,6 +145,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C280FF51CE48AA100D95B0E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		2C280FF61CE48AA100D95B0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		2C280FF91CE48BF700D95B0E /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		2C280FFA1CE48BF700D95B0E /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		2C280FFD1CE48C2400D95B0E /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		2C280FFE1CE48C2400D95B0E /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
+		2C2810001CE4967700D95B0E /* SettingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTitleCell.h; sourceTree = "<group>"; };
+		2C2810011CE4967700D95B0E /* SettingTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTitleCell.m; sourceTree = "<group>"; };
+		2C2810031CE4968B00D95B0E /* SettingDefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDefaultCell.h; sourceTree = "<group>"; };
+		2C2810041CE4968B00D95B0E /* SettingDefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDefaultCell.m; sourceTree = "<group>"; };
+		2C2810061CE4A2FD00D95B0E /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
+		2C2810071CE4A2FD00D95B0E /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
 		2C51927C1CE25C1700B99FC9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		2C51927D1CE25C1700B99FC9 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		2C51927E1CE25C1700B99FC9 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -339,9 +357,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C280FF41CE48AA100D95B0E /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C280FF51CE48AA100D95B0E /* SWRevealViewController.h */,
+				2C280FF61CE48AA100D95B0E /* SWRevealViewController.m */,
+				2C2810061CE4A2FD00D95B0E /* TestObj.h */,
+				2C2810071CE4A2FD00D95B0E /* TestObj.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		2C280FF81CE48BE200D95B0E /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				2C280FF91CE48BF700D95B0E /* HomeVC.h */,
+				2C280FFA1CE48BF700D95B0E /* HomeVC.m */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		2C280FFC1CE48C0F00D95B0E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2C280FFD1CE48C2400D95B0E /* SettingsVC.h */,
+				2C280FFE1CE48C2400D95B0E /* SettingsVC.m */,
+				2C2810001CE4967700D95B0E /* SettingTitleCell.h */,
+				2C2810011CE4967700D95B0E /* SettingTitleCell.m */,
+				2C2810031CE4968B00D95B0E /* SettingDefaultCell.h */,
+				2C2810041CE4968B00D95B0E /* SettingDefaultCell.m */,
+			);
+			name = Settings;
+			path = HomeVC/Settings;
+			sourceTree = "<group>";
+		};
 		2C51927A1CE25BBD00B99FC9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				2C280FF41CE48AA100D95B0E /* SWRevealViewController */,
 				2C5193061CE25DDF00B99FC9 /* Constants */,
 				2C5192F91CE25DCE00B99FC9 /* Utilities */,
 				2C5192B21CE25DB900B99FC9 /* Asynch Image */,
@@ -558,6 +611,8 @@
 		2C72EB261CE38DAA005E03A6 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				2C280FFC1CE48C0F00D95B0E /* Settings */,
+				2C280FF81CE48BE200D95B0E /* HomeVC */,
 				2C72EB2B1CE38E52005E03A6 /* LoginVC.h */,
 				2C72EB2C1CE38E52005E03A6 /* LoginVC.m */,
 				2C72EB2E1CE38E65005E03A6 /* RegisterVC.h */,
@@ -953,6 +1008,7 @@
 				2C5192AE1CE25DA400B99FC9 /* UIImageView+AFNetworking.m in Sources */,
 				8C0B2F381CE09BE0008C6A2E /* ViewController.m in Sources */,
 				2C5192901CE25C1700B99FC9 /* AFHTTPRequestOperationManager.m in Sources */,
+				2C280FFF1CE48C2400D95B0E /* SettingsVC.m in Sources */,
 				2C5192E81CE25DB900B99FC9 /* IQUIView+Hierarchy.m in Sources */,
 				2C72EB2D1CE38E52005E03A6 /* LoginVC.m in Sources */,
 				2C5192F41CE25DB900B99FC9 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -969,6 +1025,7 @@
 				2C5192E61CE25DB900B99FC9 /* UIImageView+JMImageCache.m in Sources */,
 				2C5192AD1CE25DA400B99FC9 /* UIButton+AFNetworking.m in Sources */,
 				2C5192EB1CE25DB900B99FC9 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				2C280FF71CE48AA100D95B0E /* SWRevealViewController.m in Sources */,
 				2C5193051CE25DCE00B99FC9 /* NSString+CommonForApp.m in Sources */,
 				2C5192AB1CE25DA400B99FC9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2C72EB2A1CE38DE9005E03A6 /* BaseViewController.m in Sources */,
@@ -980,12 +1037,15 @@
 				2C5192911CE25C1700B99FC9 /* AFHTTPSessionManager.m in Sources */,
 				2C5192E91CE25DB900B99FC9 /* IQUIWindow+Hierarchy.m in Sources */,
 				2C5192F51CE25DB900B99FC9 /* SVProgressAnimatedView.m in Sources */,
+				2C280FFB1CE48BF700D95B0E /* HomeVC.m in Sources */,
 				2C5192ED1CE25DB900B99FC9 /* IQTextView.m in Sources */,
 				2C5192AC1CE25DA400B99FC9 /* UIAlertView+AFNetworking.m in Sources */,
 				2C5192F71CE25DB900B99FC9 /* SVProgressHUD.m in Sources */,
+				2C2810051CE4968B00D95B0E /* SettingDefaultCell.m in Sources */,
 				2C5192EF1CE25DB900B99FC9 /* IQTitleBarButtonItem.m in Sources */,
 				2C5192F11CE25DB900B99FC9 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2C5192E51CE25DB900B99FC9 /* JMImageCache.m in Sources */,
+				2C2810021CE4967700D95B0E /* SettingTitleCell.m in Sources */,
 				2C5192F31CE25DB900B99FC9 /* NSUserDefaults+Helpers.m in Sources */,
 				2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */,
 				2C5192951CE25C1700B99FC9 /* AFURLRequestSerialization.m in Sources */,
@@ -994,6 +1054,7 @@
 				2C72EB3A1CE38F8D005E03A6 /* DefaultTextField.m in Sources */,
 				2C5192971CE25C1700B99FC9 /* AFURLSessionManager.m in Sources */,
 				2C72EB301CE38E65005E03A6 /* RegisterVC.m in Sources */,
+				2C2810081CE4A2FD00D95B0E /* TestObj.m in Sources */,
 				8C0B2F351CE09BE0008C6A2E /* AppDelegate.m in Sources */,
 				8C0B2F321CE09BDF008C6A2E /* main.m in Sources */,
 			);

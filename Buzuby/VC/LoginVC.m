@@ -7,6 +7,8 @@
 //
 
 #import "LoginVC.h"
+#import "AppDelegate.h"
+
 
 @interface LoginVC ()
 
@@ -48,8 +50,11 @@
 
 - (IBAction)onClickLoginButton:(id)sender
 {
-    UIViewController *registerVC = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
-    [self.navigationController pushViewController:registerVC animated:YES];
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate showHomeVC];
+    
+    //UIViewController *registerVC = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+    //[self.navigationController pushViewController:registerVC animated:YES];
 }
 
 - (IBAction)onClickRegisterButton:(id)sender
