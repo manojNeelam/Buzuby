@@ -125,6 +125,7 @@
 		8C0B2FD81CE09D85008C6A2E /* textBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B2FA01CE09D85008C6A2E /* textBack.png */; };
 		8C0B2FD91CE09D85008C6A2E /* trim.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B2FA11CE09D85008C6A2E /* trim.png */; };
 		8C0B2FDA1CE09D85008C6A2E /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B2FA21CE09D85008C6A2E /* youtube.png */; };
+		D83641E01CE594FF00A216CF /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D83641DF1CE594FF00A216CF /* ConnectionsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -330,6 +331,8 @@
 		8C0B2FA01CE09D85008C6A2E /* textBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBack.png; sourceTree = "<group>"; };
 		8C0B2FA11CE09D85008C6A2E /* trim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trim.png; sourceTree = "<group>"; };
 		8C0B2FA21CE09D85008C6A2E /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube.png; sourceTree = "<group>"; };
+		D83641DE1CE594FF00A216CF /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
+		D83641DF1CE594FF00A216CF /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,6 +669,7 @@
 		8C0B2F2F1CE09BDF008C6A2E /* Buzuby */ = {
 			isa = PBXGroup;
 			children = (
+				D83641DD1CE594FF00A216CF /* ApiController */,
 				2C72EB371CE38F66005E03A6 /* SubClass */,
 				2C72EB271CE38DCE005E03A6 /* BaveView */,
 				2C72EB261CE38DAA005E03A6 /* VC */,
@@ -812,6 +816,15 @@
 				8C0B2F9F1CE09D85008C6A2E /* orange_bg.png */,
 			);
 			path = splash_screen;
+			sourceTree = "<group>";
+		};
+		D83641DD1CE594FF00A216CF /* ApiController */ = {
+			isa = PBXGroup;
+			children = (
+				D83641DE1CE594FF00A216CF /* ConnectionsManager.h */,
+				D83641DF1CE594FF00A216CF /* ConnectionsManager.m */,
+			);
+			path = ApiController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1047,6 +1060,7 @@
 				2C5192E51CE25DB900B99FC9 /* JMImageCache.m in Sources */,
 				2C2810021CE4967700D95B0E /* SettingTitleCell.m in Sources */,
 				2C5192F31CE25DB900B99FC9 /* NSUserDefaults+Helpers.m in Sources */,
+				D83641E01CE594FF00A216CF /* ConnectionsManager.m in Sources */,
 				2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */,
 				2C5192951CE25C1700B99FC9 /* AFURLRequestSerialization.m in Sources */,
 				2C5192AA1CE25DA400B99FC9 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1197,6 +1211,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Buzuby/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1209,6 +1224,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Buzuby/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
