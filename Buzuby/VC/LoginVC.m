@@ -8,7 +8,7 @@
 
 #import "LoginVC.h"
 #import "AppDelegate.h"
-
+#import "ForgotPasswordVC.h"
 #import "ConnectionsManager.h"
 
 
@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -80,7 +81,8 @@
 
 - (IBAction)onClickForgotPasswordButton:(id)sender
 {
-    
+    UIViewController *forgotPassworvc = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordVC_SB_ID"];
+    [self.navigationController pushViewController:forgotPassworvc animated:YES];
 }
 
 -(void)success:(id)response

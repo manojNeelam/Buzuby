@@ -35,4 +35,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnPrice;
 - (IBAction)onClickPriceButton:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIView *baseCategoryView;
+@property (weak, nonatomic) IBOutlet UIView *baseSubcategoryView;
+@property (weak, nonatomic) IBOutlet UIView *baseSubSubCategoryView;
+
+@property (weak, nonatomic) IBOutlet UIView *baseCategoryTitleView;
+@property (weak, nonatomic) IBOutlet UIView *baseSubCategoryTitleView;
+@property (weak, nonatomic) IBOutlet UIView *baseSubSubCategoryTitleView;
+
 @end

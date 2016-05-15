@@ -63,14 +63,14 @@
     NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
     if ([[ver objectAtIndex:0] intValue] >= 7) {
         // iOS 7.0 or later
-        navLogim.navigationBar.barTintColor = [UIColor redColor];
+        navLogim.navigationBar.barTintColor = [UIColor colorWithRed:68.0f/255.0f green:78.0f/255.0f blue:85.0f/255.0f alpha:1.0f];
         navLogim.navigationBar.translucent = NO;
     }else {
         // iOS 6.1 or earlier
-        navLogim.navigationBar.tintColor = [UIColor redColor];
+        navLogim.navigationBar.tintColor = [UIColor colorWithRed:68.0f/255.0f green:78.0f/255.0f blue:85.0f/255.0f alpha:1.0f];;
     }
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [navLogim.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
 
     [self.window setRootViewController:navLogim];
 }

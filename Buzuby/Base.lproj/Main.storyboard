@@ -1979,9 +1979,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-H7-zWT">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d69-yp-NKa">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d69-yp-NKa">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="All"/>
                                                         <connections>
                                                             <action selector="onClickPriceButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="A6X-ee-MhA"/>
                                                         </connections>
@@ -2061,11 +2061,17 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="baseCategoryTitleView" destination="ZR1-Zj-dHh" id="HWJ-vO-hPe"/>
+                        <outlet property="baseCategoryView" destination="RPO-kg-Sec" id="ylE-7c-ati"/>
                         <outlet property="baseCurrencyTypeView" destination="qfY-wm-Mkw" id="Zwq-2k-bAD"/>
+                        <outlet property="baseSubCategoryTitleView" destination="2UC-Nz-CTz" id="Z4T-PS-1Vj"/>
+                        <outlet property="baseSubSubCategoryTitleView" destination="ZtK-zC-VqQ" id="ksu-yd-UVi"/>
+                        <outlet property="baseSubSubCategoryView" destination="urQ-7R-jbd" id="nyg-TF-3Ph"/>
+                        <outlet property="baseSubcategoryView" destination="5aJ-ch-dVN" id="7Od-Cc-38d"/>
                         <outlet property="btnCategoryOption" destination="98Y-Vu-FRS" id="FB6-SY-EPs"/>
                         <outlet property="btnNext" destination="7LZ-4s-rpN" id="cc9-rH-TWi"/>
                         <outlet property="btnPrice" destination="d69-yp-NKa" id="oBs-Wf-VtL"/>
-                        <outlet property="btnSubSubCategory" destination="izR-Tl-jUl" id="o1j-nd-jZD"/>
+                        <outlet property="btnSubSubCategory" destination="izR-Tl-jUl" id="feU-W0-irR"/>
                         <outlet property="btnSubcategory" destination="XR4-pS-53e" id="Pxf-Ax-SfG"/>
                         <outlet property="scrollView" destination="4En-np-E7L" id="cX9-cG-o0P"/>
                         <outlet property="txtFldCatOption" destination="XzW-PX-XSH" id="KDA-Ua-zfV"/>
@@ -3156,7 +3162,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vX0-I5-eLl">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                        <state key="normal" title="Next"/>
+                                        <state key="normal" title="Get Password"/>
                                         <connections>
                                             <action selector="onClickForgotPasswordButton:" destination="sCP-8c-Ymb" eventType="touchUpInside" id="5ML-Oy-s3Q"/>
                                             <action selector="onClickNextButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="0Pm-88-yxH"/>

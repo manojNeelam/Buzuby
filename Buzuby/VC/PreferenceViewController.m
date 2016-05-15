@@ -8,8 +8,13 @@
 
 #import "PreferenceViewController.h"
 
-@interface PreferenceViewController () <NIDropDownDelegate>
-
+@interface PreferenceViewController () <NIDropDownDelegate, UITableViewDataSource, UITableViewDelegate>
+{
+    UITableView *commonTblView;
+    UIButton *selectedButton;
+    
+    NSArray *commonList;
+}
 @end
 
 @implementation PreferenceViewController
@@ -18,6 +23,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    commonList = [[NSArray alloc] initWithObjects:@"All",@"Dining", @"Monitoring", @"Services", @"Stores", nil];
+    
+    
+    commonTblView = [[UITableView alloc] init];
+    [commonTblView setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
+    commonTblView.backgroundView = nil;
+    [commonTblView setDataSource:self];
+    [commonTblView setDelegate:self];
+    [commonTblView setHidden:YES];
+    
+    [self.scrollView addSubview:commonTblView];
+    
     
     if(self.isFromSettings)
     {
@@ -60,48 +78,74 @@
 
 - (IBAction)onClickSubcategoryButton:(id)sender
 {
+    selectedButton = self.btnSubcategory;
     
+    [self setFrameCommonTableView:self.baseSubcategoryView.frame andTextFieldRect:self.baseSubCategoryTitleView.frame];
 }
 
 - (IBAction)onCllickCategoryButton:(id)sender
 {
-    [self loadDataByView:sender];
+    selectedButton = self.btnCategoryOption;
+    
+    [self setFrameCommonTableView:self.baseCategoryView.frame andTextFieldRect:self.baseCategoryTitleView.frame];
 }
 
 - (IBAction)onClickSubSubCategoryButton:(id)sender
 {
-    [self loadDataByView:sender];
+    selectedButton = self.btnSubSubCategory;
+    
+    [self setFrameCommonTableView:self.baseSubSubCategoryView.frame andTextFieldRect:self.baseSubSubCategoryTitleView.frame];
 }
 
 - (IBAction)onClickPriceButton:(id)sender
 {
-    [self loadDataByView:sender];
+    
 }
 
--(void)loadDataByView:(id)sender
+-(void)setFrameCommonTableView:(CGRect)frameView andTextFieldRect:(CGRect)frameTxtFld
 {
-    NSArray * arr = [[NSArray alloc] init];
-    arr = [NSArray arrayWithObjects:@"Hello 0", @"Hello 1", @"Hello 2", @"Hello 3", @"Hello 4", @"Hello 5", @"Hello 6", @"Hello 7", @"Hello 8", @"Hello 9",nil];
-    NSArray * arrImage = [[NSArray alloc] init];
-    arrImage = [NSArray arrayWithObjects:[UIImage imageNamed:@"apple.png"], [UIImage imageNamed:@"apple2.png"], [UIImage imageNamed:@"apple.png"], [UIImage imageNamed:@"apple2.png"], [UIImage imageNamed:@"apple.png"], [UIImage imageNamed:@"apple2.png"], [UIImage imageNamed:@"apple.png"], [UIImage imageNamed:@"apple2.png"], [UIImage imageNamed:@"apple.png"], [UIImage imageNamed:@"apple2.png"], nil];
-    if(dropDown == nil) {
-        CGFloat f = 200;
-        dropDown = [[NIDropDown alloc]showDropDown:sender :&f :arr :arrImage :@"down"];
-        dropDown.delegate = self;
-    }
-    else {
-        [dropDown hideDropDown:sender];
-        [self rel];
-    }
+    [commonTblView setFrame:CGRectMake(frameTxtFld.origin.x, frameView.origin.y+frameView.size.height, frameTxtFld.size.width, 44*4)];
+    [commonTblView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    
+    [commonTblView setBackgroundColor:[UIColor lightGrayColor]];//[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
+    
+    [commonTblView setHidden:NO];
+    [commonTblView reloadData];
 }
 
-- (void) niDropDownDelegateMethod: (NIDropDown *) sender {
-    [self rel];
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return commonList.count;
 }
 
--(void)rel{
-    //    [dropDown release];
-    dropDown = nil;
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    [cell setBackgroundColor:[UIColor lightGrayColor]];//[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
+    [cell.textLabel setFont:[UIFont fontWithName:@"AvenirNextLTPro-Regular" size:13]];
+    [cell.textLabel setText:[commonList objectAtIndex:indexPath.row]];
+    [cell.textLabel setNumberOfLines:0];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    [cell.textLabel sizeToFit];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *str = [commonList objectAtIndex:indexPath.row];
+    [commonTblView setHidden:YES];
+    if(selectedButton)
+    {
+        [selectedButton setTitle:str forState:UIControlStateNormal];
+    }
 }
 
 @end
