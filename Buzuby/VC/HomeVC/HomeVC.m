@@ -120,11 +120,7 @@
  @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
  @property (weak, nonatomic) IBOutlet UIButton *btnLocation;
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 92.0f;
-}
-
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
@@ -143,12 +139,77 @@
     }
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+-(void)success:(id)response
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UIViewController *detailvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController_SB_ID"];
-    [self.navigationController pushViewController:detailvc animated:YES];
+    NSLog(@"success at Home");
     
+    
+    /*
+     {
+     message = "Your new password has been sent to you email";
+     status = 1;
+     }
+     */
+    
+    NSDictionary *params;
+    
+    if([response isKindOfClass:[NSString class]])
+    {
+        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+        params = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    }
+    else if ([response isKindOfClass:[NSDictionary class]])
+    {
+        params = response;
+    }
+    
+    
+    id statusStr_ = [params objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+        statusStr = statusStr_;
+    
+    
+    NSLog(@"params=%@",params);
+    if([statusStr isEqualToString:@"200"])
+    {
+        NSArray *arr=[params objectForKey:@"data"];
+        NSMutableArray *listArr=[[NSMutableArray alloc] init];
+        for(NSDictionary *d in arr)
+        {
+            HomeData *dt=[[HomeData alloc] init];
+            dt.name=[d objectForKey:@"businessName"];
+            dt.range=[d objectForKey:@"priceRangeTo"];
+            dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
+            dt.busId=[d objectForKey:@"businessId"];
+            dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
+            dt.rangeTo=[d objectForKey:@"priceRangeTo"];
+            dt.currencySymbol=[d objectForKey:@"currencySymbol"];
+            dt.isFavorite=[d objectForKey:@"isFavorite"];
+            dt.latitude=[d objectForKey:@"latitude"];
+            
+            dt.longitude=[d objectForKey:@"longitude"];
+            dt.rating=[d objectForKey:@"rating"];
+            dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
+           
+            [listArr addObject:dt];
+        }
+        if(listArr.count>0)
+        {
+            self.view.backgroundColor=[UIColor colorWithRed:68.0/255 green:78.0/255 blue:84.0/255 alpha:1];
+            _tableView.backgroundColor=[UIColor clearColor];
+
+            list=listArr;
+            listArr=nil;
+            [_tableView reloadData];
+        }
+    }
 }
 
 @end
