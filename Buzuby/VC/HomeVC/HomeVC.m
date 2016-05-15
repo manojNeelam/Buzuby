@@ -7,9 +7,12 @@
 //
 
 #import "HomeVC.h"
+#import "HomeData.h"
 #import "HomeTableViewCell.h"
+#import "ConnectionsManager.h"
+#import "UIImageView+JMImageCache.h"
 
-@interface HomeVC ()<UITableViewDataSource, UITableViewDelegate>
+@interface HomeVC ()<UITableViewDataSource, UITableViewDelegate,ServerResponseDelegate>
 {
     NSArray *list;
 }
@@ -41,6 +44,25 @@
     
     [self customSetup];
     // Do any additional setup after loading the view.
+    
+    [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
+
+}
+-(void)makeRequestForFavariote
+{
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+    
+    [paramDict setObject:@"getAllFavoriteBusiness" forKey:@"action"];
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,16 +93,32 @@
 
 - (IBAction)onClickSearchButton:(id)sender
 {
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+   // UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:SearchSBID];
+
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    HomeData *dt=[list objectAtIndex:indexPath.row];
     static NSString *cellIdentifier = @"HomeTableViewCell";
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.lblTitle.text=dt.name;
+    
+    [cell.imgItem setImageWithURL:[NSURL URLWithString:dt.imgCat] placeholder:[UIImage imageNamed:@"left_part.png"]];
+    
+    cell.lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
+    
     return cell;
 }
+/*
+ @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+ @property (weak, nonatomic) IBOutlet UILabel *lblDesc;
+ @property (weak, nonatomic) IBOutlet UIImageView *imgItem;
+ @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
+ @property (weak, nonatomic) IBOutlet UIButton *btnLocation;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

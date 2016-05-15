@@ -27,6 +27,8 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 @interface ConnectionsManager : AFHTTPRequestOperationManager <ServerResponseDelegate>
 
 + (instancetype)sharedManager;
+-(void)getBannerData:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)getMyFaviroteData:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 -(void)loginUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)registerUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;

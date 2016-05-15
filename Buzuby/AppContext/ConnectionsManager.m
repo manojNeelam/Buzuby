@@ -51,8 +51,9 @@ static NSString * const BaseURLString = BaseUrl;
 - (void) postToURL:(NSString *)url withParameters:(NSDictionary *)parameters delegate:(id<ServerResponseDelegate>)delegate
 {
     NSString *urlString = url;
-    //createGroup
-    urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    //urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    urlString = BaseURLString;
+    
     NSDictionary *tmpParameters = parameters;
     [self.requestSerializer setTimeoutInterval:12.0];
     
@@ -135,7 +136,9 @@ static NSString * const BaseURLString = BaseUrl;
         
     });
     NSString *urlString = url;
-    urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    //urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    urlString = BaseURLString;
+    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -185,7 +188,9 @@ static NSString * const BaseURLString = BaseUrl;
 {
     
     NSString *urlString = url;
-    urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    //urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    urlString = BaseURLString;
+    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -216,11 +221,6 @@ static NSString * const BaseURLString = BaseUrl;
     }];
 }
 
-//Get Streets and Towns
--(void)gettowns_withdelegate:(id<ServerResponseDelegate>) delegate
-{
-    [self getToURL:@"gettowns" withParameters:nil delegate:delegate];
-}
 
 - (void)success:(NSDictionary *)response
 {
@@ -259,6 +259,19 @@ static NSString * const BaseURLString = BaseUrl;
 {
     [self getToURL:@"add_bio" withImage:img withParameters:params delegate:delegate];
 }
+
+
+
+-(void)getBannerData:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"Banner" withParameters:params delegate:delegate];
+}
+
+-(void)getMyFaviroteData:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"Favirote" withParameters:params delegate:delegate];
+}
+
 
 
 @end
