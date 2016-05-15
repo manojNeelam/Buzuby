@@ -13,10 +13,31 @@
 @end
 
 @implementation PreferenceViewController
+@synthesize isFromSettings;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if(self.isFromSettings)
+    {
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
+        
+    }
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)onClickBackbutton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width,500)];
 }
 
 - (void)didReceiveMemoryWarning {

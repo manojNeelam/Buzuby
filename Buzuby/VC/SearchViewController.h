@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface SearchViewController : BaseViewController
+@property (nonatomic, assign) BOOL isFromSettings;
 
 @end

@@ -21,6 +21,7 @@
     // Override point for customization after application launch.
     //[self showLoginVC];
     
+    
     return YES;
 }
 
@@ -59,6 +60,18 @@
     UIViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"LoginVC_SB_ID"];
     UINavigationController *navLogim = [[UINavigationController alloc] initWithRootViewController:vc];
     
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        // iOS 7.0 or later
+        navLogim.navigationBar.barTintColor = [UIColor redColor];
+        navLogim.navigationBar.translucent = NO;
+    }else {
+        // iOS 6.1 or earlier
+        navLogim.navigationBar.tintColor = [UIColor redColor];
+    }
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
     [self.window setRootViewController:navLogim];
 }
 

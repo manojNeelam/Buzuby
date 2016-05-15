@@ -9,6 +9,9 @@
 #import "BaseViewController.h"
 
 @interface PreferenceViewController : BaseViewController
+
+@property (nonatomic, assign) BOOL isFromSettings;
+
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldCatOption;
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldRadiusOption;
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldCategoryOption;
@@ -21,4 +24,9 @@
 - (IBAction)onClickPreferenceButton:(id)sender;
 - (IBAction)onClickNextButton:(id)sender;
 - (IBAction)onClickSearchButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *baseCurrencyTypeView;
+
+
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 @end

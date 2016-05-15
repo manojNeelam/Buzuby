@@ -13,6 +13,10 @@
 #import "SettingDefaultCell.h"
 #import "AppDelegate.h"
 
+#import "PreferenceViewController.h"
+#import "SearchViewController.h"
+
+
 @interface SettingsVC () <UITableViewDelegate, UITableViewDataSource>
 {
     NSArray *titleAray;
@@ -136,6 +140,43 @@
     {
         AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         [delegate showLoginVC];
+    }
+    else if (indexPath.section == 0)
+    {
+        switch (indexPath.row) {
+            case 1:
+            {
+                [self.revealViewController revealToggleAnimated:YES];
+            }
+                break;
+            case 2:
+            {
+                PreferenceViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+                peferencevc.isFromSettings = YES;
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:peferencevc];
+                [self presentViewController:nav animated:YES completion:^{
+                    
+                }];
+            }
+                break;
+            case 3:
+            {
+                SearchViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:SearchSBID];
+                peferencevc.isFromSettings = YES;
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:peferencevc];
+                [self presentViewController:nav animated:YES completion:^{
+                    
+                }];
+            }
+                break;
+            case 4:
+            {
+                [self.revealViewController revealToggleAnimated:YES];            }
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 

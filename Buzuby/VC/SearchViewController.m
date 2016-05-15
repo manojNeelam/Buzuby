@@ -28,10 +28,25 @@
 @end
 
 @implementation SearchViewController
+@synthesize isFromSettings;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(self.isFromSettings)
+    {
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
+        
+    }
+    
+    // Do any additional setup after loading the view.
+}
+
+-(void)onClickBackbutton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
