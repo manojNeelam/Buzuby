@@ -58,6 +58,7 @@
 		2C5193051CE25DCE00B99FC9 /* NSString+CommonForApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5193011CE25DCE00B99FC9 /* NSString+CommonForApp.m */; };
 		2C57F3441CE865250036756B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F3431CE865250036756B /* DetailViewController.m */; };
 		2C57F3471CE887BB0036756B /* ForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F3461CE887BB0036756B /* ForgotPasswordVC.m */; };
+		2C57F34A1CE8ACF60036756B /* NIDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F3491CE8ACF60036756B /* NIDropDown.m */; };
 		2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */; };
 		2C72EB2A1CE38DE9005E03A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB291CE38DE9005E03A6 /* BaseViewController.m */; };
 		2C72EB2D1CE38E52005E03A6 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB2C1CE38E52005E03A6 /* LoginVC.m */; };
@@ -256,6 +257,8 @@
 		2C57F3431CE865250036756B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2C57F3451CE887BB0036756B /* ForgotPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordVC.h; sourceTree = "<group>"; };
 		2C57F3461CE887BB0036756B /* ForgotPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordVC.m; sourceTree = "<group>"; };
+		2C57F3481CE8ACF60036756B /* NIDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIDropDown.h; sourceTree = "<group>"; };
+		2C57F3491CE8ACF60036756B /* NIDropDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIDropDown.m; sourceTree = "<group>"; };
 		2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
 		2C72EB241CE379B1005E03A6 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		2C72EB281CE38DE9005E03A6 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -412,6 +415,8 @@
 		2C51927A1CE25BBD00B99FC9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				2C57F3481CE8ACF60036756B /* NIDropDown.h */,
+				2C57F3491CE8ACF60036756B /* NIDropDown.m */,
 				2C280FF41CE48AA100D95B0E /* SWRevealViewController */,
 				2C5193061CE25DDF00B99FC9 /* Constants */,
 				2C5192F91CE25DCE00B99FC9 /* Utilities */,
@@ -1076,6 +1081,7 @@
 				2C449E291CE6390000852362 /* HomeTableViewCell.m in Sources */,
 				2C5192EE1CE25DB900B99FC9 /* IQBarButtonItem.m in Sources */,
 				2C72EB3A1CE38F8D005E03A6 /* DefaultTextField.m in Sources */,
+				2C57F34A1CE8ACF60036756B /* NIDropDown.m in Sources */,
 				2C5192971CE25C1700B99FC9 /* AFURLSessionManager.m in Sources */,
 				2C72EB301CE38E65005E03A6 /* RegisterVC.m in Sources */,
 				2C2810081CE4A2FD00D95B0E /* TestObj.m in Sources */,

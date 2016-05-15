@@ -7,26 +7,32 @@
 //
 
 #import "BaseViewController.h"
+#import "NIDropDown.h"
 
 @interface PreferenceViewController : BaseViewController
-
+{
+    NIDropDown *dropDown;
+}
 @property (nonatomic, assign) BOOL isFromSettings;
 
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldCatOption;
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldRadiusOption;
-@property (weak, nonatomic) IBOutlet DefaultTextField *txtFldCategoryOption;
-@property (weak, nonatomic) IBOutlet DefaultTextField *txtFldPriceOption;
+@property (weak, nonatomic) IBOutlet UIButton *btnCategoryOption;
 
-@property (weak, nonatomic) IBOutlet DefaultTextField *txtFldShowResultOption;
-@property (weak, nonatomic) IBOutlet UIButton *btnPreference;
-@property (weak, nonatomic) IBOutlet UIButton *btnSearch;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
-- (IBAction)onClickPreferenceButton:(id)sender;
 - (IBAction)onClickNextButton:(id)sender;
-- (IBAction)onClickSearchButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *baseCurrencyTypeView;
 
+- (IBAction)onCllickCategoryButton:(id)sender;
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *btnSubcategory;
+- (IBAction)onClickSubcategoryButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnSubSubCategory;
+- (IBAction)onClickSubSubCategoryButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnPrice;
+- (IBAction)onClickPriceButton:(id)sender;
 
 @end

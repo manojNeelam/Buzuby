@@ -1651,18 +1651,22 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZR1-Zj-dHh">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7N9-88-vVg" customClass="DefaultTextField">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98Y-Vu-FRS">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <state key="normal" title="All">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onCllickCategoryButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="sbJ-kh-wKJ"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="7N9-88-vVg" secondAttribute="bottom" id="1E5-oy-WAM"/>
-                                                    <constraint firstItem="7N9-88-vVg" firstAttribute="top" secondItem="ZR1-Zj-dHh" secondAttribute="top" id="FMy-Ui-1OA"/>
-                                                    <constraint firstItem="7N9-88-vVg" firstAttribute="leading" secondItem="ZR1-Zj-dHh" secondAttribute="leading" id="RYN-Ms-m72"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7N9-88-vVg" secondAttribute="trailing" id="qLx-y1-G5j"/>
+                                                    <constraint firstItem="98Y-Vu-FRS" firstAttribute="top" secondItem="ZR1-Zj-dHh" secondAttribute="top" id="LS8-PX-sKp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="98Y-Vu-FRS" secondAttribute="trailing" id="NAr-qG-2Xb"/>
+                                                    <constraint firstItem="98Y-Vu-FRS" firstAttribute="leading" secondItem="ZR1-Zj-dHh" secondAttribute="leading" id="ePm-00-pLg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="98Y-Vu-FRS" secondAttribute="bottom" id="xJp-kO-nEl"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1730,18 +1734,22 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UC-Nz-CTz">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uG3-DR-oJe" customClass="DefaultTextField">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-pS-53e">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <state key="normal" title="All">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onClickSubcategoryButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="pUA-Rt-6gw"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="uG3-DR-oJe" firstAttribute="leading" secondItem="2UC-Nz-CTz" secondAttribute="leading" id="7ZV-Ec-moD"/>
-                                                    <constraint firstAttribute="bottom" secondItem="uG3-DR-oJe" secondAttribute="bottom" id="BxR-pz-4yF"/>
-                                                    <constraint firstItem="uG3-DR-oJe" firstAttribute="top" secondItem="2UC-Nz-CTz" secondAttribute="top" id="SIe-RV-Zp4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="uG3-DR-oJe" secondAttribute="trailing" id="wxW-35-ejZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XR4-pS-53e" secondAttribute="trailing" id="4RP-dM-QDV"/>
+                                                    <constraint firstItem="XR4-pS-53e" firstAttribute="leading" secondItem="2UC-Nz-CTz" secondAttribute="leading" id="EiD-lx-b0o"/>
+                                                    <constraint firstItem="XR4-pS-53e" firstAttribute="top" secondItem="2UC-Nz-CTz" secondAttribute="top" id="vMn-7z-IfF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="XR4-pS-53e" secondAttribute="bottom" id="yMO-Uv-XPP"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1809,18 +1817,22 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtK-zC-VqQ">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-QO-X33" customClass="DefaultTextField">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izR-Tl-jUl">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <state key="normal" title="All">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onClickSubSubCategoryButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="tfJ-De-7Q8"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="OJF-QO-X33" firstAttribute="leading" secondItem="ZtK-zC-VqQ" secondAttribute="leading" id="DWD-cD-Mdw"/>
-                                                    <constraint firstAttribute="bottom" secondItem="OJF-QO-X33" secondAttribute="bottom" id="JvY-TU-vJs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OJF-QO-X33" secondAttribute="trailing" id="KjC-Tv-wyt"/>
-                                                    <constraint firstItem="OJF-QO-X33" firstAttribute="top" secondItem="ZtK-zC-VqQ" secondAttribute="top" id="hjc-Ik-YKn"/>
+                                                    <constraint firstAttribute="bottom" secondItem="izR-Tl-jUl" secondAttribute="bottom" id="Alr-og-SJH"/>
+                                                    <constraint firstItem="izR-Tl-jUl" firstAttribute="top" secondItem="ZtK-zC-VqQ" secondAttribute="top" id="FsH-Ds-52Z"/>
+                                                    <constraint firstItem="izR-Tl-jUl" firstAttribute="leading" secondItem="ZtK-zC-VqQ" secondAttribute="leading" id="ODZ-KA-bRO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="izR-Tl-jUl" secondAttribute="trailing" id="zw3-Hg-CMq"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1967,18 +1979,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-H7-zWT">
                                                 <rect key="frame" x="193" y="5" width="142" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="foz-GA-XtP" customClass="DefaultTextField">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d69-yp-NKa">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="onClickPriceButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="A6X-ee-MhA"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="foz-GA-XtP" firstAttribute="top" secondItem="iLz-H7-zWT" secondAttribute="top" id="MsS-KA-rFO"/>
-                                                    <constraint firstAttribute="bottom" secondItem="foz-GA-XtP" secondAttribute="bottom" id="P2g-mj-rRC"/>
-                                                    <constraint firstItem="foz-GA-XtP" firstAttribute="leading" secondItem="iLz-H7-zWT" secondAttribute="leading" id="cIh-bF-KZz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="foz-GA-XtP" secondAttribute="trailing" id="jwl-HR-JCQ"/>
+                                                    <constraint firstItem="d69-yp-NKa" firstAttribute="leading" secondItem="iLz-H7-zWT" secondAttribute="leading" id="5pN-oQ-xCk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="d69-yp-NKa" secondAttribute="trailing" id="ERI-Y1-9oD"/>
+                                                    <constraint firstItem="d69-yp-NKa" firstAttribute="top" secondItem="iLz-H7-zWT" secondAttribute="top" id="GRi-TZ-yID"/>
+                                                    <constraint firstAttribute="bottom" secondItem="d69-yp-NKa" secondAttribute="bottom" id="c4y-0b-k1s"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -2048,13 +2062,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="baseCurrencyTypeView" destination="qfY-wm-Mkw" id="Zwq-2k-bAD"/>
+                        <outlet property="btnCategoryOption" destination="98Y-Vu-FRS" id="FB6-SY-EPs"/>
                         <outlet property="btnNext" destination="7LZ-4s-rpN" id="cc9-rH-TWi"/>
+                        <outlet property="btnPrice" destination="d69-yp-NKa" id="oBs-Wf-VtL"/>
+                        <outlet property="btnSubSubCategory" destination="izR-Tl-jUl" id="o1j-nd-jZD"/>
+                        <outlet property="btnSubcategory" destination="XR4-pS-53e" id="Pxf-Ax-SfG"/>
                         <outlet property="scrollView" destination="4En-np-E7L" id="cX9-cG-o0P"/>
                         <outlet property="txtFldCatOption" destination="XzW-PX-XSH" id="KDA-Ua-zfV"/>
-                        <outlet property="txtFldCategoryOption" destination="7N9-88-vVg" id="tgV-Ah-4qF"/>
-                        <outlet property="txtFldPriceOption" destination="uG3-DR-oJe" id="D6W-dy-25t"/>
                         <outlet property="txtFldRadiusOption" destination="xfB-hy-TdY" id="iAy-oo-Wl0"/>
-                        <outlet property="txtFldShowResultOption" destination="OJF-QO-X33" id="AKK-L9-DYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0q-Rz-PeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
