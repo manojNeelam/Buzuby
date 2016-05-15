@@ -2137,10 +2137,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHM-kv-acf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                                    <rect key="frame" x="10" y="0.0" width="300" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-LF-3yz">
-                                                            <rect key="frame" x="70" y="10" width="200" height="21"/>
+                                                            <rect key="frame" x="70" y="10" width="180" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="Fuy-kZ-sKn"/>
                                                             </constraints>
@@ -2149,7 +2149,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsD-4g-dyY">
-                                                            <rect key="frame" x="70" y="41" width="200" height="21"/>
+                                                            <rect key="frame" x="70" y="41" width="180" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="xWy-AH-NyC"/>
                                                             </constraints>
@@ -2165,7 +2165,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eet-fI-iqU">
-                                                            <rect key="frame" x="280" y="11" width="20" height="20"/>
+                                                            <rect key="frame" x="260" y="11" width="20" height="20"/>
                                                             <color key="backgroundColor" red="0.97647058819999999" green="0.47843137250000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="8Ex-6S-Sv0"/>
@@ -2173,7 +2173,7 @@
                                                             </constraints>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-EA-i91">
-                                                            <rect key="frame" x="280" y="41" width="20" height="20"/>
+                                                            <rect key="frame" x="260" y="41" width="20" height="20"/>
                                                             <color key="backgroundColor" red="0.97647058819999999" green="0.47843137250000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="YHG-yA-UH5"/>
@@ -2200,8 +2200,8 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NHM-kv-acf" firstAttribute="leading" secondItem="9WM-BV-Nf3" secondAttribute="leading" id="2bq-ni-ysl"/>
-                                                <constraint firstAttribute="trailing" secondItem="NHM-kv-acf" secondAttribute="trailing" id="7gC-kO-voJ"/>
+                                                <constraint firstItem="NHM-kv-acf" firstAttribute="leading" secondItem="9WM-BV-Nf3" secondAttribute="leading" constant="10" id="2bq-ni-ysl"/>
+                                                <constraint firstAttribute="trailing" secondItem="NHM-kv-acf" secondAttribute="trailing" constant="10" id="7gC-kO-voJ"/>
                                                 <constraint firstItem="NHM-kv-acf" firstAttribute="top" secondItem="9WM-BV-Nf3" secondAttribute="top" id="dTL-cN-JaD"/>
                                             </constraints>
                                         </tableViewCellContentView>

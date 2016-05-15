@@ -11,6 +11,7 @@
 #import "HomeTableViewCell.h"
 #import "ConnectionsManager.h"
 #import "UIImageView+JMImageCache.h"
+#import "DetailViewController.h"
 
 @interface HomeVC ()<UITableViewDataSource, UITableViewDelegate,ServerResponseDelegate>
 {
@@ -113,6 +114,15 @@
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController_SB_ID"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 /*
  @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
  @property (weak, nonatomic) IBOutlet UILabel *lblDesc;
