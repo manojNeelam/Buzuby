@@ -13,6 +13,8 @@
 		2C2810021CE4967700D95B0E /* SettingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2810011CE4967700D95B0E /* SettingTitleCell.m */; };
 		2C2810051CE4968B00D95B0E /* SettingDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2810041CE4968B00D95B0E /* SettingDefaultCell.m */; };
 		2C2810081CE4A2FD00D95B0E /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2810071CE4A2FD00D95B0E /* TestObj.m */; };
+		2C449E291CE6390000852362 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C449E281CE6390000852362 /* HomeTableViewCell.m */; };
+		2C449E2C1CE640C000852362 /* HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C449E2B1CE640C000852362 /* HomeData.m */; };
 		2C51928F1CE25C1700B99FC9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C51927D1CE25C1700B99FC9 /* AFHTTPRequestOperation.m */; };
 		2C5192901CE25C1700B99FC9 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C51927F1CE25C1700B99FC9 /* AFHTTPRequestOperationManager.m */; };
 		2C5192911CE25C1700B99FC9 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5192811CE25C1700B99FC9 /* AFHTTPSessionManager.m */; };
@@ -157,6 +159,10 @@
 		2C2810041CE4968B00D95B0E /* SettingDefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDefaultCell.m; sourceTree = "<group>"; };
 		2C2810061CE4A2FD00D95B0E /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		2C2810071CE4A2FD00D95B0E /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		2C449E271CE6390000852362 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		2C449E281CE6390000852362 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		2C449E2A1CE640C000852362 /* HomeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeData.h; sourceTree = "<group>"; };
+		2C449E2B1CE640C000852362 /* HomeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeData.m; sourceTree = "<group>"; };
 		2C51927C1CE25C1700B99FC9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		2C51927D1CE25C1700B99FC9 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		2C51927E1CE25C1700B99FC9 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -373,6 +379,10 @@
 			children = (
 				2C280FF91CE48BF700D95B0E /* HomeVC.h */,
 				2C280FFA1CE48BF700D95B0E /* HomeVC.m */,
+				2C449E271CE6390000852362 /* HomeTableViewCell.h */,
+				2C449E281CE6390000852362 /* HomeTableViewCell.m */,
+				2C449E2A1CE640C000852362 /* HomeData.h */,
+				2C449E2B1CE640C000852362 /* HomeData.m */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -1019,6 +1029,7 @@
 				2C5192961CE25C1700B99FC9 /* AFURLResponseSerialization.m in Sources */,
 				2C5192941CE25C1700B99FC9 /* AFURLConnectionOperation.m in Sources */,
 				2C72EB331CE38E70005E03A6 /* PreferenceViewController.m in Sources */,
+				2C449E2C1CE640C000852362 /* HomeData.m in Sources */,
 				2C5193041CE25DCE00B99FC9 /* DateTimeUtil.m in Sources */,
 				2C5192F81CE25DB900B99FC9 /* SVRadialGradientLayer.m in Sources */,
 				2C5192EA1CE25DB900B99FC9 /* IQKeyboardManager.m in Sources */,
@@ -1050,6 +1061,7 @@
 				2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */,
 				2C5192951CE25C1700B99FC9 /* AFURLRequestSerialization.m in Sources */,
 				2C5192AA1CE25DA400B99FC9 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				2C449E291CE6390000852362 /* HomeTableViewCell.m in Sources */,
 				2C5192EE1CE25DB900B99FC9 /* IQBarButtonItem.m in Sources */,
 				2C72EB3A1CE38F8D005E03A6 /* DefaultTextField.m in Sources */,
 				2C5192971CE25C1700B99FC9 /* AFURLSessionManager.m in Sources */,

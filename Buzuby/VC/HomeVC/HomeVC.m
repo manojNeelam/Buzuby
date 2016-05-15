@@ -7,8 +7,12 @@
 //
 
 #import "HomeVC.h"
+#import "HomeTableViewCell.h"
 
-@interface HomeVC ()
+@interface HomeVC ()<UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray *list;
+}
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 
 
@@ -53,4 +57,28 @@
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"HomeTableViewCell";
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(list && list.count)
+    {
+        [self.tableView setHidden:NO];
+        [self.baseEmptyView setHidden:YES];
+        return list.count;
+    }
+    else
+    {
+        [self.baseEmptyView setHidden:NO];
+        [self.tableView setHidden:YES];
+        return 0;
+    }
+}
+
 @end

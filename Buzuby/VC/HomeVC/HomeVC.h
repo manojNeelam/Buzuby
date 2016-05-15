@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblText;
 - (IBAction)onClickSearchButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btnSearch;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
