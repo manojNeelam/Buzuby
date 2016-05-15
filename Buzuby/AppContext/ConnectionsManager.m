@@ -238,18 +238,6 @@ static NSString * const BaseURLString = BaseUrl;
     [alert show];
 }
 
--(void)getMedicationEncyclopedia:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
-{
-    [self getToURL:@"get_medication_encyclopedia" withParameters:params delegate:delegate];
-}
-
--(void)getImmunisationEncyclopedia:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
-{
-    [self getToURL:@"get_immunisation_encyclopedia" withParameters:params delegate:delegate];
-}
-
-
-
 
 
 -(void)loginUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
@@ -261,5 +249,16 @@ static NSString * const BaseURLString = BaseUrl;
 {
     [self getToURL:@"signup" withParameters:params delegate:delegate];
 }
+-(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"forgot_password" withParameters:params delegate:delegate];
+}
+
+
+-(void)saveBioData:(NSDictionary *)params andImage:(UIImageView *)img withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    [self getToURL:@"add_bio" withImage:img withParameters:params delegate:delegate];
+}
+
 
 @end
