@@ -37,6 +37,9 @@
     self.baseRatingView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.baseRatingView.layer.borderWidth = 1.0f;
     
+    self.baseRemovefromFavouriteView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.baseRemovefromFavouriteView.layer.borderWidth = 1.0f;
+    
     self.baseSpecialityView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.baseSpecialityView.layer.borderWidth = 1.0f;
     
@@ -61,7 +64,7 @@
 
 -(void)viewDidLayoutSubviews
 {
-    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseStoreTimingsView.frame.origin.y+self.baseStoreTimingsView.frame.size.height + 80)];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseBottomView.frame.origin.y+self.baseBottomView.frame.size.height)];
     
 }
 
@@ -75,4 +78,6 @@
 }
 */
 
+- (IBAction)onClickRemovefromFav:(id)sender {
+}
 @end

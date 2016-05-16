@@ -86,4 +86,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblSunStartTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblSunEndTime;
 
+@property (weak, nonatomic) IBOutlet UIView *baseBottomView;
+
+@property (weak, nonatomic) IBOutlet UIView *baseRemovefromFavouriteView;
+@property (weak, nonatomic) IBOutlet UIButton *btnRemoveFromFav;
+
+- (IBAction)onClickRemovefromFav:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *baseLociew;
+@property (weak, nonatomic) IBOutlet UIImageView *imgLoc;
+@property (weak, nonatomic) IBOutlet UILabel *lblLocation;
+
+@property (weak, nonatomic) IBOutlet UIView *baseContactView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgContact;
+@property (weak, nonatomic) IBOutlet UILabel *lblContact;
+@property (weak, nonatomic) IBOutlet UIView *baseLinkView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgLink;
+@property (weak, nonatomic) IBOutlet UILabel *lblLink;
+
 @end
