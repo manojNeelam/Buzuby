@@ -7,9 +7,14 @@
 //
 
 #import "DetailViewController.h"
+#import "HomeData.h"
+#import "AppDelegate.h"
+#import "UIImageView+JMImageCache.h"
 
 @interface DetailViewController ()
-
+{
+    HomeData *dt;
+}
 @end
 
 @implementation DetailViewController
@@ -22,8 +27,20 @@
     
     // Do any additional setup after loading the view.
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
+    dt=delegate.selectedData;
     // Do any additional setup after loading the view.
+    
+    [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
+    
+}
+-(void)setDataOnView
+{
+    _lblTitle.text=dt.name;
+    
+    [_logoImg setImageWithURL:[NSURL URLWithString:dt.imgCat] placeholder:[UIImage imageNamed:@"left_part.png"]];
+    
 }
 
 -(void)onClickBackbutton:(id)sender
@@ -36,9 +53,6 @@
 {
     self.baseRatingView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.baseRatingView.layer.borderWidth = 1.0f;
-    
-    self.baseRemovefromFavouriteView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.baseRemovefromFavouriteView.layer.borderWidth = 1.0f;
     
     self.baseSpecialityView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.baseSpecialityView.layer.borderWidth = 1.0f;
@@ -64,20 +78,18 @@
 
 -(void)viewDidLayoutSubviews
 {
-    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseBottomView.frame.origin.y+self.baseBottomView.frame.size.height)];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseStoreTimingsView.frame.origin.y+self.baseStoreTimingsView.frame.size.height + 80)];
     
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)onClickRemovefromFav:(id)sender {
-}
 @end

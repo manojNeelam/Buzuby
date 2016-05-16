@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeData.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property HomeData *selectedData;
 
 -(void)showHomeVC;
 

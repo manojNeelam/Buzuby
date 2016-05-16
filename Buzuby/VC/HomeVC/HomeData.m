@@ -9,5 +9,5 @@
 #import "HomeData.h"
 
 @implementation HomeData
-@synthesize name, range,imgCat,busId, rangeFrom,rangeTo, currencySymbol,isFavorite,latitude,longitude,rating,ratingProvidedByUser;
+@synthesize name, range,imgCat,busId, rangeFrom,rangeTo, currencySymbol,isFavorite,latitude,longitude,rating,ratingProvidedByUser,bannerUrl;
 @end

@@ -12,6 +12,7 @@
 #import "ConnectionsManager.h"
 #import "UIImageView+JMImageCache.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 @interface HomeVC ()<UITableViewDataSource, UITableViewDelegate,ServerResponseDelegate>
 {
@@ -119,6 +120,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+
+    delegate.selectedData=[list objectAtIndex:indexPath.row];
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController_SB_ID"];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -207,6 +211,7 @@
             dt.longitude=[d objectForKey:@"longitude"];
             dt.rating=[d objectForKey:@"rating"];
             dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
+            dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
            
             [listArr addObject:dt];
         }
