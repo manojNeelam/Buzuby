@@ -2254,6 +2254,96 @@
             </objects>
             <point key="canvasLocation" x="3218" y="935"/>
         </scene>
+        <!--Deals And EventsVC-->
+        <scene sceneID="kMg-oK-jCM">
+            <objects>
+                <viewController storyboardIdentifier="DealsAndEventsVC_SB_ID" id="7tx-4M-O1s" customClass="DealsAndEventsVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wEI-Sl-aHq"/>
+                        <viewControllerLayoutGuide type="bottom" id="31F-t0-fLT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X3w-Tv-Rph">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZiP-TF-Zfg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealsAndEventsCell" rowHeight="90" id="nLX-eL-xVD" customClass="DealsAndEventsCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nLX-eL-xVD" id="8Up-ef-Q7M">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkf-22-pMO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1tC-fb-W7q">
+                                                            <rect key="frame" x="10" y="10" width="300" height="60"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.70196078429999997" green="0.29803921570000003" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="KN3-fI-PVt"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1tC-fb-W7q" secondAttribute="bottom" constant="10" id="QzS-Qg-TB4"/>
+                                                        <constraint firstItem="1tC-fb-W7q" firstAttribute="leading" secondItem="mkf-22-pMO" secondAttribute="leading" constant="10" id="kBO-2M-Exd"/>
+                                                        <constraint firstItem="1tC-fb-W7q" firstAttribute="top" secondItem="mkf-22-pMO" secondAttribute="top" constant="10" id="l8T-qg-EEV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1tC-fb-W7q" secondAttribute="trailing" constant="10" id="tuz-6O-uU1"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mkf-22-pMO" secondAttribute="trailing" id="69Q-NT-PZS"/>
+                                                <constraint firstItem="mkf-22-pMO" firstAttribute="leading" secondItem="8Up-ef-Q7M" secondAttribute="leading" id="QL9-0w-Aoc"/>
+                                                <constraint firstItem="mkf-22-pMO" firstAttribute="top" secondItem="8Up-ef-Q7M" secondAttribute="top" id="qGC-33-eKT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="baseDealsandEvents" destination="mkf-22-pMO" id="v9P-DH-OFB"/>
+                                            <outlet property="imgDealsAndDeals" destination="1tC-fb-W7q" id="0GB-Db-pGL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7tx-4M-O1s" id="8sT-ue-qVP"/>
+                                    <outlet property="delegate" destination="7tx-4M-O1s" id="PTf-v4-fHa"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obg-9C-d0e">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <color key="backgroundColor" red="0.70196078429999997" green="0.29803921570000003" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ug3-ES-T5G"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="onClickSearchButton:" destination="7tx-4M-O1s" eventType="touchUpInside" id="56n-d3-fmH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="31F-t0-fLT" firstAttribute="top" secondItem="obg-9C-d0e" secondAttribute="bottom" id="Hnk-ah-MXd"/>
+                            <constraint firstAttribute="trailing" secondItem="obg-9C-d0e" secondAttribute="trailing" id="Jtu-SK-dGW"/>
+                            <constraint firstItem="obg-9C-d0e" firstAttribute="leading" secondItem="X3w-Tv-Rph" secondAttribute="leading" id="UmY-k0-rZ7"/>
+                            <constraint firstAttribute="trailing" secondItem="ZiP-TF-Zfg" secondAttribute="trailing" id="afm-7m-Tm5"/>
+                            <constraint firstItem="ZiP-TF-Zfg" firstAttribute="top" secondItem="X3w-Tv-Rph" secondAttribute="top" id="hJ7-78-S5I"/>
+                            <constraint firstItem="obg-9C-d0e" firstAttribute="top" secondItem="ZiP-TF-Zfg" secondAttribute="bottom" id="oeE-BC-S3i"/>
+                            <constraint firstItem="ZiP-TF-Zfg" firstAttribute="leading" secondItem="X3w-Tv-Rph" secondAttribute="leading" id="sNz-u2-9gn"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="btnsEARCH" destination="obg-9C-d0e" id="dY5-Z0-Ric"/>
+                        <outlet property="tableView" destination="ZiP-TF-Zfg" id="sn0-Bq-Zgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1md-bG-KLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3622" y="935"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Vpn-5f-QMP">
             <objects>

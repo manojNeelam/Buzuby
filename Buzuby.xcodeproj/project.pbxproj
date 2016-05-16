@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C03E4771CEA3ADA00391799 /* DealsAndEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C03E4761CEA3ADA00391799 /* DealsAndEventsVC.m */; };
+		2C03E47A1CEA3CB600391799 /* DealsAndEventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C03E4791CEA3CB600391799 /* DealsAndEventsCell.m */; };
 		2C280FF71CE48AA100D95B0E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C280FF61CE48AA100D95B0E /* SWRevealViewController.m */; };
 		2C280FFB1CE48BF700D95B0E /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C280FFA1CE48BF700D95B0E /* HomeVC.m */; };
 		2C280FFF1CE48C2400D95B0E /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C280FFE1CE48C2400D95B0E /* SettingsVC.m */; };
@@ -151,6 +153,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C03E4751CEA3ADA00391799 /* DealsAndEventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsAndEventsVC.h; sourceTree = "<group>"; };
+		2C03E4761CEA3ADA00391799 /* DealsAndEventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsAndEventsVC.m; sourceTree = "<group>"; };
+		2C03E4781CEA3CB600391799 /* DealsAndEventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsAndEventsCell.h; sourceTree = "<group>"; };
+		2C03E4791CEA3CB600391799 /* DealsAndEventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsAndEventsCell.m; sourceTree = "<group>"; };
 		2C280FF51CE48AA100D95B0E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2C280FF61CE48AA100D95B0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2C280FF91CE48BF700D95B0E /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
@@ -374,6 +380,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C03E4741CEA3ABB00391799 /* DealsAndEvents */ = {
+			isa = PBXGroup;
+			children = (
+				2C03E4751CEA3ADA00391799 /* DealsAndEventsVC.h */,
+				2C03E4761CEA3ADA00391799 /* DealsAndEventsVC.m */,
+				2C03E4781CEA3CB600391799 /* DealsAndEventsCell.h */,
+				2C03E4791CEA3CB600391799 /* DealsAndEventsCell.m */,
+			);
+			path = DealsAndEvents;
+			sourceTree = "<group>";
+		};
 		2C280FF41CE48AA100D95B0E /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +653,7 @@
 		2C72EB261CE38DAA005E03A6 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				2C03E4741CEA3ABB00391799 /* DealsAndEvents */,
 				2C280FFC1CE48C0F00D95B0E /* Settings */,
 				2C280FF81CE48BE200D95B0E /* HomeVC */,
 				2C72EB2B1CE38E52005E03A6 /* LoginVC.h */,
@@ -1055,6 +1073,7 @@
 				2C5192F81CE25DB900B99FC9 /* SVRadialGradientLayer.m in Sources */,
 				2C5192EA1CE25DB900B99FC9 /* IQKeyboardManager.m in Sources */,
 				2C5192E61CE25DB900B99FC9 /* UIImageView+JMImageCache.m in Sources */,
+				2C03E4771CEA3ADA00391799 /* DealsAndEventsVC.m in Sources */,
 				2C5192AD1CE25DA400B99FC9 /* UIButton+AFNetworking.m in Sources */,
 				2C5192EB1CE25DB900B99FC9 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				2C280FF71CE48AA100D95B0E /* SWRevealViewController.m in Sources */,
@@ -1065,6 +1084,7 @@
 				2C5192B01CE25DA400B99FC9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				2C5192B11CE25DA400B99FC9 /* UIWebView+AFNetworking.m in Sources */,
 				2C5192EC1CE25DB900B99FC9 /* IQSegmentedNextPrevious.m in Sources */,
+				2C03E47A1CEA3CB600391799 /* DealsAndEventsCell.m in Sources */,
 				2C5192F01CE25DB900B99FC9 /* IQToolbar.m in Sources */,
 				2C5192911CE25C1700B99FC9 /* AFHTTPSessionManager.m in Sources */,
 				2C5192E91CE25DB900B99FC9 /* IQUIWindow+Hierarchy.m in Sources */,
