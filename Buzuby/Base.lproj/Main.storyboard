@@ -4,6 +4,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AvenirNextLTPro-Bold.otf">
+            <string>AvenirNextLTPro-Bold</string>
+        </mutableArray>
+        <mutableArray key="AvenirNextLTPro-Regular.otf">
+            <string>AvenirNextLTPro-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
@@ -2139,29 +2147,29 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHM-kv-acf">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="72"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-LF-3yz">
-                                                            <rect key="frame" x="80" y="10" width="170" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-LF-3yz">
+                                                            <rect key="frame" x="105" y="10" width="145" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="Fuy-kZ-sKn"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="20"/>
+                                                            <color key="textColor" red="0.1803921568627451" green="0.28235294117647058" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsD-4g-dyY">
-                                                            <rect key="frame" x="80" y="41" width="170" height="21"/>
+                                                            <rect key="frame" x="105" y="41" width="145" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="xWy-AH-NyC"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="16"/>
+                                                            <color key="textColor" red="0.18039215689999999" green="0.28235294119999998" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yLp-I7-biP">
-                                                            <rect key="frame" x="10" y="18" width="60" height="40"/>
+                                                            <rect key="frame" x="10" y="18" width="80" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="HrY-QM-7Tb"/>
-                                                                <constraint firstAttribute="width" constant="60" id="oTE-tx-yID"/>
+                                                                <constraint firstAttribute="width" constant="80" id="oTE-tx-yID"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eet-fI-iqU">
@@ -2184,9 +2192,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="nsD-4g-dyY" firstAttribute="leading" secondItem="yLp-I7-biP" secondAttribute="trailing" constant="10" id="6wU-6v-aF0"/>
+                                                        <constraint firstItem="nsD-4g-dyY" firstAttribute="leading" secondItem="yLp-I7-biP" secondAttribute="trailing" constant="15" id="6wU-6v-aF0"/>
                                                         <constraint firstItem="9dB-EA-i91" firstAttribute="top" secondItem="eet-fI-iqU" secondAttribute="bottom" constant="10" id="C0K-mx-haY"/>
-                                                        <constraint firstItem="tfE-LF-3yz" firstAttribute="leading" secondItem="yLp-I7-biP" secondAttribute="trailing" constant="10" id="FGv-Ai-9vI"/>
+                                                        <constraint firstItem="tfE-LF-3yz" firstAttribute="leading" secondItem="yLp-I7-biP" secondAttribute="trailing" constant="15" id="FGv-Ai-9vI"/>
                                                         <constraint firstItem="9dB-EA-i91" firstAttribute="leading" secondItem="nsD-4g-dyY" secondAttribute="trailing" constant="10" id="Fg9-wm-T0M"/>
                                                         <constraint firstItem="eet-fI-iqU" firstAttribute="leading" secondItem="tfE-LF-3yz" secondAttribute="trailing" constant="10" id="Fm0-n7-EHO"/>
                                                         <constraint firstAttribute="height" constant="72" id="H3u-mN-F5W"/>
