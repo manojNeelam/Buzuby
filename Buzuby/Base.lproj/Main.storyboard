@@ -2572,6 +2572,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0u-Ti-7CB">
                                         <rect key="frame" x="20" y="60" width="280" height="128"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A3s-B3-ypq">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="128"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best ad in the country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiD-1X-qJP">
                                                 <rect key="frame" x="10" y="10" width="260" height="110"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2581,7 +2584,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="A3s-B3-ypq" firstAttribute="leading" secondItem="f0u-Ti-7CB" secondAttribute="leading" id="8pV-Ey-Ihh"/>
+                                            <constraint firstAttribute="bottom" secondItem="A3s-B3-ypq" secondAttribute="bottom" id="GVt-OK-T8m"/>
                                             <constraint firstAttribute="height" constant="128" id="MVg-3x-5Uc"/>
+                                            <constraint firstItem="A3s-B3-ypq" firstAttribute="top" secondItem="f0u-Ti-7CB" secondAttribute="top" id="SUy-3d-a3U"/>
+                                            <constraint firstAttribute="trailing" secondItem="A3s-B3-ypq" secondAttribute="trailing" id="xPN-F8-fCx"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VID-6J-eGJ">
@@ -3268,6 +3275,7 @@
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
                         <outlet property="aboutusHolderView" destination="foE-J7-DtN" id="ywA-EF-o78"/>
+                        <outlet property="bannerImage" destination="A3s-B3-ypq" id="0dK-yR-eYA"/>
                         <outlet property="baseAboutUSView" destination="foz-GU-vAZ" id="RGI-K5-7f1"/>
                         <outlet property="baseAminitiView" destination="qXX-qA-PXg" id="vkJ-EQ-ywa"/>
                         <outlet property="baseBottomView" destination="90N-ha-blF" id="Zgg-MV-Yi2"/>

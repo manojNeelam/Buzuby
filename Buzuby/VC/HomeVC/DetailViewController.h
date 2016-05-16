@@ -102,5 +102,6 @@
 @property (weak, nonatomic) IBOutlet UIView *baseLinkView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgLink;
 @property (weak, nonatomic) IBOutlet UILabel *lblLink;
+@property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
 
 @end
