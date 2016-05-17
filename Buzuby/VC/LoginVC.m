@@ -61,10 +61,10 @@
     [paramDict setObject:@"test1" forKey:@"password"];
     [paramDict setObject:@"Login" forKey:@"action"];
     
-    //  AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    // [delegate showHomeVC];
+     // AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+     //[delegate showHomeVC];
     
-    [[ConnectionsManager sharedManager] loginUser:paramDict withdelegate:self];
+    //[[ConnectionsManager sharedManager] loginUser:paramDict withdelegate:self];
     
 }
 -(void)openHomeVC  //tmp

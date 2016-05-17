@@ -166,7 +166,8 @@
 
 - (IBAction)onClickNextButton:(id)sender
 {
-    
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)success:(id)response
