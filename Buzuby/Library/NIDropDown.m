@@ -9,6 +9,10 @@
 #import "NIDropDown.h"
 #import "QuartzCore/QuartzCore.h"
 
+#import "CategoryData.h"
+#import "SubSubCategoryData.h"
+#import "SubCategoryData.h"
+
 @interface NIDropDown ()
 @property(nonatomic, strong) UITableView *table;
 @property(nonatomic, strong) UIButton *btnSender;
@@ -103,22 +107,47 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textLabel.textAlignment = UITextAlignmentCenter;
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
     }
-    if ([self.imageList count] == [self.list count]) {
+    
+    
+    id Data_ = [list objectAtIndex:indexPath.row];
+    if([Data_ isKindOfClass:[CategoryData class]])
+    {
+        CategoryData *cat = Data_;
+        cell.textLabel.text = cat.itemName;
+    }
+    else if ([Data_ isKindOfClass:[SubCategoryData class]])
+    {
+        SubCategoryData *cat = Data_;
+        cell.textLabel.text = cat.itemName;
+    }
+    else if ([Data_ isKindOfClass:[SubSubCategoryData class]])
+    {
+        SubSubCategoryData *cat = Data_;
+        cell.textLabel.text = cat.itemName;
+    }
+    
+    /*if ([self.imageList count] == [self.list count])
+    {
         cell.textLabel.text =[list objectAtIndex:indexPath.row];
         cell.imageView.image = [imageList objectAtIndex:indexPath.row];
-    } else if ([self.imageList count] > [self.list count]) {
-        cell.textLabel.text =[list objectAtIndex:indexPath.row];
-        if (indexPath.row < [imageList count]) {
-            cell.imageView.image = [imageList objectAtIndex:indexPath.row];
-        }
-    } else if ([self.imageList count] < [self.list count]) {
+    }
+    
+    else if ([self.imageList count] > [self.list count])
+    {
         cell.textLabel.text =[list objectAtIndex:indexPath.row];
         if (indexPath.row < [imageList count]) {
             cell.imageView.image = [imageList objectAtIndex:indexPath.row];
         }
     }
+    
+    else if ([self.imageList count] < [self.list count]) {
+        cell.textLabel.text =[list objectAtIndex:indexPath.row];
+        if (indexPath.row < [imageList count]) {
+            cell.imageView.image = [imageList objectAtIndex:indexPath.row];
+        }
+    }*/
     
     cell.textLabel.textColor = [UIColor blackColor];
     
@@ -144,11 +173,7 @@
     imgView = [[UIImageView alloc] initWithImage:c.imageView.image];
     imgView.frame = CGRectMake(5, 5, 25, 25);
     [btnSender addSubview:imgView];
-    [self myDelegate];
-}
-
-- (void) myDelegate {
-    [self.delegate niDropDownDelegateMethod:self];
+    [delegate niDropDownDelegateMethod:self withData:[list objectAtIndex:indexPath.row]];
 }
 
 -(void)dealloc {

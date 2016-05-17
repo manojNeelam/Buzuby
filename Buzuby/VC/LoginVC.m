@@ -56,9 +56,9 @@
     
     NSMutableDictionary* paramDict =
     [NSMutableDictionary dictionaryWithCapacity:1];
-    [paramDict setObject:self.txtFldUserName.text forKey:@"userName"];
+    [paramDict setObject:@"test1" forKey:@"userName"];
     //[paramDict setObject:[self.password.text sha1] forKey:@"password"];
-    [paramDict setObject:self.txtFldPasword.text forKey:@"password"];
+    [paramDict setObject:@"test1" forKey:@"password"];
     [paramDict setObject:@"Login" forKey:@"action"];
     
     //  AppDelegate *delegate = [[UIApplication sharedApplication] delegate];

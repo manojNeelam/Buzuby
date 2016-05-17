@@ -10,7 +10,7 @@
 
 @class NIDropDown;
 @protocol NIDropDownDelegate
-- (void) niDropDownDelegateMethod: (NIDropDown *) sender;
+- (void) niDropDownDelegateMethod: (NIDropDown *) sender withData:(id)Data;
 @end
 
 @interface NIDropDown : UIView <UITableViewDelegate, UITableViewDataSource>
