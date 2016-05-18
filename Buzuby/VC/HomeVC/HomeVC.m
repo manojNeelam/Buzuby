@@ -47,7 +47,7 @@
     [self customSetup];
     // Do any additional setup after loading the view.
     
-    [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
+  //  [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
 
 }
 -(void)makeRequestForFavariote

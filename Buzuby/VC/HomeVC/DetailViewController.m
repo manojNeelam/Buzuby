@@ -226,7 +226,7 @@
 
 -(void)viewDidLayoutSubviews
 {
-    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseStoreTimingsView.frame.origin.y+self.baseStoreTimingsView.frame.size.height +260)];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseBottomView.frame.origin.y+self.baseBottomView.frame.size.height +50)];
     [self.scrollView setBounces:NO];
     
 }
