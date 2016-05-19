@@ -10,6 +10,7 @@
 
 @interface HomeData : NSObject
 @property (nonatomic, strong) NSString *name, *range, *imgCat;
-@property (nonatomic, strong) NSString *busId, *rangeFrom,*rangeTo, *currencySymbol,*isFavorite,*latitude,*longitude,*rating,*ratingProvidedByUser,*bannerUrl;
+@property (nonatomic, strong) NSString *busId, *rangeFrom,*rangeTo, *currencySymbol,*isFavorite,*latitude,*longitude,*rating,*ratingProvidedByUser,*bannerUrl,*shortDescription,*todayStart,*todayEnd;
 
+@property NSArray *operatingTimeArray;
 @end

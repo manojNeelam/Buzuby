@@ -12,7 +12,7 @@
 #import "CategoryData.h"
 #import "SubCategoryData.h"
 #import "SubSubCategoryData.h"
-
+#import "AppDelegate.h"
 @interface SearchViewController ()<ServerResponseDelegate, NIDropDownDelegate>
 {
     NSArray *catList,*subCatList,*subSubCatList;
@@ -200,6 +200,12 @@
   //  [self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)goToSearchDetail
+{
+      UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
+     [self.navigationController pushViewController:vc animated:YES];
+ 
+}
 -(void)success:(id)response
 {
     NSLog(@"success at Home");
@@ -293,6 +299,31 @@
                 subSubCatList = catTemp;
                 [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];
             }
+        }
+        
+        else if(resultForApi==4)
+        {
+            
+            NSLog(@"subSubCatList list recived");
+            
+            AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+            
+            delegate.searchList=arr;
+            
+            [self goToSearchDetail];
+
+            /*if(arr.count)
+            {
+                NSMutableArray *catTemp = [NSMutableArray array];
+                for(NSDictionary *dict in arr)
+                {
+                    SubSubCategoryData *catData = [[SubSubCategoryData alloc] initwithDictionary:dict];
+                    [catTemp addObject:catData];
+                }
+                
+                subSubCatList = catTemp;
+                [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];
+            }*/
         }
         
         

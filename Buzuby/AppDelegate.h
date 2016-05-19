@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property HomeData *selectedData;
+@property NSArray *searchList;
 
 -(void)showHomeVC;
 
