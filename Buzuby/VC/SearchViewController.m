@@ -164,10 +164,40 @@
 }
 
 
+
 - (IBAction)onClickNextButton:(id)sender
 {
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
-    [self.navigationController pushViewController:vc animated:YES];
+    resultForApi=4;
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+    
+    [paramDict setObject:_txtFldSearch.text forKey:@"keyword"];
+   // [paramDict setObject:selectedCategory.itemId forKey:@"categoryId"];
+    [paramDict setObject:@"0" forKey:@"categoryId"];
+
+    [paramDict setObject:@"0" forKey:@"subCategoryId"];
+    [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+
+    
+    [paramDict setObject:@"getBusinessByPreference" forKey:@"action"];
+    
+    NSLog(@"onClickNextButton paramDict=%@",paramDict);
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+
+    
+    
+    //token, userId, keyword, categoryId, subCategoryId, subSubCategoryId
+
+
+  //  UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
+  //  [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)success:(id)response
