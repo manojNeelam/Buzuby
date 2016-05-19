@@ -15,7 +15,7 @@
 
 #import "PreferenceViewController.h"
 #import "SearchViewController.h"
-
+#import "DealsAndEventsVC.h"
 
 @interface SettingsVC () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -171,9 +171,15 @@
                 break;
             case 4:
             {
-                [self.revealViewController revealToggleAnimated:YES];            }
-                break;
                 
+                DealsAndEventsVC *dealsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DealsAndEventsVC_SB_ID"];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:dealsvc];
+                [self presentViewController:nav animated:YES completion:^{
+                    
+                }];
+                //[self.revealViewController revealToggleAnimated:YES];            }
+                break;
+            }
             default:
                 break;
         }

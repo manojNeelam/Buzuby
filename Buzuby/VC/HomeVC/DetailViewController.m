@@ -43,9 +43,16 @@
     
     [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
     
+    
+    self.consBannerBaseHeight.constant = 128.0f;
+    self.consBannerImage.constant = 138.0f;
+    
+    [self.view layoutIfNeeded];
+    
 //    [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
     
 }
+
 -(void)makeRequestForFavariote
 {
     NSMutableDictionary* paramDict =

@@ -103,5 +103,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgLink;
 @property (weak, nonatomic) IBOutlet UILabel *lblLink;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *consBannerImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *consBannerBaseHeight;
 
 @end
