@@ -15,6 +15,8 @@
 {
     HomeData *dt;
     NSMutableArray *ratingArr;
+    NSMutableArray *ratingArr2;
+
 }
 @end
 
@@ -32,6 +34,9 @@
     
     dt=delegate.selectedData;
     ratingArr=[[NSMutableArray alloc] init];
+    ratingArr2=[[NSMutableArray alloc] init];
+
+    
     // Do any additional setup after loading the view.
     int n=[dt.rating intValue];
     int i=0;
@@ -39,6 +44,8 @@
         [ratingArr addObject:@"1"];
     for(;i<5;i++)
         [ratingArr addObject:@"0"];
+    
+    
 
     
     [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
@@ -84,6 +91,7 @@
     [_bannerImage setClipsToBounds:YES];
     
     
+    
   //  _lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
 
     
@@ -104,9 +112,55 @@
         
         [self.baseRatingView addSubview:bt];
         bt.tag=i;
+       // [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
+        [bt addTarget:self action:@selector(drawStarOnPopView) forControlEvents:UIControlEventTouchUpInside];
+
+    }
+}
+
+-(void)startPopViewRemove:(UIGestureRecognizer*)rec
+{
+    [[rec view] removeFromSuperview];
+}
+-(void)drawStarOnPopView
+{
+    NSLog(@"drawStarOnPopView");
+    UIView *v=[[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:v];
+    UITapGestureRecognizer *tp=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startPopViewRemove:)];
+    [v addGestureRecognizer:tp];
+    
+    UIView *v2=[[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-50, 200, 100)];
+    [v addSubview:v2];
+    [v2 setBackgroundColor:[UIColor colorWithRed:192.0/255.0 green:98.0/255.0 blue:46.0/255.0 alpha:1]];
+    [[v2 layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [[v2 layer] setBorderWidth:2.0];
+    
+    int n=[dt.ratingProvidedByUser intValue];
+    int i=0;
+    for(;i<n;i++)
+        [ratingArr2 addObject:@"1"];
+    for(;i<5;i++)
+        [ratingArr2 addObject:@"0"];
+
+    
+    float gap=(self.baseRatingView.frame.size.width-250)/6;
+    for(i=0;i<5;i++)
+    {
+        UIButton *bt=[[UIButton alloc] initWithFrame:CGRectMake(i*40, 30, 40, 40)];
+        if([[ratingArr2 objectAtIndex:i] isEqualToString:@"0"])
+            [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+        else
+            [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+        
+        [v2 addSubview:bt];
+        bt.tag=i;
         [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
+
+
+
 
 -(void)onStarClick:(UIButton*)bt
 {
@@ -129,6 +183,36 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+UIButton *btn2;
+//-(void)onClickRemovefromFav:(UIButton*)bt
+- (IBAction)onClickRemovefromFav:(UIButton*)bt
+{
+    btn2=bt;
+    
+    NSLog(@"favoriteClicked businessName=%@",dt.name);
+    
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+    
+    [paramDict setObject:dt.busId forKey:@"businessId"];
+    
+    
+    [paramDict setObject:@"addBusinessToFavorite" forKey:@"action"];
+    
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
+}
+
+
 
 
 -(void)customScreen
@@ -163,7 +247,7 @@
 
 -(void)success:(id)response
 {
-    NSLog(@"success at Home");
+    NSLog(@"success at DetailView Contoller");
     
     
     /*
@@ -200,8 +284,11 @@
     NSLog(@"params=%@",params);
     if([statusStr isEqualToString:@"200"])
     {
-       NSDictionary *d=[params objectForKey:@"data"];
+        NSString *str=[params objectForKey:@"message"];
         
+        if([[str uppercaseString] containsString:[@"Successfully get data" uppercaseString]])
+        {
+            NSDictionary *d=[params objectForKey:@"data"];
             dt.name=[d objectForKey:@"businessName"];
             dt.range=[d objectForKey:@"priceRangeTo"];
             dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
@@ -216,9 +303,22 @@
             dt.rating=[d objectForKey:@"rating"];
             dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
             dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
-            
-            }
+        }
+        else if([[str uppercaseString] containsString:[@"removed" uppercaseString]])
+        {
+            NSLog(@"Business removed from favorite sucessfully.");
+            [btn2 setTitle:@"Add To Favorite" forState:UIControlStateNormal];
+        }
+        else
+        {
+            NSLog(@"Business added In favorite sucessfully.");
+            [btn2 setTitle:@"Remove From Favorite" forState:UIControlStateNormal];
+        }
+        
+    }
+        
 }
+
 
 -(void)failure:(id)response
 {
