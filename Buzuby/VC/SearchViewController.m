@@ -95,6 +95,12 @@
 
 -(void)makeRequestgetSubCategoryByCategoryId
 {
+    if(!selectedCategory.itemId || selectedCategory.itemId == nil)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please select category" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
     resultForApi=2;  //1 for catlist,2 for sub cat list 3 for subsub cat list
     
     NSMutableDictionary* paramDict =
@@ -113,6 +119,13 @@
 //selectedSubCategory
 -(void)makeRequestgetSubSubCategoryBySubCategoryId
 {
+    if(!selectedCategory.itemId || selectedCategory.itemId == nil || !selectedSubCategory.itemId || selectedSubCategory.itemId == nil)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please select sub category" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
     resultForApi=3;  //1 for catlist,2 for sub cat list 3 for subsub cat list
     
     NSMutableDictionary* paramDict =
@@ -206,6 +219,7 @@
      [self.navigationController pushViewController:vc animated:YES];
  
 }
+
 -(void)success:(id)response
 {
     NSLog(@"success at Home");

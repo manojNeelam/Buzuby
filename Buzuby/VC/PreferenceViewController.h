@@ -11,7 +11,6 @@
 
 @interface PreferenceViewController : BaseViewController
 {
-    NIDropDown *dropDown;
 }
 @property (nonatomic, assign) BOOL isFromSettings;
 
