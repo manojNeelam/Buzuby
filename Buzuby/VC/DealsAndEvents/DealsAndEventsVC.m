@@ -20,6 +20,8 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"Event & Deals"];
     
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     
     NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
@@ -54,6 +56,18 @@
 {
     static NSString *cellIdentifer = @"DealsAndEventsCell";
     DealsAndEventsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
+    cell.baseLocateMeView.layer.borderColor = cell.lblTitle.textColor.CGColor;
+    cell.baseLocateMeView.layer.borderWidth = 1.0f;
+    
+    cell.baseRangeView.layer.borderColor = cell.lblTitle.textColor.CGColor;
+    cell.baseRangeView.layer.borderWidth = 1.0f;
+    
+    cell.baseLinkView.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.baseLinkView.layer.borderWidth = 1.0f;
+    
+    cell.baseBodyView.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.baseBodyView.layer.borderWidth = 1.0f;
+    
     return cell;
 }
 
@@ -67,7 +81,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 327;
 }
 
 @end

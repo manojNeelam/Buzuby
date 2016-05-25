@@ -40,12 +40,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationItem setTitle:@"Register"];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [self.scrollview setContentSize:CGSizeMake(self.view.frame.size.width, self.baseSuburbView.frame.size.height + self.baseSuburbView.frame.origin.y + 80)];
 }
 
 /*
