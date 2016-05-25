@@ -44,6 +44,7 @@
 @property (weak, nonatomic) IBOutlet UIView *baseCategoryTitleView;
 @property (weak, nonatomic) IBOutlet UIView *baseSubCategoryTitleView;
 @property (weak, nonatomic) IBOutlet UIView *baseSubSubCategoryTitleView;
+@property (weak, nonatomic) IBOutlet UITextField *txtCurrencyType;
 @property (weak, nonatomic) IBOutlet UIButton *btnLocztion;
 - (IBAction)onClickLocationButon:(id)sender;
 
