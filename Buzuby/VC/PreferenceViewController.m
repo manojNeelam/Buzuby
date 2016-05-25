@@ -40,10 +40,11 @@
     longitudeLabel=0;
     latitudeLabel=0;
     
+    [self.btnPrice setTitle:@"dollar" forState:UIControlStateNormal];
     
     commonList = [[NSArray alloc] initWithObjects:@"All",@"Dining", @"Monitoring", @"Services", @"Stores", nil];
     
-    currencyList = [[NSArray alloc] initWithObjects:@"$",@"€", @"₹", nil];
+    currencyList = [[NSArray alloc] initWithObjects:@"dollar",@"euro", @"rand", nil];
     
     
     commonTblView = [[UITableView alloc] init];

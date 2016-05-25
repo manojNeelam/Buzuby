@@ -2369,9 +2369,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volkswagen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gf-zz-jIt">
-                                                            <rect key="frame" x="122" y="19" width="88" height="21"/>
+                                                            <rect key="frame" x="122" y="0.0" width="88" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="WYD-89-ZIN"/>
+                                                                <constraint firstAttribute="height" constant="60" id="WYD-89-ZIN"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="14"/>
                                                             <color key="textColor" red="0.2666666667" green="0.30588235289999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2385,7 +2385,7 @@
                                                         <constraint firstItem="5zj-Iz-56X" firstAttribute="centerX" secondItem="lSV-td-wzG" secondAttribute="centerX" id="UKr-Xe-wpA"/>
                                                         <constraint firstItem="5zj-Iz-56X" firstAttribute="leading" secondItem="Xad-Na-5pf" secondAttribute="trailing" id="b6Q-04-EF3"/>
                                                         <constraint firstItem="Xad-Na-5pf" firstAttribute="leading" secondItem="lSV-td-wzG" secondAttribute="leading" id="dTu-S0-6ld"/>
-                                                        <constraint firstItem="4gf-zz-jIt" firstAttribute="top" secondItem="lSV-td-wzG" secondAttribute="top" constant="19" id="pCZ-2V-nMJ"/>
+                                                        <constraint firstItem="4gf-zz-jIt" firstAttribute="top" secondItem="lSV-td-wzG" secondAttribute="top" id="pCZ-2V-nMJ"/>
                                                         <constraint firstItem="5zj-Iz-56X" firstAttribute="top" secondItem="lSV-td-wzG" secondAttribute="top" id="qYw-iQ-qbA"/>
                                                         <constraint firstItem="4gf-zz-jIt" firstAttribute="leading" secondItem="5zj-Iz-56X" secondAttribute="trailing" constant="9" id="qsQ-yM-TAX"/>
                                                         <constraint firstAttribute="height" constant="60" id="y0B-AB-2Su"/>
