@@ -131,15 +131,6 @@
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController_SB_ID"];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-/*
- @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
- @property (weak, nonatomic) IBOutlet UILabel *lblDesc;
- @property (weak, nonatomic) IBOutlet UIImageView *imgItem;
- @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
- @property (weak, nonatomic) IBOutlet UIButton *btnLocation;
-
- */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //return 4;
