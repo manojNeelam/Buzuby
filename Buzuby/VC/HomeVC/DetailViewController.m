@@ -7,16 +7,16 @@
 //
 
 #import "DetailViewController.h"
-#import "HomeData.h"
 #import "AppDelegate.h"
 #import "UIImageView+JMImageCache.h"
 #import "ConnectionsManager.h"
+#import "DetailViewData.h"
 @interface DetailViewController ()<ServerResponseDelegate>
 {
-    HomeData *dt;
+    DetailViewData *dt;
     NSMutableArray *ratingArr;
     NSMutableArray *ratingArr2;
-
+    AppDelegate *appdeligate;
 }
 @end
 
@@ -25,30 +25,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setTitle:@"BuZuaby"];
+    appdeligate = [[UIApplication sharedApplication] delegate];
     
     [self customScreen];
     
     // Do any additional setup after loading the view.
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
-    dt=delegate.selectedData;
+    dt=[[DetailViewData alloc] init];
     ratingArr=[[NSMutableArray alloc] init];
     ratingArr2=[[NSMutableArray alloc] init];
-
+    
     
     // Do any additional setup after loading the view.
-    int n=[dt.rating intValue];
-    int i=0;
-    for(;i<n;i++)
-        [ratingArr addObject:@"1"];
-    for(;i<5;i++)
-        [ratingArr addObject:@"0"];
     
     
-
     
-    [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
+    //   [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
     
     
     self.consBannerBaseHeight.constant = 128.0f;
@@ -56,11 +49,11 @@
     
     [self.view layoutIfNeeded];
     
-//    [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
+    [self performSelector:@selector(makeRequestForDetail) withObject:nil afterDelay:0.2];
     
 }
 
--(void)makeRequestForFavariote
+-(void)makeRequestForDetail
 {
     NSMutableDictionary* paramDict =
     [NSMutableDictionary dictionaryWithCapacity:1];
@@ -71,10 +64,10 @@
     NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     [paramDict setObject:strUserId forKey:@"userId"];
     
-    [paramDict setObject:dt.busId forKey:@"businessId"];
-
+    [paramDict setObject:appdeligate.selectedData.busId forKey:@"businessId"];
     
-    [paramDict setObject:@"getDealEventsByBusinessId" forKey:@"action"];
+    
+    [paramDict setObject:@"getBusinessDetailById" forKey:@"action"];
     
     [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
     
@@ -82,18 +75,43 @@
 
 -(void)setDataOnView
 {
+    int n=[dt.rating intValue];
+    int i=0;
+    for(;i<n;i++)
+        [ratingArr addObject:@"1"];
+    for(;i<5;i++)
+        [ratingArr addObject:@"0"];
+    
+    
     _lblTitle.text=dt.name;
+    NSLog(@"name=%@",dt.name);
     
     [_logoImg setImageWithURL:[NSURL URLWithString:dt.imgCat] placeholder:[UIImage imageNamed:@"left_part.png"]];
     [_bannerImage setImageWithURL:[NSURL URLWithString:dt.bannerUrl] placeholder:nil];
-   
+    
     [_bannerImage setContentMode:UIViewContentModeScaleAspectFill];
     [_bannerImage setClipsToBounds:YES];
     
+    _lblAdvertise.text=[NSString stringWithFormat:@"%@",dt.specialize_in];
+    _lblAvertise.text=[NSString stringWithFormat:@"%@",dt.province]; //about Us
+    _lblAminiti.text=[NSString stringWithFormat:@"%@",dt.amenities];
+    _lblLocation.text=[NSString stringWithFormat:@"%@",dt.address];  //address
+    _lblContact.text=[NSString stringWithFormat:@"%@",dt.phone];  //address
+    _lblLink.text=[NSString stringWithFormat:@"%@",dt.website_link];  //address
     
     
-  //  _lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
-
+    
+    //lblLocation
+    
+    //lblContact
+    //lblLink
+    //
+    
+    
+    
+    
+    //  _lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
+    
     
     [self drawStarOnView];
 }
@@ -112,16 +130,59 @@
         
         [self.baseRatingView addSubview:bt];
         bt.tag=i;
-       // [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
+        // [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
         [bt addTarget:self action:@selector(drawStarOnPopView) forControlEvents:UIControlEventTouchUpInside];
-
+        
     }
 }
 
 -(void)startPopViewRemove:(UIGestureRecognizer*)rec
 {
     [[rec view] removeFromSuperview];
+    int k=0;
+    for(NSString *s in ratingArr2)
+    {
+        if([s isEqualToString:@"1"])
+            k++;
+        
+    }
+    int n=[dt.ratingProvidedByUser intValue];
+    if(k!=n&&k>0)
+    {
+        NSLog(@"startPopViewRemove Update star view value");
+        [self sendAddRemoveRating:[NSString stringWithFormat:@"%d",k]];
+    }
 }
+
+- (void)sendAddRemoveRating:(NSString*)rating
+{
+    //token, userId, businessId, rating
+    
+    NSLog(@"favoriteClicked businessName=%@",dt.name);
+    
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+    
+    
+    [paramDict setObject:rating forKey:@"rating"];
+    
+    [paramDict setObject:dt.busId forKey:@"businessId"];
+    
+    
+    [paramDict setObject:@"AddRatingToBusiness" forKey:@"action"];
+    
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
+}
+
+
 -(void)drawStarOnPopView
 {
     NSLog(@"drawStarOnPopView");
@@ -142,7 +203,7 @@
         [ratingArr2 addObject:@"1"];
     for(;i<5;i++)
         [ratingArr2 addObject:@"0"];
-
+    
     
     float gap=(self.baseRatingView.frame.size.width-250)/6;
     for(i=0;i<5;i++)
@@ -168,14 +229,14 @@
     if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
     {
         [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
-        [ratingArr replaceObjectAtIndex:n withObject:@"1"];
-
+        [ratingArr2 replaceObjectAtIndex:n withObject:@"1"];
+        
     }
     else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
     {
         [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
-        [ratingArr replaceObjectAtIndex:n withObject:@"0"];
-
+        [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
+        
         
     }
 }
@@ -222,7 +283,7 @@ UIButton *btn2;
     self.baseRemovefromFavouriteView.backgroundColor=[UIColor clearColor];
     self.baseRemovefromFavouriteView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.baseRemovefromFavouriteView.layer.borderWidth = 1.5f;
-
+    
     
     self.baseRatingView.backgroundColor=[UIColor clearColor];
     self.baseRatingView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -288,21 +349,53 @@ UIButton *btn2;
         
         if([[str uppercaseString] containsString:[@"Successfully get data" uppercaseString]])
         {
-            NSDictionary *d=[params objectForKey:@"data"];
-            dt.name=[d objectForKey:@"businessName"];
+            NSDictionary *d=[[params objectForKey:@"data"] objectAtIndex:0];
+            dt.name=[d objectForKey:@"name"];
             dt.range=[d objectForKey:@"priceRangeTo"];
             dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
+            dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
+            
             dt.busId=[d objectForKey:@"businessId"];
             dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
             dt.rangeTo=[d objectForKey:@"priceRangeTo"];
             dt.currencySymbol=[d objectForKey:@"currencySymbol"];
             dt.isFavorite=[d objectForKey:@"isFavorite"];
             dt.latitude=[d objectForKey:@"latitude"];
-            
             dt.longitude=[d objectForKey:@"longitude"];
             dt.rating=[d objectForKey:@"rating"];
             dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
-            dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
+            
+            
+            dt.businessImageBannerUrl=[d objectForKey:@"banner_img_path"];
+            dt.businessImageLogoUrl=[d objectForKey:@"logo_img_path"];
+            dt.active=[d objectForKey:@"active"];
+            dt.address=[d objectForKey:@"address"];
+            dt.amenities=[d objectForKey:@"amenities"];
+            dt.city=[d objectForKey:@"city"];
+            dt.country=[d objectForKey:@"country"];
+            dt.shortDescription=[d objectForKey:@"description"];
+            dt.facebook_page=[d objectForKey:@"facebook_page"];
+            dt.payment_status=[d objectForKey:@"payment_status"];
+            
+            
+            
+            dt.phone=[d objectForKey:@"phone"];
+            dt.province=[d objectForKey:@"province"];
+            dt.restaurant_id=[d objectForKey:@"restaurant_id"];
+            dt.country=[d objectForKey:@"country"];
+            dt.serial_no=[d objectForKey:@"serial_no"];
+            dt.specialize_in=[d objectForKey:@"specialize_in"];
+            dt.suburb=[d objectForKey:@"suburb"];
+            
+            
+            dt.today=[d objectForKey:@"today"];
+            dt.trading_hours_from=[d objectForKey:@"trading_hours_from"];
+            dt.trading_hours_to=[d objectForKey:@"trading_hours_to"];
+            dt.website_link=[d objectForKey:@"website_link"];
+            dt.account_number=[d objectForKey:@"account_number"];
+            dt.operatingTimeArray=[d objectForKey:@"operatingTime"];
+           [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
+            
         }
         else if([[str uppercaseString] containsString:[@"removed" uppercaseString]])
         {
@@ -316,7 +409,7 @@ UIButton *btn2;
         }
         
     }
-        
+    
 }
 
 

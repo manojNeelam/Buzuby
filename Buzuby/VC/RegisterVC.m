@@ -65,7 +65,9 @@
 }
 */
 
-- (IBAction)onClickGPSButton:(id)sender {
+- (IBAction)onClickGPSButton:(id)sender
+{
+    
 }
 
 - (IBAction)onClickNextButton:(id)sender {

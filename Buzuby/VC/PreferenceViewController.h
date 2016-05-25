@@ -8,9 +8,11 @@
 
 #import "BaseViewController.h"
 #import "NIDropDown.h"
-
-@interface PreferenceViewController : BaseViewController
+#import <CoreLocation/CoreLocation.h>
+@interface PreferenceViewController : BaseViewController<CLLocationManagerDelegate>
 {
+    NIDropDown *dropDown;
+    CLLocationManager *locationManager;
 }
 @property (nonatomic, assign) BOOL isFromSettings;
 
