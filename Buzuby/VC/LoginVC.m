@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ForgotPasswordVC.h"
 #import "ConnectionsManager.h"
+#import "NSString+CommonForApp.h"
 
 
 @interface LoginVC ()<ServerResponseDelegate>
@@ -39,6 +40,10 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    self.txtFldUserName.text=@"test1";
+    self.txtFldPasword.text=@"test1";
+
 }
 
 /*
@@ -50,22 +55,44 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(BOOL)isValidData
+{
+    if([self.txtFldUserName.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter  Your Name" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldPasword.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter  Your Name" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    
+    return YES;
+}
 
 - (IBAction)onClickLoginButton:(id)sender
 {
     
+    if([self isValidData])
+    {
     NSMutableDictionary* paramDict =
     [NSMutableDictionary dictionaryWithCapacity:1];
-    [paramDict setObject:@"test1" forKey:@"userName"];
+   // [paramDict setObject:@"test1" forKey:@"userName"];
+        [paramDict setObject:self.txtFldUserName.text forKey:@"userName"];
+
     //[paramDict setObject:[self.password.text sha1] forKey:@"password"];
-    [paramDict setObject:@"test1" forKey:@"password"];
+   // [paramDict setObject:@"test1" forKey:@"password"];
+       [paramDict setObject:self.txtFldPasword.text forKey:@"password"];
+
     [paramDict setObject:@"Login" forKey:@"action"];
-    
-    //  AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    // [delegate showHomeVC];
-    
+  
     [[ConnectionsManager sharedManager] loginUser:paramDict withdelegate:self];
-    
+    }
 }
 
 -(void)openHomeVC  //tmp
@@ -129,6 +156,12 @@
         
         NSLog(@"dct=%@",dct);
         [self openHomeVC];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!" message:[params objectForKey:@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+
     }
     
     

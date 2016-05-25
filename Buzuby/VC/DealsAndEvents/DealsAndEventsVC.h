@@ -11,6 +11,8 @@
 @interface DealsAndEventsVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *btnsEARCH;
+@property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
+
 - (IBAction)onClickSearchButton:(id)sender;
 
 @end

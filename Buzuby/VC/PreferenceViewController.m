@@ -90,7 +90,6 @@
     actt.center=self.view.center;
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [locationManager requestWhenInUseAuthorization];
     }
@@ -126,6 +125,8 @@
         
         NSLog(@"longitudeLabel=%f latitudeLabel=%f",longitudeLabel,latitudeLabel);
         
+        _txtFldCatOption.text=[NSString stringWithFormat:@"%f , %f",longitudeLabel,latitudeLabel];
+        [[NSUserDefaults standardUserDefaults] setObject:_txtFldCatOption.text forKey:@"locationPoint"];
     }
 }
 
@@ -197,8 +198,8 @@
     
     [paramDict setObject:@"28.53423432" forKey:@"latitude"];
     [paramDict setObject:@"-122.323223" forKey:@"longitude"];
-    [paramDict setObject:@"5" forKey:@"radius"];
-    [paramDict setObject:@"dollar" forKey:@"currencySymbol"];
+    [paramDict setObject:@"1000" forKey:@"radius"];
+    [paramDict setObject:@"USD" forKey:@"currencySymbol"];
     [paramDict setObject:@"0" forKey:@"priceFrom"];
     [paramDict setObject:@"2500" forKey:@"priceTo"];
 
@@ -286,6 +287,8 @@
 }
 
 - (IBAction)onClickLocationButon:(id)sender {
+    
+    [self getMyLocationPoint];
 }
 
 

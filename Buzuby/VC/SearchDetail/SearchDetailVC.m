@@ -48,11 +48,11 @@
     [cell.logoImg setImageWithURL:[NSURL URLWithString:[dct objectForKey:@"businessImageLogoUrl"]] placeholder:[UIImage imageNamed:@"left_part.png"]];
     cell.lblTitle.text=[dct objectForKey:@"businessName"];
     if([dct objectForKey:@"shortDescription"]!=nil&&[[dct objectForKey:@"shortDescription"] length]>0)
-    cell.lblDesc.text=[dct objectForKey:@"shortDescription"];
+        cell.lblDesc.text=[dct objectForKey:@"shortDescription"];
     else
-  cell.lblDesc.text=@"Description not found";
-   
-
+        cell.lblDesc.text=@"Description not found";
+    
+    
     [cell.btnPrice setTitle:[NSString stringWithFormat:@"Price Range %@-%@ %@",[dct objectForKey:@"priceRangeFrom"],[dct objectForKey:@"priceRangeTo"],[dct objectForKey:@"currencySymbol"]] forState:UIControlStateNormal];
     
     if([[dct objectForKey:@"isFavorite"] isEqualToString:@"no"])
@@ -62,11 +62,11 @@
     else
     {
         [cell.btnAddRemove setTitle:@"Remove From Favorite" forState:UIControlStateNormal];
-
+        
     }
     cell.btnAddRemove.tag=indexPath.row+2000;
     [cell.btnAddRemove addTarget:self action:@selector(favoriteClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     return cell;
 }
 
@@ -76,9 +76,9 @@ UIButton *btn;
 {
     btn=bt;
     NSDictionary *dct=[searchListArray objectAtIndex:bt.tag-2000];
-
+    
     NSLog(@"favoriteClicked businessName=%@",[dct objectForKey:@"businessName"]);
-
+    
     NSMutableDictionary* paramDict =
     [NSMutableDictionary dictionaryWithCapacity:1];
     
@@ -89,7 +89,7 @@ UIButton *btn;
     [paramDict setObject:strUserId forKey:@"userId"];
     
     [paramDict setObject:[dct objectForKey:@"businessId"] forKey:@"businessId"];
-
+    
     
     [paramDict setObject:@"addBusinessToFavorite" forKey:@"action"];
     
@@ -102,40 +102,40 @@ UIButton *btn;
 //addBusinessToFavorite token, userId, businessId
 
 /*-(void)drawStarOnView
-{
-    int i;
-    float gap=(self.baseRatingView.frame.size.width-250)/6;
-    for(i=0;i<5;i++)
-    {
-        UIButton *bt=[[UIButton alloc] initWithFrame:CGRectMake((i+1)*gap+i*50, self.baseRatingView.frame.size.height/2-25, 50, 50)];
-        if([[ratingArr objectAtIndex:i] isEqualToString:@"0"])
-            [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
-        else
-            [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
-        
-        [self.baseRatingView addSubview:bt];
-        bt.tag=i;
-        [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-}
-
--(void)onStarClick:(UIButton*)bt
-{
-    int n=(int)bt.tag;
-    if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
-    {
-        [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
-        [ratingArr replaceObjectAtIndex:n withObject:@"1"];
-        
-    }
-    else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
-    {
-        [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
-        [ratingArr replaceObjectAtIndex:n withObject:@"0"];
-        
-        
-    }
-}*/
+ {
+ int i;
+ float gap=(self.baseRatingView.frame.size.width-250)/6;
+ for(i=0;i<5;i++)
+ {
+ UIButton *bt=[[UIButton alloc] initWithFrame:CGRectMake((i+1)*gap+i*50, self.baseRatingView.frame.size.height/2-25, 50, 50)];
+ if([[ratingArr objectAtIndex:i] isEqualToString:@"0"])
+ [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+ else
+ [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+ 
+ [self.baseRatingView addSubview:bt];
+ bt.tag=i;
+ [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
+ }
+ }
+ 
+ -(void)onStarClick:(UIButton*)bt
+ {
+ int n=(int)bt.tag;
+ if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
+ {
+ [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+ [ratingArr replaceObjectAtIndex:n withObject:@"1"];
+ 
+ }
+ else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+ {
+ [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+ [ratingArr replaceObjectAtIndex:n withObject:@"0"];
+ 
+ 
+ }
+ }*/
 
 
 
@@ -151,27 +151,27 @@ UIButton *btn;
     NSLog(@"openDetailVC selected view at position=%ld",(long)v.tag);
     NSDictionary *d=[searchListArray objectAtIndex:v.tag-1000];
     
-        HomeData *dt=[[HomeData alloc] init];
-        dt.name=[d objectForKey:@"businessName"];
-        dt.range=[d objectForKey:@"priceRangeTo"];
-        dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
-        dt.busId=[d objectForKey:@"businessId"];
-        dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
-        dt.rangeTo=[d objectForKey:@"priceRangeTo"];
-        dt.currencySymbol=[d objectForKey:@"currencySymbol"];
-        dt.isFavorite=[d objectForKey:@"isFavorite"];
-        dt.latitude=[d objectForKey:@"latitude"];
-        
-        dt.longitude=[d objectForKey:@"longitude"];
-        dt.rating=[d objectForKey:@"rating"];
-        dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
-        dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
-        
+    HomeData *dt=[[HomeData alloc] init];
+    dt.name=[d objectForKey:@"businessName"];
+    dt.range=[d objectForKey:@"priceRangeTo"];
+    dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
+    dt.busId=[d objectForKey:@"businessId"];
+    dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
+    dt.rangeTo=[d objectForKey:@"priceRangeTo"];
+    dt.currencySymbol=[d objectForKey:@"currencySymbol"];
+    dt.isFavorite=[d objectForKey:@"isFavorite"];
+    dt.latitude=[d objectForKey:@"latitude"];
+    
+    dt.longitude=[d objectForKey:@"longitude"];
+    dt.rating=[d objectForKey:@"rating"];
+    dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
+    dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
+    
     
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
     delegate.selectedData=dt;
-
+    
     
     
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController_SB_ID"];
@@ -216,19 +216,19 @@ UIButton *btn;
         {
             NSLog(@"Business removed from favorite sucessfully.");
             [btn setTitle:@"Add To Favorite" forState:UIControlStateNormal];
-
+            
         }
         else
         {
             NSLog(@"Business added In favorite sucessfully.");
             [btn setTitle:@"Remove From Favorite" forState:UIControlStateNormal];
         }
-
+        
         
     }
 }
 
-    
+
 -(void)failure:(id)response
 {
     NSLog(@"failure at Add favorite");

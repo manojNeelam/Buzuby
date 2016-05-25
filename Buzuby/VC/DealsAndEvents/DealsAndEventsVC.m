@@ -8,13 +8,18 @@
 
 #import "DealsAndEventsVC.h"
 #import "DealsAndEventsCell.h"
+#import "UIImageView+JMImageCache.h"
+#import "ConnectionsManager.h"
 
-@interface DealsAndEventsVC () <UITableViewDataSource, UITableViewDelegate>
-
+@interface DealsAndEventsVC () <UITableViewDataSource, UITableViewDelegate,ServerResponseDelegate>
+{
+    int counter,apiCounter;
+    NSArray *bannerArr;
+}
 @end
 
 @implementation DealsAndEventsVC
-
+@synthesize bannerImageView;
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +43,114 @@
 
     
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
+    
+    [self getBannerList];
+
 }
+
+-(void)getBannerList
+{
+    apiCounter=1;
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    [paramDict setObject:@"getAdBanner" forKey:@"action"];
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
+}
+
+
+-(void)getDealsAndEventData
+{
+    apiCounter=2;
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    
+    [paramDict setObject:@"getAdBanner" forKey:@"action"];
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
+}
+
+//
+-(void)success:(id)response
+{
+    NSLog(@"success at Add favorite");
+    
+    
+    NSDictionary *params;
+    
+    if([response isKindOfClass:[NSString class]])
+    {
+        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+        params = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    }
+    else if ([response isKindOfClass:[NSDictionary class]])
+    {
+        params = response;
+    }
+    
+    
+    id statusStr_ = [params objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+        statusStr = statusStr_;
+    
+    
+    NSLog(@"params=%@",params);
+    if([statusStr isEqualToString:@"200"])
+    {
+        if(apiCounter==1)
+        {
+            bannerArr=[params objectForKey:@"data"];
+            if(bannerArr.count>0)
+            {
+                [self showBanner];
+               
+                
+                bannerTimer=nil;
+                bannerTimer= [NSTimer scheduledTimerWithTimeInterval:2.5f
+                                                         target:self
+                                                       selector:@selector(showBanner)
+                                                       userInfo:nil
+                                                        repeats:YES];
+
+                
+            }
+        }
+        
+    }
+}
+//
+
+NSTimer *bannerTimer;
+-(void)showBanner
+{
+    if(counter<bannerArr.count)
+     [bannerImageView setImageWithURL:[NSURL URLWithString:[[bannerArr objectAtIndex:counter] objectForKey:@"businessImageBannerUrl"]] placeholder:[UIImage imageNamed:@"left_part.png"]];
+    counter++;
+    
+     if(counter==bannerArr.count)
+         counter=0;
+}
+-(void)failure:(id)response
+{
+    NSLog(@"failure at Add favorite");
+}
+
 
 -(void)onClickBackbutton:(id)sender
 {
