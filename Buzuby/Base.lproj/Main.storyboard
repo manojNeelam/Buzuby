@@ -1908,7 +1908,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6U-EI-O4f">
                                                 <rect key="frame" x="40" y="5" width="162" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Start price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wet-6L-Kmu" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wet-6L-Kmu" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -2003,31 +2003,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-H7-zWT">
                                                 <rect key="frame" x="212" y="5" width="162" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d69-yp-NKa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
-                                                        <state key="normal" title="All"/>
-                                                        <connections>
-                                                            <action selector="onClickPriceButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="A6X-ee-MhA"/>
-                                                        </connections>
-                                                    </button>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-Us-vqH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="d69-yp-NKa" firstAttribute="leading" secondItem="iLz-H7-zWT" secondAttribute="leading" id="5pN-oQ-xCk"/>
-                                                    <constraint firstItem="hfn-Us-vqH" firstAttribute="leading" secondItem="iLz-H7-zWT" secondAttribute="leading" id="Dyz-6e-jYn"/>
-                                                    <constraint firstAttribute="trailing" secondItem="d69-yp-NKa" secondAttribute="trailing" id="ERI-Y1-9oD"/>
-                                                    <constraint firstItem="hfn-Us-vqH" firstAttribute="top" secondItem="iLz-H7-zWT" secondAttribute="top" id="ET9-KS-dlg"/>
-                                                    <constraint firstItem="d69-yp-NKa" firstAttribute="top" secondItem="iLz-H7-zWT" secondAttribute="top" id="GRi-TZ-yID"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hfn-Us-vqH" secondAttribute="bottom" id="W32-n6-PFA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hfn-Us-vqH" secondAttribute="trailing" id="Xq1-Bh-f0z"/>
-                                                    <constraint firstAttribute="bottom" secondItem="d69-yp-NKa" secondAttribute="bottom" id="c4y-0b-k1s"/>
-                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.21960784310000001" green="0.31372549020000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2057,6 +2033,15 @@
                                         </state>
                                         <connections>
                                             <action selector="onClickSubSubCategoryButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="tfJ-De-7Q8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d69-yp-NKa">
+                                        <rect key="frame" x="212" y="436" width="162" height="50"/>
+                                        <state key="normal" title="$">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickPriceButton:" destination="fDr-zf-k24" eventType="touchUpInside" id="A6X-ee-MhA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-pS-53e">
@@ -2103,6 +2088,7 @@
                                     <constraint firstAttribute="trailing" secondItem="urQ-7R-jbd" secondAttribute="trailing" id="Qbs-ex-SPq"/>
                                     <constraint firstItem="XR4-pS-53e" firstAttribute="top" secondItem="4En-np-E7L" secondAttribute="top" constant="225" id="RYL-sb-fZH"/>
                                     <constraint firstItem="5aJ-ch-dVN" firstAttribute="leading" secondItem="4En-np-E7L" secondAttribute="leading" id="TZq-dU-EPY"/>
+                                    <constraint firstItem="d69-yp-NKa" firstAttribute="top" secondItem="4En-np-E7L" secondAttribute="top" constant="436" id="WFM-Sa-n7p"/>
                                     <constraint firstItem="urQ-7R-jbd" firstAttribute="leading" secondItem="4En-np-E7L" secondAttribute="leading" id="X1J-vb-0s6"/>
                                     <constraint firstItem="was-fB-dOL" firstAttribute="top" secondItem="urQ-7R-jbd" secondAttribute="bottom" constant="10" id="X5o-ZB-dYv"/>
                                     <constraint firstItem="XR4-pS-53e" firstAttribute="leading" secondItem="FFt-hf-765" secondAttribute="trailing" constant="10" id="YZH-zG-vCO"/>
@@ -2113,10 +2099,13 @@
                                     <constraint firstAttribute="trailing" secondItem="ydt-eK-gss" secondAttribute="trailing" id="dL1-X3-87R"/>
                                     <constraint firstItem="izR-Tl-jUl" firstAttribute="height" secondItem="SGz-yd-Atn" secondAttribute="height" id="dhc-Qg-Hc1"/>
                                     <constraint firstItem="izR-Tl-jUl" firstAttribute="top" secondItem="4En-np-E7L" secondAttribute="top" constant="295" id="e7o-j0-oBc"/>
+                                    <constraint firstItem="d69-yp-NKa" firstAttribute="leading" secondItem="CYV-cs-bKS" secondAttribute="trailing" constant="10" id="fSk-Fi-1Rm"/>
+                                    <constraint firstItem="d69-yp-NKa" firstAttribute="height" secondItem="CYV-cs-bKS" secondAttribute="height" id="lAp-Ol-KgC"/>
                                     <constraint firstItem="5aJ-ch-dVN" firstAttribute="top" secondItem="RPO-kg-Sec" secondAttribute="bottom" constant="10" id="lZf-SE-Dvl"/>
                                     <constraint firstItem="XR4-pS-53e" firstAttribute="width" secondItem="FFt-hf-765" secondAttribute="width" id="nhk-bd-rm9"/>
                                     <constraint firstAttribute="trailing" secondItem="pK8-4z-oog" secondAttribute="trailing" id="qEz-np-qTn"/>
                                     <constraint firstItem="urQ-7R-jbd" firstAttribute="top" secondItem="5aJ-ch-dVN" secondAttribute="bottom" constant="10" id="qIh-zx-NbJ"/>
+                                    <constraint firstItem="d69-yp-NKa" firstAttribute="width" secondItem="CYV-cs-bKS" secondAttribute="width" id="zf9-if-iKt"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -2151,7 +2140,6 @@
                         <outlet property="btnSubSubCategory" destination="izR-Tl-jUl" id="feU-W0-irR"/>
                         <outlet property="btnSubcategory" destination="XR4-pS-53e" id="Pxf-Ax-SfG"/>
                         <outlet property="scrollView" destination="4En-np-E7L" id="cX9-cG-o0P"/>
-                        <outlet property="txtCurrencyType" destination="hfn-Us-vqH" id="8bm-Nt-2Ne"/>
                         <outlet property="txtFldCatOption" destination="XzW-PX-XSH" id="KDA-Ua-zfV"/>
                         <outlet property="txtFldRadiusOption" destination="xfB-hy-TdY" id="iAy-oo-Wl0"/>
                     </connections>

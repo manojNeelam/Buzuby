@@ -127,6 +127,10 @@
         SubSubCategoryData *cat = Data_;
         cell.textLabel.text = cat.itemName;
     }
+    else if([Data_ isKindOfClass:[NSString class]])
+    {
+        cell.textLabel.text = Data_;
+    }
     
     /*if ([self.imageList count] == [self.list count])
     {

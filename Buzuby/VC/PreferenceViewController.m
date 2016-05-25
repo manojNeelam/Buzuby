@@ -25,7 +25,7 @@
     float longitudeLabel,latitudeLabel;
     UIActivityIndicatorView *actt;
     
-    NSArray *commonList;
+    NSArray *commonList, *currencyList;
 }
 @end
 
@@ -39,7 +39,12 @@
     
     longitudeLabel=0;
     latitudeLabel=0;
+    
+    
     commonList = [[NSArray alloc] initWithObjects:@"All",@"Dining", @"Monitoring", @"Services", @"Stores", nil];
+    
+    currencyList = [[NSArray alloc] initWithObjects:@"$",@"€", @"₹", nil];
+    
     
     commonTblView = [[UITableView alloc] init];
     [commonTblView setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
@@ -232,7 +237,7 @@
 
 - (IBAction)onClickPriceButton:(id)sender
 {
-    
+    [self openDropdown:currencyList withSender:self.btnPrice withDir:@"up"];
 }
 
 -(void)setFrameCommonTableView:(CGRect)frameView andTextFieldRect:(CGRect)frameTxtFld
@@ -291,7 +296,7 @@
 -(void)openDropdown:(NSArray*)array withSender:(id)sender withDir:(NSString *)dir
 {
     if(dropDown == nil) {
-        CGFloat f = 150;
+        CGFloat f = 132;
         dropDown = [[NIDropDown alloc]showDropDown:sender :&f :array :nil :dir];
         dropDown.delegate = self;
     }
@@ -324,6 +329,10 @@
         selectedSubSubCategory = cat;
         
         [self.btnSubSubCategory setTitle:cat.itemName forState:UIControlStateNormal];
+    }
+    else if ([Data_ isKindOfClass:[NSString class]])
+    {
+        [self.btnPrice setTitle:Data_ forState:UIControlStateNormal];
     }
 }
 
