@@ -14,5 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnForgotPassword;
 - (IBAction)onClickForgotPasswordButton:(id)sender;
+@property (weak, nonatomic) IBOutlet DefaultTextField *txtFldUserName;
 
 @end
