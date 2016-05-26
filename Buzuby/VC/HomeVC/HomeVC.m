@@ -53,6 +53,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fromPreference"];
+
     [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
 }
 -(void)makeRequestForFavariote

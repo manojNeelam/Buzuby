@@ -15,6 +15,9 @@
 {
     int counter,apiCounter;
     NSArray *bannerArr;
+    NSArray *dataArr;
+
+    
 }
 @end
 
@@ -40,12 +43,12 @@
     }
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-
+    
     
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
     
     [self getBannerList];
-
+    
 }
 
 -(void)getBannerList
@@ -73,12 +76,45 @@
     NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
     [paramDict setObject:strToken forKey:@"token"];
     
-    
     [paramDict setObject:@"getAdBanner" forKey:@"action"];
     
     [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
     
 }
+
+-(void)getDealsAndEventDataByBusinessId
+{
+    apiCounter=3;
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    [paramDict setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"dealsBusID"] forKey:@"businessId"];
+    
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+
+   
+    NSString *str=[[NSUserDefaults standardUserDefaults] objectForKey:@"locationPoint"];
+    
+    [paramDict setObject:[[str componentsSeparatedByString:@","] objectAtIndex:0] forKey:@"latitude"];
+    [paramDict setObject:[[str componentsSeparatedByString:@","] objectAtIndex:1] forKey:@"longitude"];
+
+    
+ 
+    
+    [paramDict setObject:@"getDealEventsByBusinessId" forKey:@"action"];
+    
+    NSLog(@"getDealsAndEventDataByBusinessId Final parameter =%@",paramDict);
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    //token, userId, businessId,latitude,longitude
+
+}
+
 
 //
 -(void)success:(id)response
@@ -119,17 +155,44 @@
             if(bannerArr.count>0)
             {
                 [self showBanner];
-               
+                
                 
                 bannerTimer=nil;
-                bannerTimer= [NSTimer scheduledTimerWithTimeInterval:2.5f
-                                                         target:self
-                                                       selector:@selector(showBanner)
-                                                       userInfo:nil
-                                                        repeats:YES];
-
+                bannerTimer= [NSTimer scheduledTimerWithTimeInterval:3.5f
+                                                              target:self
+                                                            selector:@selector(showBanner)
+                                                            userInfo:nil
+                                                             repeats:YES];
+                
+                if([[NSUserDefaults standardUserDefaults] boolForKey:@"fromPreference"])
+                {
+                    if([[NSUserDefaults standardUserDefaults] boolForKey:@"preferenceSet"])
+                    {
+                        
+                        NSLog(@"make request for get deal and events on the basis of Preference");
+                        
+                    }
+                    else
+                    {
+                        UIAlertView *alt=[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"Go back and Set the value at prefernce Page first" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                        [alt show];
+                    }
+                    
+                }
+                else
+                {
+                    NSLog(@"make request for get deal and events on the basis of busunes id");
+                    
+                    [self getDealsAndEventDataByBusinessId];
+                }
+                
                 
             }
+        }
+        else
+        {
+            dataArr=[params objectForKey:@"data"];
+            [_tableView reloadData];
         }
         
     }
@@ -140,11 +203,11 @@ NSTimer *bannerTimer;
 -(void)showBanner
 {
     if(counter<bannerArr.count)
-     [bannerImageView setImageWithURL:[NSURL URLWithString:[[bannerArr objectAtIndex:counter] objectForKey:@"businessImageBannerUrl"]] placeholder:[UIImage imageNamed:@"left_part.png"]];
+        [bannerImageView setImageWithURL:[NSURL URLWithString:[[bannerArr objectAtIndex:counter] objectForKey:@"businessImageBannerUrl"]] placeholder:[UIImage imageNamed:@"left_part.png"]];
     counter++;
     
-     if(counter==bannerArr.count)
-         counter=0;
+    if(counter==bannerArr.count)
+        counter=0;
 }
 -(void)failure:(id)response
 {
@@ -180,20 +243,50 @@ NSTimer *bannerTimer;
     cell.baseBodyView.layer.borderColor = [UIColor whiteColor].CGColor;
     cell.baseBodyView.layer.borderWidth = 1.0f;
     
+    NSDictionary *dct=[dataArr objectAtIndex:indexPath.row];
+    
+    cell.lblTitle.text=[dct objectForKey:@"businessName"];
+    cell.lblDesc.text=[dct objectForKey:@"dealHeading"];
+    cell.lblPrice.text=[NSString stringWithFormat:@"%@-%@ %@",[dct objectForKey:@"priceRangeFrom"],[dct objectForKey:@"priceRangeTo"],[dct objectForKey:@"currencySymbol"]];
+
+    
+    [cell.logoImg setImageWithURL:[NSURL URLWithString:[dct objectForKey:@"businessImageLogoUrl"]] placeholder:[UIImage imageNamed:@"left_part.png"]];
+    
+     [cell.imgBody setImageWithURL:[NSURL URLWithString:[dct objectForKey:@"dealImageurl"]] placeholder:[UIImage imageNamed:@"left_part.png"]];
+
+    cell.lblLink.text=[dct objectForKey:@"businessWebsiteUrl"];
+
+    cell.btnLocateus.tag=2000+indexPath.row;
+    [cell.btnLocateus addTarget:self action:@selector(openMap:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return dataArr.count;
 }
 
-- (IBAction)onClickSearchButton:(id)sender {
+
+- (IBAction)onClickSearchButton:(id)sender
+{
+    
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 327;
+}
+
+-(void)openMap:(UIButton*)bt
+{
+    NSDictionary *dct=[dataArr objectAtIndex:bt.tag-2000];
+
+     NSString *nativeMapScheme = @"maps.apple.com";
+    NSString* url = [NSString stringWithFormat:@"http://%@/maps?q=%@,%@", nativeMapScheme,[dct objectForKey:@"latitude"], [dct objectForKey:@"longitude"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+
 }
 
 @end

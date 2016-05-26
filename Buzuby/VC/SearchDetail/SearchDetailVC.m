@@ -23,12 +23,16 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
     searchListArray=delegate.searchList;
+    
+    NSLog(@"SearchDetailVC viewDidLoad");
+
 }
 - (IBAction)onClickSearchbutton:(id)sender {
+    NSLog(@"SearchDetailVC onClickSearchbutton");
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,8 +70,25 @@
     }
     cell.btnAddRemove.tag=indexPath.row+2000;
     [cell.btnAddRemove addTarget:self action:@selector(favoriteClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
+
+    cell.btnDeals.tag=indexPath.row+3000;
+    [cell.btnDeals addTarget:self action:@selector(eventClicked:) forControlEvents:UIControlEventTouchUpInside];
+
     return cell;
+}
+
+-(void)eventClicked:(UIButton*)bt
+{
+    NSDictionary *dct=[searchListArray objectAtIndex:bt.tag-3000];
+    NSLog(@"favoriteClicked businessName=%@",[dct objectForKey:@"businessName"]);
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"fromPreference"];
+    [[NSUserDefaults standardUserDefaults] setObject:[dct objectForKey:@"businessId"] forKey:@"dealsBusID"];
+
+
+    UIViewController *dealsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DealsAndEventsVC_SB_ID"];
+    [self.navigationController pushViewController:dealsvc animated:YES];
+    
 }
 
 UIButton *btn;

@@ -7,8 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
-@interface RegisterVC : BaseViewController
+#import <CoreLocation/CoreLocation.h>
+@interface RegisterVC : BaseViewController<CLLocationManagerDelegate>
+{
+    CLLocationManager *locationManager;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) IBOutlet UIView *baseSuburbView;
 

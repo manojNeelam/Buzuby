@@ -154,11 +154,15 @@
 		8C0B2FD81CE09D85008C6A2E /* textBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B2FA01CE09D85008C6A2E /* textBack.png */; };
 		8C0B2FD91CE09D85008C6A2E /* trim.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B2FA11CE09D85008C6A2E /* trim.png */; };
 		8C0B2FDA1CE09D85008C6A2E /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B2FA21CE09D85008C6A2E /* youtube.png */; };
+		D8A3EF7E1CF6C56A00D57EE5 /* radius.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D8A3EF7D1CF6C56A00D57EE5 /* radius.jpeg */; };
+		D8A3EF801CF6C6E200D57EE5 /* ic_dollar_small.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A3EF7F1CF6C6E200D57EE5 /* ic_dollar_small.png */; };
+		D8A3EF821CF6C73D00D57EE5 /* ic_dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A3EF811CF6C73D00D57EE5 /* ic_dollar.png */; };
 		D8BEF1A31CF1C032001E9846 /* DetailViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BEF1A21CF1C032001E9846 /* DetailViewData.m */; };
 		D8D6336F1CEA6DC100022060 /* ic_location1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D6336B1CEA6DC100022060 /* ic_location1.png */; };
 		D8D633701CEA6DC100022060 /* ic_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D6336C1CEA6DC100022060 /* ic_remove.png */; };
 		D8D633711CEA6DC100022060 /* star_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D6336D1CEA6DC100022060 /* star_normal.png */; };
 		D8D633721CEA6DC100022060 /* star_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D6336E1CEA6DC100022060 /* star_selected.png */; };
+		D8FDB35B1CF7711100B6F8FE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FDB35A1CF7711100B6F8FE /* CoreLocation.framework */; };
 		D8FF3C961CE9099400DB0867 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FF3C941CE9099400DB0867 /* menu.png */; };
 		D8FF3C971CE9099400DB0867 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FF3C951CE9099400DB0867 /* menu@2x.png */; };
 /* End PBXBuildFile section */
@@ -407,12 +411,16 @@
 		8C0B2FA01CE09D85008C6A2E /* textBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBack.png; sourceTree = "<group>"; };
 		8C0B2FA11CE09D85008C6A2E /* trim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trim.png; sourceTree = "<group>"; };
 		8C0B2FA21CE09D85008C6A2E /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube.png; sourceTree = "<group>"; };
+		D8A3EF7D1CF6C56A00D57EE5 /* radius.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = radius.jpeg; sourceTree = "<group>"; };
+		D8A3EF7F1CF6C6E200D57EE5 /* ic_dollar_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_dollar_small.png; sourceTree = "<group>"; };
+		D8A3EF811CF6C73D00D57EE5 /* ic_dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_dollar.png; sourceTree = "<group>"; };
 		D8BEF1A11CF1C032001E9846 /* DetailViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewData.h; sourceTree = "<group>"; };
 		D8BEF1A21CF1C032001E9846 /* DetailViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewData.m; sourceTree = "<group>"; };
 		D8D6336B1CEA6DC100022060 /* ic_location1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_location1.png; sourceTree = "<group>"; };
 		D8D6336C1CEA6DC100022060 /* ic_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_remove.png; sourceTree = "<group>"; };
 		D8D6336D1CEA6DC100022060 /* star_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_normal.png; sourceTree = "<group>"; };
 		D8D6336E1CEA6DC100022060 /* star_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_selected.png; sourceTree = "<group>"; };
+		D8FDB35A1CF7711100B6F8FE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D8FF3C941CE9099400DB0867 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		D8FF3C951CE9099400DB0867 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -422,6 +430,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8FDB35B1CF7711100B6F8FE /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +829,7 @@
 		8C0B2F241CE09BDF008C6A2E = {
 			isa = PBXGroup;
 			children = (
+				D8FDB35A1CF7711100B6F8FE /* CoreLocation.framework */,
 				8C0B2F2F1CE09BDF008C6A2E /* Buzuby */,
 				8C0B2F491CE09BE0008C6A2E /* BuzubyTests */,
 				8C0B2F541CE09BE0008C6A2E /* BuzubyUITests */,
@@ -901,6 +911,7 @@
 		8C0B2F661CE09D85008C6A2E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D8A3EF7D1CF6C56A00D57EE5 /* radius.jpeg */,
 				8C0B2F671CE09D85008C6A2E /* -BRIDGING THE GAP-.png */,
 				8C0B2F681CE09D85008C6A2E /* add.png */,
 				8C0B2F691CE09D85008C6A2E /* arrow.png */,
@@ -918,6 +929,7 @@
 				8C0B2F751CE09D85008C6A2E /* login-screen */,
 				8C0B2F7F1CE09D85008C6A2E /* minus.png */,
 				8C0B2F801CE09D85008C6A2E /* option_bttn.png */,
+				D8A3EF7F1CF6C6E200D57EE5 /* ic_dollar_small.png */,
 				8C0B2F811CE09D85008C6A2E /* prefBack.png */,
 				8C0B2F821CE09D85008C6A2E /* prefrenceBack.png */,
 				8C0B2F831CE09D85008C6A2E /* register_bttn.png */,
@@ -996,6 +1008,7 @@
 		D8D6336A1CEA6DC100022060 /* Icon_Android */ = {
 			isa = PBXGroup;
 			children = (
+				D8A3EF811CF6C73D00D57EE5 /* ic_dollar.png */,
 				D8D6336B1CEA6DC100022060 /* ic_location1.png */,
 				D8D6336C1CEA6DC100022060 /* ic_remove.png */,
 				D8D6336D1CEA6DC100022060 /* star_normal.png */,
@@ -1071,6 +1084,7 @@
 				TargetAttributes = {
 					8C0B2F2C1CE09BDF008C6A2E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 87652D26P3;
 					};
 					8C0B2F451CE09BE0008C6A2E = {
 						CreatedOnToolsVersion = 7.3;
@@ -1148,6 +1162,7 @@
 				8C0B2FC21CE09D85008C6A2E /* next_bttn.png in Resources */,
 				2C03E4941CEA468700391799 /* AvenirNextLTPro-DemiCn.otf in Resources */,
 				D8FF3C971CE9099400DB0867 /* menu@2x.png in Resources */,
+				D8A3EF821CF6C73D00D57EE5 /* ic_dollar.png in Resources */,
 				8C0B2FC01CE09D85008C6A2E /* bg_2.png in Resources */,
 				8C0B2FAF1CE09D85008C6A2E /* locationIcon.png in Resources */,
 				8C0B2F3D1CE09BE0008C6A2E /* Assets.xcassets in Resources */,
@@ -1158,6 +1173,7 @@
 				8C0B2FA31CE09D85008C6A2E /* -BRIDGING THE GAP-.png in Resources */,
 				8C0B2FB01CE09D85008C6A2E /* locationRadious.png in Resources */,
 				8C0B2FBC1CE09D85008C6A2E /* prefBack.png in Resources */,
+				D8A3EF7E1CF6C56A00D57EE5 /* radius.jpeg in Resources */,
 				8C0B2FD81CE09D85008C6A2E /* textBack.png in Resources */,
 				8C0B2FA91CE09D85008C6A2E /* earth.png in Resources */,
 				8C0B2FA71CE09D85008C6A2E /* catogery.png in Resources */,
@@ -1173,6 +1189,7 @@
 				8C0B2FAE1CE09D85008C6A2E /* home.png in Resources */,
 				2C03E4981CEA468700391799 /* AvenirNextLTPro-HeavyCnIt.otf in Resources */,
 				8C0B2FAC1CE09D85008C6A2E /* google.png in Resources */,
+				D8A3EF801CF6C6E200D57EE5 /* ic_dollar_small.png in Resources */,
 				8C0B2FA41CE09D85008C6A2E /* add.png in Resources */,
 				8C0B2FC41CE09D85008C6A2E /* right_part.png in Resources */,
 				2C03E48F1CEA468700391799 /* AvenirNextLTPro-BoldCn.otf in Resources */,
@@ -1424,11 +1441,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Smith (5848T9PZ6D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Smith (5848T9PZ6D)";
 				INFOPLIST_FILE = Buzuby/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.Buzuby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Buzuby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bd3daa07-594b-407c-a39b-cd3b8dc88347";
 			};
 			name = Debug;
 		};
@@ -1437,11 +1457,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Smith (5848T9PZ6D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Smith (5848T9PZ6D)";
 				INFOPLIST_FILE = Buzuby/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.Buzuby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Buzuby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bd3daa07-594b-407c-a39b-cd3b8dc88347";
 			};
 			name = Release;
 		};

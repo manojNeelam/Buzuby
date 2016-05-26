@@ -125,7 +125,7 @@
         
         NSLog(@"longitudeLabel=%f latitudeLabel=%f",longitudeLabel,latitudeLabel);
         
-        _txtFldCatOption.text=[NSString stringWithFormat:@"%f , %f",longitudeLabel,latitudeLabel];
+        _txtFldCatOption.text=[NSString stringWithFormat:@"%f ,%f",longitudeLabel,latitudeLabel];
         [[NSUserDefaults standardUserDefaults] setObject:_txtFldCatOption.text forKey:@"locationPoint"];
     }
 }
