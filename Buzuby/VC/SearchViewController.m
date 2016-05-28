@@ -13,6 +13,8 @@
 #import "SubCategoryData.h"
 #import "SubSubCategoryData.h"
 #import "AppDelegate.h"
+#import "NSString+CommonForApp.h"
+
 @interface SearchViewController ()<ServerResponseDelegate, NIDropDownDelegate>
 {
     NSArray *catList,*subCatList,*subSubCatList;
@@ -176,10 +178,27 @@
     
 }
 
+-(BOOL)isValidData
+{
+    
+    if([self.txtFldSearch.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please Fill Keyword must" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    
+   
+    
+    return YES;
+}
 
 
 - (IBAction)onClickNextButton:(id)sender
 {
+    if([self isValidData])
+    {
     resultForApi=4;
     NSMutableDictionary* paramDict =
     [NSMutableDictionary dictionaryWithCapacity:1];
@@ -192,10 +211,37 @@
     
     [paramDict setObject:_txtFldSearch.text forKey:@"keyword"];
    // [paramDict setObject:selectedCategory.itemId forKey:@"categoryId"];
-    [paramDict setObject:@"0" forKey:@"categoryId"];
+        
+        
+        
+        if([[self.btnCat titleForState:UIControlStateNormal] isEqualToString:@"All"])
+        {
+            [paramDict setObject:@"0" forKey:@"categoryId"];
+            [paramDict setObject:@"0" forKey:@"subCategoryId"];
+            [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+        }
+        else
+        {
+            [paramDict setObject:[self.btnCat titleForState:UIControlStateNormal] forKey:@"categoryId"];
+            
+            if([[self.btnSubcat titleForState:UIControlStateNormal] isEqualToString:@"All"])
+                [paramDict setObject:@"0" forKey:@"subCategoryId"];
+            else
+                [paramDict setObject:[self.btnSubcat titleForState:UIControlStateNormal] forKey:@"subCategoryId"];
+            
+            if([[self.btnSubSubCat titleForState:UIControlStateNormal] isEqualToString:@"All"])
+                [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+            else
+                [paramDict setObject:[self.btnSubSubCat titleForState:UIControlStateNormal] forKey:@"subSubCategoryId"];
+            
+        }
+
+        
+        
+    /*[paramDict setObject:@"0" forKey:@"categoryId"];
 
     [paramDict setObject:@"0" forKey:@"subCategoryId"];
-    [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+    [paramDict setObject:@"0" forKey:@"subSubCategoryId"];*/
 
     
     [paramDict setObject:@"getBusinessByPreference" forKey:@"action"];
@@ -204,14 +250,52 @@
     
     [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
 
-    
-    
+}
+
     //token, userId, keyword, categoryId, subCategoryId, subSubCategoryId
 
 
   //  UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
   //  [self.navigationController pushViewController:vc animated:YES];
 }
+
+/*
+ if([self isValidData])
+ {
+ // resultForApi=4;
+ NSMutableDictionary* paramDict =
+ [NSMutableDictionary dictionaryWithCapacity:1];
+ 
+ NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+ [paramDict setObject:strToken forKey:@"token"];
+ 
+ NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+ [paramDict setObject:strUserId forKey:@"userId"];
+ 
+ 
+ if([[self.btnCategoryOption titleForState:UIControlStateNormal] isEqualToString:@"All"])
+ {
+ [paramDict setObject:@"0" forKey:@"categoryId"];
+ [paramDict setObject:@"0" forKey:@"subCategoryId"];
+ [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+ }
+ else
+ {
+ [paramDict setObject:[self.btnCategoryOption titleForState:UIControlStateNormal] forKey:@"categoryId"];
+ 
+ if([[self.btnSubcategory titleForState:UIControlStateNormal] isEqualToString:@"All"])
+ [paramDict setObject:@"0" forKey:@"subCategoryId"];
+ else
+ [paramDict setObject:[self.btnSubcategory titleForState:UIControlStateNormal] forKey:@"subCategoryId"];
+ 
+ if([[self.btnSubSubCategory titleForState:UIControlStateNormal] isEqualToString:@"All"])
+ [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+ else
+ [paramDict setObject:[self.btnSubSubCategory titleForState:UIControlStateNormal] forKey:@"subSubCategoryId"];
+ 
+ }
+
+ */
 
 -(void)goToSearchDetail
 {

@@ -1172,9 +1172,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkq-WA-rBk">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Zg-gee" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Zg-gee" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -1245,9 +1245,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-WI-yI2">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-XZ-9ee" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-XZ-9ee" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -1311,9 +1311,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-Hl-Ng1">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-HL-UP9" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Sub Category" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-HL-UP9" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -2261,7 +2261,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="Fuy-kZ-sKn"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="18"/>
                                                             <color key="textColor" red="0.1803921568627451" green="0.28235294117647058" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -2270,7 +2270,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="xWy-AH-NyC"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="12"/>
                                                             <color key="textColor" red="0.18039215689999999" green="0.28235294119999998" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
