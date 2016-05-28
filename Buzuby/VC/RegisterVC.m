@@ -13,13 +13,15 @@
 
 
 
-@interface RegisterVC ()<ServerResponseDelegate>
+@interface RegisterVC ()<ServerResponseDelegate, NIDropDownDelegate>
 {
     NSString *lati,*longi;
     float longitudeLabel,latitudeLabel;
     UIActivityIndicatorView *actt;
     
+    NSArray *dayArray, *monthAray, *yearArray;
     
+    NSString *SelectedStr;
 }
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldFirstName;
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldLastName;
@@ -44,7 +46,12 @@
 - (IBAction)onClickGPSButton:(id)sender;
 - (IBAction)onClickNextButton:(id)sender;
 
-
+- (IBAction)onClickYearButton:(id)sender;
+- (IBAction)onClickdayButton:(id)sender;
+- (IBAction)onClickMonthButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *btnDay;
+@property (weak, nonatomic) IBOutlet UIButton *btnMonth;
+@property (weak, nonatomic) IBOutlet UIButton *btnYear;
 
 @end
 
@@ -54,9 +61,52 @@
     [super viewDidLoad];
     
     lati=longi=nil;
+    
+    dayArray = [self day];
+    
+    monthAray = [self month];
+    
+    yearArray = [self year];
+
+    
+    
     [self.navigationItem setTitle:@"Register"];
     // Do any additional setup after loading the view.
 }
+
+-(NSArray *)day
+{
+    NSMutableArray *temp = [NSMutableArray array];
+    for(int i = 1; i<32; i++)
+    {
+        [temp addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    
+    return temp;
+}
+
+-(NSArray *)month
+{
+    NSMutableArray *temp = [NSMutableArray array];
+    for(int i = 1; i<13; i++)
+    {
+        [temp addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    
+    
+    return temp;
+}
+
+-(NSArray *)year
+{
+    NSMutableArray *temp = [NSMutableArray array];
+    for(int i = 1990; i<2017; i++)
+    {
+        [temp addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    return temp;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -252,6 +302,24 @@
     }
 }
 
+- (IBAction)onClickYearButton:(id)sender
+{
+    SelectedStr = @"year";
+    [self openDropdown:yearArray withSender:sender withDir:@"down"];
+}
+
+- (IBAction)onClickdayButton:(id)sender
+{
+    SelectedStr = @"day";
+    [self openDropdown:dayArray withSender:sender withDir:@"down"];
+}
+
+- (IBAction)onClickMonthButton:(id)sender
+{
+    SelectedStr = @"month";
+    [self openDropdown:monthAray withSender:sender withDir:@"down"];
+}
+
 
 
 
@@ -390,6 +458,42 @@
     }
 }
 
+-(void)rel{
+    //    [dropDown release];
+    dropDown = nil;
+}
 
+-(void)openDropdown:(NSArray*)array withSender:(id)sender withDir:(NSString *)dir
+{
+    if(dropDown == nil) {
+        CGFloat f = 132;
+        dropDown = [[NIDropDown alloc]showDropDown:sender :&f :array :nil :dir];
+        dropDown.delegate = self;
+    }
+    else {
+        [dropDown hideDropDown:sender];
+        [self rel];
+    }
+}
+
+- (void) niDropDownDelegateMethod: (NIDropDown *) sender withData:(id)Data_ {
+    [self rel];
+    
+    if ([Data_ isKindOfClass:[NSString class]])
+    {
+        if([SelectedStr isEqualToString:@"day"])
+        {
+            [self.btnDay setTitle:Data_ forState:UIControlStateNormal];
+        }
+        else if([Data_ isEqualToString:@"month"])
+        {
+            [self.btnMonth setTitle:Data_ forState:UIControlStateNormal];
+        }
+        else if([Data_ isEqualToString:@"year"])
+        {
+            [self.btnYear setTitle:Data_ forState:UIControlStateNormal];
+        }
+    }
+}
 
 @end

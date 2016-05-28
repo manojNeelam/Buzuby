@@ -25,7 +25,9 @@
     float longitudeLabel,latitudeLabel;
     UIActivityIndicatorView *actt;
     
-    NSArray *commonList, *currencyList;
+    NSString *selectedStr;
+    
+    NSArray *commonList, *currencyList, *radiusList;
 }
 @end
 
@@ -46,6 +48,7 @@
     
     currencyList = [[NSArray alloc] initWithObjects:@"dollar",@"euro", @"rand", nil];
     
+    radiusList = [[NSArray alloc] initWithObjects:@"5",@"10",@"15",@"20",@"25",@"30",@"35", @"40", @"45", @"50", @"55", nil];
     
     commonTblView = [[UITableView alloc] init];
     [commonTblView setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
@@ -224,21 +227,25 @@
 
 - (IBAction)onClickSubcategoryButton:(id)sender
 {
+    selectedStr = nil;
     [self makeRequestgetSubCategoryByCategoryId];
 }
 
 - (IBAction)onCllickCategoryButton:(id)sender
 {
+    selectedStr = nil;
     [self openDropdown:catList withSender:sender withDir:@"down"];
 }
 
 - (IBAction)onClickSubSubCategoryButton:(id)sender
 {
+    selectedStr = nil;
     [self makeRequestgetSubSubCategoryBySubCategoryId];
 }
 
 - (IBAction)onClickPriceButton:(id)sender
 {
+    selectedStr = @"price";
     [self openDropdown:currencyList withSender:self.btnPrice withDir:@"up"];
 }
 
@@ -336,7 +343,15 @@
     }
     else if ([Data_ isKindOfClass:[NSString class]])
     {
-        [self.btnPrice setTitle:Data_ forState:UIControlStateNormal];
+        if([selectedStr isEqualToString:@"currency"])
+        {
+            [self.btnPrice setTitle:Data_ forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.btnRadius setTitle:Data_ forState:UIControlStateNormal];
+
+        }
     }
 }
 
@@ -457,8 +472,6 @@
              [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];
              }*/
         }
-        
-        
     }
 }
 
@@ -517,4 +530,9 @@
     [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
 }
 
+- (IBAction)onClickRadiusButton:(id)sender
+{
+    selectedStr = @"currency";
+    [self openDropdown:radiusList withSender:self.btnRadius withDir:@"down"];
+}
 @end

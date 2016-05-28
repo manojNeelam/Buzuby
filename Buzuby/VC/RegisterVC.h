@@ -8,8 +8,12 @@
 
 #import "BaseViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "NIDropDown.h"
+
+
 @interface RegisterVC : BaseViewController<CLLocationManagerDelegate>
 {
+    NIDropDown *dropDown;
     CLLocationManager *locationManager;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;

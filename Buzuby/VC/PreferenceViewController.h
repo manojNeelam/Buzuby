@@ -15,6 +15,8 @@
     CLLocationManager *locationManager;
 }
 @property (nonatomic, assign) BOOL isFromSettings;
+@property (weak, nonatomic) IBOutlet UIButton *btnRadius;
+- (IBAction)onClickRadiusButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldCatOption;
 @property (weak, nonatomic) IBOutlet DefaultTextField *txtFldRadiusOption;
