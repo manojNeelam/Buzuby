@@ -53,7 +53,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fromPreference"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"toPop"];
 
     [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
 }

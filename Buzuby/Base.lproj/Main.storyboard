@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tpz-BH-SXP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tpz-BH-SXP">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -2189,7 +2189,9 @@
                         <outlet property="btnRadius" destination="g2e-Af-HNU" id="df5-3Y-aNp"/>
                         <outlet property="btnSubSubCategory" destination="izR-Tl-jUl" id="feU-W0-irR"/>
                         <outlet property="btnSubcategory" destination="XR4-pS-53e" id="Pxf-Ax-SfG"/>
+                        <outlet property="endPrice" destination="dQQ-Jm-EEd" id="0na-pA-2Wt"/>
                         <outlet property="scrollView" destination="4En-np-E7L" id="cX9-cG-o0P"/>
+                        <outlet property="startPrice" destination="Wet-6L-Kmu" id="TS5-WF-ecY"/>
                         <outlet property="txtFldCatOption" destination="XzW-PX-XSH" id="KDA-Ua-zfV"/>
                     </connections>
                 </viewController>

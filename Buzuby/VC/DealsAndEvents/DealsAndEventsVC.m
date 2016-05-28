@@ -67,18 +67,12 @@
 }
 
 
--(void)getDealsAndEventData
+-(void)getDealsAndEventDataByPrefernce
 {
     apiCounter=2;
-    NSMutableDictionary* paramDict =
-    [NSMutableDictionary dictionaryWithCapacity:1];
-    
-    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
-    [paramDict setObject:strToken forKey:@"token"];
-    
-    [paramDict setObject:@"getAdBanner" forKey:@"action"];
-    
-    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+
+    NSDictionary *dct=[[NSUserDefaults standardUserDefaults] objectForKey:@"prefernceData"];
+    [[ConnectionsManager sharedManager] getMyFaviroteData:dct withdelegate:self];
     
 }
 
@@ -171,6 +165,8 @@
                         
                         NSLog(@"make request for get deal and events on the basis of Preference");
                         
+                        [self getDealsAndEventDataByPrefernce];
+
                     }
                     else
                     {
@@ -191,8 +187,16 @@
         }
         else
         {
+            if([[params objectForKey:@"total_records"] intValue]==0)
+            {
+                UIAlertView *alt=[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"No Record Found" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                [alt show];
+            }
+            else
+            {
             dataArr=[params objectForKey:@"data"];
-            [_tableView reloadData];
+                [_tableView reloadData];
+            }
         }
         
     }
@@ -217,9 +221,18 @@ NSTimer *bannerTimer;
 
 -(void)onClickBackbutton:(id)sender
 {
+    NSLog(@"onClickBackbutton");
+
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"toPop"])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

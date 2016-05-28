@@ -73,9 +73,160 @@
 
     cell.btnDeals.tag=indexPath.row+3000;
     [cell.btnDeals addTarget:self action:@selector(eventClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+    [self drawStarOnView:cell.baseRatingView atIndex:indexPath.row forData:dct];
     return cell;
 }
+
+-(void)drawStarOnView:(UIView*)ratingView atIndex:(int)idx forData:(NSDictionary*)dct
+{
+    NSMutableArray *ratingArr=[[NSMutableArray alloc] init];
+    int n=[[dct objectForKey:@"rating"] intValue];
+    int i=0;
+    for(;i<n;i++)
+        [ratingArr addObject:@"1"];
+    for(;i<5;i++)
+        [ratingArr addObject:@"0"];
+
+    
+    float gap=(ratingView.frame.size.width-150)/6;
+    for(i=0;i<5;i++)
+    {
+        UIButton *bt=[[UIButton alloc] initWithFrame:CGRectMake((i+1)*gap+i*30, ratingView.frame.size.height/2-15, 30, 30)];
+        if([[ratingArr objectAtIndex:i] isEqualToString:@"0"])
+            [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+        else
+            [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+        
+        [ratingView addSubview:bt];
+        bt.tag=idx;
+        [bt addTarget:self action:@selector(drawStarOnPopView:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+}
+
+
+int userRating,userRating0;
+NSDictionary *dd;
+-(void)drawStarOnPopView:(UIButton*)bt
+{
+    int ind=bt.tag;
+    NSLog(@"drawStarOnPopView");
+    UIView *v=[[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:v];
+    UITapGestureRecognizer *tp=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startPopViewRemove:)];
+    [v addGestureRecognizer:tp];
+    
+    UIView *v2=[[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-50, 200, 100)];
+    [v addSubview:v2];
+    [v2 setBackgroundColor:[UIColor colorWithRed:192.0/255.0 green:98.0/255.0 blue:46.0/255.0 alpha:1]];
+    [[v2 layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [[v2 layer] setBorderWidth:2.0];
+    
+    NSDictionary *dct=[searchListArray objectAtIndex:ind];
+
+    dd=dct;
+    int n=[[dct objectForKey:@"ratingProvidedByUser"] intValue];
+    userRating=n;
+    userRating0=n;
+    NSMutableArray *ratingArr2=[[NSMutableArray alloc] init];
+
+    int i=0;
+    for(;i<n;i++)
+        [ratingArr2 addObject:@"1"];
+    for(;i<5;i++)
+        [ratingArr2 addObject:@"0"];
+    
+    
+    float gap=(200-150)/6;
+    for(i=0;i<5;i++)
+    {
+        UIButton *bt=[[UIButton alloc] initWithFrame:CGRectMake(i*30, 30, 30, 30)];
+        if([[ratingArr2 objectAtIndex:i] isEqualToString:@"0"])
+            [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+        else
+            [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+        
+        [v2 addSubview:bt];
+        bt.tag=i;
+        [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+-(void)startPopViewRemove:(UIGestureRecognizer*)rec
+{
+    [[rec view] removeFromSuperview];
+   /* int k=0;
+    for(NSString *s in ratingArr2)
+    {
+        if([s isEqualToString:@"1"])
+            k++;
+        
+    }
+    int n=[dt.ratingProvidedByUser intValue];
+    if(k!=n&&k>0)
+    {
+        NSLog(@"startPopViewRemove Update star view value");
+       [self sendAddRemoveRating:[NSString stringWithFormat:@"%d",k]];
+    }
+    */
+    if(userRating0!=userRating&&userRating>0)
+    {
+        NSLog(@"startPopViewRemove Update star view value");
+        [self sendAddRemoveRating:[NSString stringWithFormat:@"%d",userRating]];
+    }
+    
+    NSLog(@"startPopViewRemove Update star view value");
+
+    
+}
+
+- (void)sendAddRemoveRating:(NSString*)rating
+{
+    //token, userId, businessId, rating
+    
+    
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+    
+    
+    [paramDict setObject:rating forKey:@"rating"];
+    
+    [paramDict setObject:[dd objectForKey:@"businessId"] forKey:@"businessId"];
+
+    
+    [paramDict setObject:@"AddRatingToBusiness" forKey:@"action"];
+    
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
+}
+
+
+
+
+-(void)onStarClick:(UIButton*)bt
+{
+    if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
+    {
+        [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+       // [ratingArr2 replaceObjectAtIndex:n withObject:@"1"];
+        userRating++;
+        
+    }
+    else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+    {
+        [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+       // [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
+        
+        userRating--;
+    }
+}
+
 
 -(void)eventClicked:(UIButton*)bt
 {
@@ -83,6 +234,8 @@
     NSLog(@"favoriteClicked businessName=%@",[dct objectForKey:@"businessName"]);
     
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"fromPreference"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"toPop"];
+
     [[NSUserDefaults standardUserDefaults] setObject:[dct objectForKey:@"businessId"] forKey:@"dealsBusID"];
 
 
@@ -154,7 +307,6 @@ UIButton *btn;
  [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
  [ratingArr replaceObjectAtIndex:n withObject:@"0"];
  
- 
  }
  }*/
 
@@ -187,7 +339,6 @@ UIButton *btn;
     dt.rating=[d objectForKey:@"rating"];
     dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
     dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
-    
     
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     

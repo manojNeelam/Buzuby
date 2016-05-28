@@ -13,6 +13,7 @@
 #import "SubCategoryData.h"
 #import "SubSubCategoryData.h"
 #import "AppDelegate.h"
+#import "NSString+CommonForApp.h"
 
 @interface PreferenceViewController () <NIDropDownDelegate, ServerResponseDelegate,UITableViewDataSource, UITableViewDelegate>
 {
@@ -28,11 +29,23 @@
     NSString *selectedStr;
     
     NSArray *commonList, *currencyList, *radiusList;
+    
 }
 @end
 
 @implementation PreferenceViewController
 @synthesize isFromSettings;
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSString *str=[[NSUserDefaults standardUserDefaults] objectForKey:@"locationPoint"];
+    if(str!=nil)
+        _txtFldCatOption.text=str;
+    [_txtFldCatOption setUserInteractionEnabled:NO];
+    [self.startPrice setKeyboardType:UIKeyboardTypeNumberPad];
+    [self.endPrice setKeyboardType:UIKeyboardTypeNumberPad];
+    
+    
+}
 
 
 - (void)viewDidLoad {
@@ -181,46 +194,104 @@
 }
 */
 
+-(BOOL)isValidData
+{
+    
+    if([self.txtFldCatOption.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please Press Gps Icon to get Location" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+   
+    if([self.startPrice.text isEmpty]||[self.endPrice.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter Price" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    
+    
+    return YES;
+}
+
+
+
 - (IBAction)onClickNextButton:(id)sender
 {
-   // resultForApi=4;
-    NSMutableDictionary* paramDict =
-    [NSMutableDictionary dictionaryWithCapacity:1];
     
-    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
-    [paramDict setObject:strToken forKey:@"token"];
+    if([self isValidData])
+    {
+        // resultForApi=4;
+        NSMutableDictionary* paramDict =
+        [NSMutableDictionary dictionaryWithCapacity:1];
+        
+        NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+        [paramDict setObject:strToken forKey:@"token"];
+        
+        NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+        [paramDict setObject:strUserId forKey:@"userId"];
+        
+        
+        if([[self.btnCategoryOption titleForState:UIControlStateNormal] isEqualToString:@"All"])
+        {
+            [paramDict setObject:@"0" forKey:@"categoryId"];
+            [paramDict setObject:@"0" forKey:@"subCategoryId"];
+            [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+        }
+        else
+        {
+            [paramDict setObject:[self.btnCategoryOption titleForState:UIControlStateNormal] forKey:@"categoryId"];
+            
+            if([[self.btnSubcategory titleForState:UIControlStateNormal] isEqualToString:@"All"])
+                [paramDict setObject:@"0" forKey:@"subCategoryId"];
+            else
+                [paramDict setObject:[self.btnSubcategory titleForState:UIControlStateNormal] forKey:@"subCategoryId"];
+            
+            if([[self.btnSubSubCategory titleForState:UIControlStateNormal] isEqualToString:@"All"])
+                [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
+            else
+                [paramDict setObject:[self.btnSubSubCategory titleForState:UIControlStateNormal] forKey:@"subSubCategoryId"];
+            
+        }
+        
+        
+        
+        [paramDict setObject:[[_txtFldCatOption.text componentsSeparatedByString:@","] objectAtIndex:0] forKey:@"latitude"];
+        [paramDict setObject:[[_txtFldCatOption.text componentsSeparatedByString:@","] objectAtIndex:1] forKey:@"longitude"];
+        [paramDict setObject:[self.btnRadius titleForState:UIControlStateNormal] forKey:@"radius"];
+        [paramDict setObject:[self.btnPrice titleForState:UIControlStateNormal] forKey:@"currencySymbol"];
+        [paramDict setObject:self.startPrice.text forKey:@"priceFrom"];
+        [paramDict setObject:self.endPrice.text forKey:@"priceTo"];
+        
+        
+        [paramDict setObject:@"getDealEventsByPreference" forKey:@"action"];
+        
+        NSLog(@"onClickNextButton paramDict=%@",paramDict);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:paramDict forKey:@"prefernceData"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"toPop"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"preferenceSet"];
+        
+        
+        
+        //[[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+        
+        
+        UIViewController *dealsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DealsAndEventsVC_SB_ID"];
+        [self.navigationController pushViewController:dealsvc animated:YES];
+        
+        
+        
+    }
+    //  token, userId, latitude, longitude, radius, categoryId, subCategoryId, subSubCategoryId, currencySymbol, priceFrom, priceTo
     
-    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    [paramDict setObject:strUserId forKey:@"userId"];
     
-    
-    [paramDict setObject:@"0" forKey:@"categoryId"];
-    [paramDict setObject:@"0" forKey:@"subCategoryId"];
-    [paramDict setObject:@"0" forKey:@"subSubCategoryId"];
-    
-    
-    [paramDict setObject:@"28.53423432" forKey:@"latitude"];
-    [paramDict setObject:@"-122.323223" forKey:@"longitude"];
-    [paramDict setObject:@"1000" forKey:@"radius"];
-    [paramDict setObject:@"USD" forKey:@"currencySymbol"];
-    [paramDict setObject:@"0" forKey:@"priceFrom"];
-    [paramDict setObject:@"2500" forKey:@"priceTo"];
-
-    
-    
-    [paramDict setObject:@"getDealEventsByPreference" forKey:@"action"];
-    
-    NSLog(@"onClickNextButton paramDict=%@",paramDict);
-    
-    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
-    
-    
-  //  token, userId, latitude, longitude, radius, categoryId, subCategoryId, subSubCategoryId, currencySymbol, priceFrom, priceTo
-
-    
-  /*  radius is the area in which you have to lookup while selecting deals and events.
-        currecySymbol would be string with possible value of dollar, euro,rand for now
-            categoryId, subCategoryId and subSubCategoryId would be 0 if user has selcted All in dropdown.*/
+    /*  radius is the area in which you have to lookup while selecting deals and events.
+     currecySymbol would be string with possible value of dollar, euro,rand for now
+     categoryId, subCategoryId and subSubCategoryId would be 0 if user has selcted All in dropdown.*/
     //  UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
     //  [self.navigationController pushViewController:vc animated:YES];
 }
@@ -245,6 +316,7 @@
 
 - (IBAction)onClickPriceButton:(id)sender
 {
+    NSLog(@"onClickPriceButton");
     selectedStr = @"price";
     [self openDropdown:currencyList withSender:self.btnPrice withDir:@"up"];
 }
