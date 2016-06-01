@@ -60,7 +60,10 @@
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
         
     }
-    
+    else
+    {
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbuttonFromPush:)]];
+    }
     // Do any additional setup after loading the view.
     
     resultForApi=1;  //1 for catlist,2 for sub cat list 3 for subsub cat list
@@ -150,6 +153,11 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+-(void)onClickBackbuttonFromPush:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

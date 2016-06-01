@@ -1662,18 +1662,19 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNX-7D-Xqp">
                                                 <rect key="frame" x="212" y="5" width="162" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Options" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzW-PX-XSH" customClass="DefaultTextField">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Options" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RaR-Tl-kHS">
                                                         <rect key="frame" x="0.0" y="0.0" width="162" height="50"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="XzW-PX-XSH" secondAttribute="bottom" id="NmU-YI-UJc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="XzW-PX-XSH" secondAttribute="trailing" id="Oa6-iP-nRQ"/>
-                                                    <constraint firstItem="XzW-PX-XSH" firstAttribute="top" secondItem="xNX-7D-Xqp" secondAttribute="top" id="S2o-sw-AI4"/>
-                                                    <constraint firstItem="XzW-PX-XSH" firstAttribute="leading" secondItem="xNX-7D-Xqp" secondAttribute="leading" id="xbx-bo-4W0"/>
+                                                    <constraint firstItem="RaR-Tl-kHS" firstAttribute="top" secondItem="xNX-7D-Xqp" secondAttribute="top" id="52q-wn-AaS"/>
+                                                    <constraint firstAttribute="bottom" secondItem="RaR-Tl-kHS" secondAttribute="bottom" id="DBm-RM-ljD"/>
+                                                    <constraint firstItem="RaR-Tl-kHS" firstAttribute="leading" secondItem="xNX-7D-Xqp" secondAttribute="leading" id="lRs-tX-4zl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RaR-Tl-kHS" secondAttribute="trailing" id="udq-uB-rzH"/>
                                                 </constraints>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catogery.png" translatesAutoresizingMaskIntoConstraints="NO" id="paQ-Zc-pA2">
@@ -2192,7 +2193,7 @@
                         <outlet property="endPrice" destination="dQQ-Jm-EEd" id="0na-pA-2Wt"/>
                         <outlet property="scrollView" destination="4En-np-E7L" id="cX9-cG-o0P"/>
                         <outlet property="startPrice" destination="Wet-6L-Kmu" id="TS5-WF-ecY"/>
-                        <outlet property="txtFldCatOption" destination="XzW-PX-XSH" id="KDA-Ua-zfV"/>
+                        <outlet property="txtFldCatOption" destination="RaR-Tl-kHS" id="Y82-bs-nO5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0q-Rz-PeW" userLabel="First Responder" sceneMemberID="firstResponder"/>

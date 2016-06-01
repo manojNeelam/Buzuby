@@ -21,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnRadius;
 - (IBAction)onClickRadiusButton:(id)sender;
 
-@property (weak, nonatomic) IBOutlet DefaultTextField *txtFldCatOption;
-@property (weak, nonatomic) IBOutlet DefaultTextField *txtFldRadiusOption;
+@property (weak, nonatomic) IBOutlet UITextView *txtFldCatOption;
+@property (weak, nonatomic) IBOutlet UITextView *txtFldRadiusOption;
 @property (weak, nonatomic) IBOutlet UIButton *btnCategoryOption;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;

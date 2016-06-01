@@ -30,6 +30,8 @@
     
     NSLog(@"SearchDetailVC viewDidLoad");
 
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backButton"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickBackbutton:)]];
+    
 }
 - (IBAction)onClickSearchbutton:(id)sender {
     NSLog(@"SearchDetailVC onClickSearchbutton");
@@ -164,6 +166,11 @@ NSDictionary *dd;
     NSLog(@"startPopViewRemove Update star view value");
 
     
+}
+
+-(void)onClickBackbutton:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)sendAddRemoveRating:(NSString*)rating
