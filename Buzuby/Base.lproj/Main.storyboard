@@ -3178,6 +3178,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-qA-PXg">
                                         <rect key="frame" x="20" y="447" width="280" height="81"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaR-MX-DaS">
+                                                <rect key="frame" x="0.0" y="50" width="280" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="Vx7-wC-ccm"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOI-vT-qjb">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
                                                 <subviews>
@@ -3199,25 +3205,16 @@
                                                     <constraint firstAttribute="height" constant="40" id="t2Z-xQ-qT7"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no data available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-nb-00z">
-                                                <rect key="frame" x="20" y="50" width="240" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="KGO-In-lc9"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="T5O-nb-00z" firstAttribute="leading" secondItem="qXX-qA-PXg" secondAttribute="leading" constant="20" id="8QM-eR-yo8"/>
-                                            <constraint firstAttribute="trailing" secondItem="T5O-nb-00z" secondAttribute="trailing" constant="20" id="FVc-dC-F1b"/>
                                             <constraint firstAttribute="trailing" secondItem="kOI-vT-qjb" secondAttribute="trailing" id="Ig1-b5-ZeB"/>
                                             <constraint firstItem="kOI-vT-qjb" firstAttribute="top" secondItem="qXX-qA-PXg" secondAttribute="top" id="R8u-kM-eFP"/>
+                                            <constraint firstAttribute="trailing" secondItem="JaR-MX-DaS" secondAttribute="trailing" id="XuX-sW-d1G"/>
                                             <constraint firstItem="kOI-vT-qjb" firstAttribute="leading" secondItem="qXX-qA-PXg" secondAttribute="leading" id="f61-7Z-UUn"/>
+                                            <constraint firstItem="JaR-MX-DaS" firstAttribute="top" secondItem="kOI-vT-qjb" secondAttribute="bottom" constant="10" id="gte-Ah-pzy"/>
+                                            <constraint firstItem="JaR-MX-DaS" firstAttribute="leading" secondItem="qXX-qA-PXg" secondAttribute="leading" id="jFb-al-XOH"/>
                                             <constraint firstAttribute="height" constant="81" id="sqc-IU-nqP"/>
-                                            <constraint firstItem="T5O-nb-00z" firstAttribute="top" secondItem="kOI-vT-qjb" secondAttribute="bottom" constant="10" id="zGT-8z-SW5"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLl-Iw-8Bh">
@@ -3771,6 +3768,8 @@
                         <outlet property="aboutusHolderView" destination="foE-J7-DtN" id="ywA-EF-o78"/>
                         <outlet property="bannerImage" destination="A3s-B3-ypq" id="0dK-yR-eYA"/>
                         <outlet property="baseAboutUSView" destination="foz-GU-vAZ" id="RGI-K5-7f1"/>
+                        <outlet property="baseAminitesHeight_Cons" destination="sqc-IU-nqP" id="Lo1-Et-Lz0"/>
+                        <outlet property="baseAminitesValueHeight_Cons" destination="Vx7-wC-ccm" id="CV8-Ze-UJt"/>
                         <outlet property="baseAminitiView" destination="qXX-qA-PXg" id="vkJ-EQ-ywa"/>
                         <outlet property="baseBottomView" destination="90N-ha-blF" id="Zgg-MV-Yi2"/>
                         <outlet property="baseContactView" destination="b1J-2S-FkX" id="qGD-Lv-0jl"/>
@@ -3790,6 +3789,7 @@
                         <outlet property="baseThursdayView" destination="4Hj-XT-xOz" id="Dnf-KJ-4rD"/>
                         <outlet property="baseTuesdayView" destination="kyZ-Tt-7hE" id="boN-uU-yfG"/>
                         <outlet property="baseWednesdayView" destination="Ha5-V8-J7k" id="pw9-C5-Beb"/>
+                        <outlet property="baseaminitiesValueView" destination="JaR-MX-DaS" id="Ifn-rX-sks"/>
                         <outlet property="btnRemoveFromFav" destination="mhN-F8-tCP" id="AZA-La-Qab"/>
                         <outlet property="consBannerBaseHeight" destination="MVg-3x-5Uc" id="ynQ-eH-NHX"/>
                         <outlet property="consBannerImage" destination="eye-eH-jIc" id="sk9-wG-TkX"/>
@@ -3800,7 +3800,6 @@
                         <outlet property="imgLink" destination="tts-oi-fJT" id="2Qo-0j-gIC"/>
                         <outlet property="imgLoc" destination="Tyy-nn-mjy" id="YvO-XF-0zc"/>
                         <outlet property="lblAdvertise" destination="i8k-Ya-VnG" id="MXa-Si-XEU"/>
-                        <outlet property="lblAminiti" destination="T5O-nb-00z" id="EVa-f1-8AV"/>
                         <outlet property="lblAminitiTitle" destination="3r8-Qb-b2M" id="3he-ga-DhW"/>
                         <outlet property="lblAvertise" destination="c8h-ML-077" id="175-NM-3km"/>
                         <outlet property="lblContact" destination="Fpz-zy-qKx" id="fcH-h5-gLZ"/>

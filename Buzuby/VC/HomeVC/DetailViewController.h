@@ -106,5 +106,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *consBannerImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *consBannerBaseHeight;
+@property (weak, nonatomic) IBOutlet UIView *baseaminitiesValueView;
 
 @end

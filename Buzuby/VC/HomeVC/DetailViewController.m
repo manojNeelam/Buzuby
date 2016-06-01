@@ -18,6 +18,8 @@
     NSMutableArray *ratingArr2;
     AppDelegate *appdeligate;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *baseAminitesHeight_Cons;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *baseAminitesValueHeight_Cons;
 @end
 
 @implementation DetailViewController
@@ -94,7 +96,38 @@
     
     _lblAdvertise.text=[NSString stringWithFormat:@"%@",dt.specialize_in];
     _lblAvertise.text=[NSString stringWithFormat:@"%@",dt.province]; //about Us
+    
+    
+    
     _lblAminiti.text=[NSString stringWithFormat:@"%@",dt.amenities];
+    
+    NSArray *aminities = [dt.amenities componentsSeparatedByString:@","];
+    
+    if(aminities.count)
+    {
+        //ddd
+        self.baseAminitesHeight_Cons.constant = 81+(aminities.count-1)*25;
+        
+        self.baseAminitesValueHeight_Cons.constant = aminities.count*25;
+        
+        CGRect frame = CGRectMake(0, 5, 280, 21);
+        for(NSString *str in aminities)
+        {
+            UILabel *lbl = [[UILabel alloc] initWithFrame:frame];
+            [lbl setText:[NSString stringWithFormat:@"<< %@", str]];
+            [lbl setTextColor:[UIColor whiteColor]];
+            [lbl setFont:[UIFont systemFontOfSize:09.0f]];
+            [self.baseaminitiesValueView addSubview:lbl];
+            
+            CGRect frameSub = frame;
+            frameSub.origin.y = frameSub.origin.y + frameSub.size.height + 2;
+            frame = frameSub;
+        }
+        
+        [self.view layoutIfNeeded];
+    }
+    
+    
     _lblLocation.text=[NSString stringWithFormat:@"%@",dt.address];  //address
     _lblContact.text=[NSString stringWithFormat:@"%@",dt.phone];  //address
     _lblLink.text=[NSString stringWithFormat:@"%@",dt.website_link];  //address
