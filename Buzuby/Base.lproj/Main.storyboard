@@ -1172,9 +1172,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkq-WA-rBk">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Zg-gee" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Zg-gee" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -1245,9 +1245,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-WI-yI2">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-XZ-9ee" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Category" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-XZ-9ee" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -1311,9 +1311,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-Hl-Ng1">
                                                 <rect key="frame" x="40" y="5" width="143" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Sub Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-HL-UP9" customClass="DefaultTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sub Sub Category" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-HL-UP9" customClass="DefaultTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -1689,7 +1689,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="Q9r-dn-rOg"/>
                                                     <constraint firstAttribute="width" constant="20" id="gFK-v3-c6Y"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="catogery.png"/>
+                                                <state key="normal" backgroundImage="GPSIcon.png"/>
                                                 <connections>
                                                     <action selector="onClickLocationButon:" destination="fDr-zf-k24" eventType="touchUpInside" id="yqu-Bn-Pdp"/>
                                                 </connections>
@@ -1932,7 +1932,7 @@
                                                     <constraint firstAttribute="width" constant="68" id="zmK-gi-gnM"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catogery.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8W-xi-qNL">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8W-xi-qNL">
                                                 <rect key="frame" x="5" y="27" width="25" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="UBo-W9-doD"/>
@@ -2011,7 +2011,7 @@
                                                     <constraint firstAttribute="height" constant="49" id="OMS-6y-nW5"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catogery.png" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-u9-7hf">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-u9-7hf">
                                                 <rect key="frame" x="5" y="27" width="25" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="pB3-X4-Wyi"/>
@@ -2261,7 +2261,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="Fuy-kZ-sKn"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="18"/>
                                                             <color key="textColor" red="0.1803921568627451" green="0.28235294117647058" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -2270,7 +2270,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="xWy-AH-NyC"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="12"/>
                                                             <color key="textColor" red="0.18039215689999999" green="0.28235294119999998" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -4261,6 +4261,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DollerIcon.png" width="83" height="85"/>
+        <image name="GPSIcon.png" width="113" height="105"/>
         <image name="Rbttn_seprater.png" width="8" height="124"/>
         <image name="catogery.png" width="76" height="50"/>
         <image name="earth.png" width="20" height="20"/>

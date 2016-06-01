@@ -101,14 +101,30 @@
     
     
     
-    //lblLocation
     
-    //lblContact
-    //lblLink
-    //
+    _lblMonStartTime.text=[[dt.operatingTimeArray objectAtIndex:0] objectForKey:@"startTime"];
+    _lblMonEndTime.text=[[dt.operatingTimeArray objectAtIndex:0] objectForKey:@"endTime"];
+
+    _lblTueTitle.text=[[dt.operatingTimeArray objectAtIndex:1] objectForKey:@"startTime"];
+    _lblTueTitle.text=[[dt.operatingTimeArray objectAtIndex:1] objectForKey:@"endTime"];
+
+    _lblWedStartTime.text=[[dt.operatingTimeArray objectAtIndex:2] objectForKey:@"startTime"];
+    _lblWedEndTime.text=[[dt.operatingTimeArray objectAtIndex:2] objectForKey:@"endTime"];
+
+    _lblThurStartTime.text=[[dt.operatingTimeArray objectAtIndex:3] objectForKey:@"startTime"];
+    _lblThurEndTime.text=[[dt.operatingTimeArray objectAtIndex:3] objectForKey:@"endTime"];
+
+    _lblFriStartTime.text=[[dt.operatingTimeArray objectAtIndex:4] objectForKey:@"startTime"];
+    _lblFriEndTime.text=[[dt.operatingTimeArray objectAtIndex:4] objectForKey:@"endTime"];
+
+    _lblSatStartTime.text=[[dt.operatingTimeArray objectAtIndex:5] objectForKey:@"startTime"];
+    _lblSatEndTime.text=[[dt.operatingTimeArray objectAtIndex:5] objectForKey:@"endTime"];
+
+    _lblSunStartTime.text=[[dt.operatingTimeArray objectAtIndex:6] objectForKey:@"startTime"];
+    _lblSunEndTime.text=[[dt.operatingTimeArray objectAtIndex:6] objectForKey:@"endTime"];
+
     
-    
-    
+   
     
     //  _lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
     
@@ -147,7 +163,7 @@
         
     }
     int n=[dt.ratingProvidedByUser intValue];
-    if(k!=n&&k>0)
+    if(k!=n)
     {
         NSLog(@"startPopViewRemove Update star view value");
         [self sendAddRemoveRating:[NSString stringWithFormat:@"%d",k]];
@@ -215,7 +231,7 @@
             [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
         
         [v2 addSubview:bt];
-        bt.tag=i;
+        bt.tag=i+1;
         [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
@@ -223,6 +239,50 @@
 
 
 
+-(void)onStarClick:(UIButton*)bt
+{
+    int n=(int)bt.tag;
+    
+    if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+    {
+        for(int i=n-1;i<5;i++)
+        {
+            UIButton *bt1=(UIButton*)[bt.superview viewWithTag:i+1];
+            if([[bt1 backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+            {
+                [ bt1 setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+                [ratingArr2 replaceObjectAtIndex:i withObject:@"0"];
+            }
+            
+            
+        }
+        //[ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+       // [ratingArr2 replaceObjectAtIndex:n-1 withObject:@"0"];
+        
+    }
+    else
+    {
+        for(int i=0;i<n;i++)
+        {
+        UIButton *bt1=(UIButton*)[bt.superview viewWithTag:i+1];
+    if([[bt1 backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
+    {
+        [ bt1 setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+        [ratingArr2 replaceObjectAtIndex:i withObject:@"1"];
+    }
+   /* else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+    {
+        [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+        [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
+        
+        
+    }*/
+            
+        }
+    }
+}
+
+/*
 -(void)onStarClick:(UIButton*)bt
 {
     int n=(int)bt.tag;
@@ -239,7 +299,10 @@
         
         
     }
-}
+}*/
+
+
+
 -(void)onClickBackbutton:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -304,6 +367,30 @@ UIButton *btn2;
     self.baseDaysView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.baseDaysView.layer.borderWidth = 1.0f;
     
+    UITapGestureRecognizer *tapRecognizermail = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(openMail)];
+    [tapRecognizermail setNumberOfTouchesRequired:1];
+    [self.lblLocation addGestureRecognizer:tapRecognizermail];
+    [self.lblLocation setUserInteractionEnabled:YES];
+    tapRecognizermail=nil;
+    
+    UITapGestureRecognizer *tapRecognizerWeb = [[UITapGestureRecognizer alloc]
+                                                 initWithTarget:self action:@selector(openWeb)];
+    [tapRecognizerWeb setNumberOfTouchesRequired:1];
+    [self.lblLink addGestureRecognizer:tapRecognizerWeb];
+    [self.lblLink setUserInteractionEnabled:YES];
+    tapRecognizerWeb=nil;
+
+    UITapGestureRecognizer *tapRecognizerPhone = [[UITapGestureRecognizer alloc]
+                                                 initWithTarget:self action:@selector(makeCallTO)];
+    [tapRecognizerPhone setNumberOfTouchesRequired:1];
+    [self.lblContact addGestureRecognizer:tapRecognizerPhone];
+    [self.lblContact setUserInteractionEnabled:YES];
+    tapRecognizerPhone=nil;
+
+    
+    
+    
 }
 
 -(void)success:(id)response
@@ -355,7 +442,7 @@ UIButton *btn2;
             dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
             dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
             
-            dt.busId=[d objectForKey:@"businessId"];
+            dt.busId=[d objectForKey:@"id"];
             dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
             dt.rangeTo=[d objectForKey:@"priceRangeTo"];
             dt.currencySymbol=[d objectForKey:@"currencySymbol"];
@@ -394,6 +481,8 @@ UIButton *btn2;
             dt.website_link=[d objectForKey:@"website_link"];
             dt.account_number=[d objectForKey:@"account_number"];
             dt.operatingTimeArray=[d objectForKey:@"operatingTime"];
+            
+            
            [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
             
         }
@@ -419,7 +508,8 @@ UIButton *btn2;
     NSLog(@"fail at detail");
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -430,6 +520,98 @@ UIButton *btn2;
     [self.scrollView setBounces:NO];
     
 }
+
+
+
+-(void)openMail
+{
+    if(dt.address!=nil)
+    {
+    
+    [self displayMailComposerSheet:dt.address Subj:@" " theText:@" "];
+    }
+    
+}
+-(void)displayMailComposerSheet:(NSString*)torecipient Subj:(NSString*)tosub theText:(NSString*)totext
+{
+    if([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+        picker.mailComposeDelegate = self;
+        [picker setToRecipients:[torecipient componentsSeparatedByString:@"\n"]];
+        [picker setSubject:tosub];
+        [picker setMessageBody:totext isHTML:NO];
+        [self presentViewController:picker animated:YES completion:nil];
+        picker=nil;
+        
+    }
+    else
+    {
+        UIAlertView *alt=[[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Unable To Send Mail! Please Configure At Least One Mail Account" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alt show];
+    }
+}
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Result: Mail sending canceled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Result: Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog( @"Result: Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Result: Mail sending failed");
+            break;
+        default:
+            NSLog(@"Result: Mail not sent");
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+-(void)openWeb
+{
+    if(dt.website_link!=nil)
+    {
+        NSLog(@"in open web yes");
+    NSURL *facebookURL = [NSURL URLWithString:dt.website_link];
+    if ([[UIApplication sharedApplication] canOpenURL:facebookURL])
+    {
+        NSLog(@"can open given url");
+        [[UIApplication sharedApplication] openURL:facebookURL];
+    }
+        else
+            NSLog(@"in can open web No sorry");
+
+        
+    }
+    else
+        NSLog(@"in open web No");
+
+}
+
+
+-(void)makeCallTO
+{
+    if(dt.address!=nil)
+    {
+        
+        NSLog(@"open dilar to call =%@",dt.phone);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",dt.phone]]];
+    }
+
+}
+
+
 
 /*
  #pragma mark - Navigation

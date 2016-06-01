@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     [self.navigationItem setTitle:@"Event & Deals"];
-    
+    [_btnsEARCH setHidden:YES];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];

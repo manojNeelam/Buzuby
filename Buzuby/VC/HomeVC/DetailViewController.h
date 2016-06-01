@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *baseImgTitleHolder;
@@ -95,13 +96,13 @@
 @property (weak, nonatomic) IBOutlet UIView *baseLociew;
 @property (weak, nonatomic) IBOutlet UIImageView *imgLoc;
 @property (weak, nonatomic) IBOutlet UILabel *lblLocation;
+@property (weak, nonatomic) IBOutlet UILabel *lblLink;
+@property (weak, nonatomic) IBOutlet UILabel *lblContact;
 
 @property (weak, nonatomic) IBOutlet UIView *baseContactView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgContact;
-@property (weak, nonatomic) IBOutlet UILabel *lblContact;
 @property (weak, nonatomic) IBOutlet UIView *baseLinkView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgLink;
-@property (weak, nonatomic) IBOutlet UILabel *lblLink;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *consBannerImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *consBannerBaseHeight;

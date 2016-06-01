@@ -19,7 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //[self showLoginVC];
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]!=nil)
+    [self showHomeVC];
     
     
     return YES;

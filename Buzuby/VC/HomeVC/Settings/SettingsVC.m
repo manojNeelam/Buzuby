@@ -138,6 +138,12 @@
     
     if(indexPath.section == 1)
     {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userName"];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userId"];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"token"];
+        
+
+        
         AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         [delegate showLoginVC];
     }
