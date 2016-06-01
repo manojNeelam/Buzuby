@@ -122,6 +122,9 @@
     
     cell.lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
     
+    cell.btnDelete.tag=indexPath.row+2000;
+    [cell.btnDelete addTarget:self action:@selector(favoriteClicked:) forControlEvents:UIControlEventTouchUpInside];
+
     return cell;
 }
 
@@ -151,6 +154,33 @@
         [self.tableView setHidden:YES];
         return 0;
     }
+}
+
+
+-(void)favoriteClicked:(UIButton*)bt
+{
+  //  NSDictionary *dct=[list objectAtIndex:bt.tag-2000];
+    HomeData *dt=[list objectAtIndex:bt.tag-2000];
+
+    NSLog(@"favoriteClicked businessName=%@",dt.name);
+    
+    NSMutableDictionary* paramDict =
+    [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    [paramDict setObject:strToken forKey:@"token"];
+    
+    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [paramDict setObject:strUserId forKey:@"userId"];
+    
+    [paramDict setObject:dt.busId forKey:@"businessId"];
+    
+    
+    [paramDict setObject:@"addBusinessToFavorite" forKey:@"action"];
+    
+    
+    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+    
 }
 
 
@@ -193,6 +223,20 @@
     NSLog(@"params=%@",params);
     if([statusStr isEqualToString:@"200"])
     {
+        NSString *str=[params objectForKey:@"message"];
+
+        if([[str uppercaseString] containsString:[@"removed" uppercaseString]])
+        {
+            NSLog(@"Business removed from favorite sucessfully.");
+            list=nil;
+            
+            [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
+
+        }
+        else
+        {
+
+         [_tableView reloadData];
         NSArray *arr=[params objectForKey:@"data"];
         NSMutableArray *listArr=[[NSMutableArray alloc] init];
         for(NSDictionary *d in arr)
@@ -224,6 +268,7 @@
             listArr=nil;
             [_tableView reloadData];
         }
+    }
     }
 }
 

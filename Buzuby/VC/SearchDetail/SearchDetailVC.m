@@ -127,6 +127,7 @@ NSDictionary *dd;
     dd=dct;
     int n=[[dct objectForKey:@"ratingProvidedByUser"] intValue];
     userRating=n;
+     userRating=0;
     userRating0=n;
     NSMutableArray *ratingArr2=[[NSMutableArray alloc] init];
 
@@ -147,28 +148,14 @@ NSDictionary *dd;
             [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
         
         [v2 addSubview:bt];
-        bt.tag=i;
+        bt.tag=i+1;
         [bt addTarget:self action:@selector(onStarClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 -(void)startPopViewRemove:(UIGestureRecognizer*)rec
 {
     [[rec view] removeFromSuperview];
-   /* int k=0;
-    for(NSString *s in ratingArr2)
-    {
-        if([s isEqualToString:@"1"])
-            k++;
-        
-    }
-    int n=[dt.ratingProvidedByUser intValue];
-    if(k!=n&&k>0)
-    {
-        NSLog(@"startPopViewRemove Update star view value");
-       [self sendAddRemoveRating:[NSString stringWithFormat:@"%d",k]];
-    }
-    */
-    if(userRating0!=userRating&&userRating>0)
+       if(userRating0!=userRating)
     {
         NSLog(@"startPopViewRemove Update star view value");
         [self sendAddRemoveRating:[NSString stringWithFormat:@"%d",userRating]];
@@ -211,6 +198,52 @@ NSDictionary *dd;
 
 -(void)onStarClick:(UIButton*)bt
 {
+     int n=(int)bt.tag;
+    NSLog(@"onStarClick bt.tag=%d",n);
+    
+    if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+    {
+        for(int i=n-1;i<5;i++)
+        {
+            UIButton *bt1=(UIButton*)[bt.superview viewWithTag:i+1];
+            if([[bt1 backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+            {
+                NSLog(@"onStarClick set unselected bt1.tag=%d",bt1.tag);
+
+                [ bt1 setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+                userRating--;
+            }
+            
+            
+        }
+        
+    }
+    else
+    {
+        for(int i=0;i<n;i++)
+        {
+            UIButton *bt1=(UIButton*)[bt.superview viewWithTag:i+1];
+        if([[bt1 backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
+            {
+                NSLog(@"onStarClick set selected bt1.tag=%d",bt1.tag);
+            [ bt1 setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+                userRating++;
+            }
+            
+            
+        }
+    }
+
+    
+    
+   
+}
+
+
+
+
+/*-(void)onStarClick:(UIButton*)bt
+{
     if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
     {
         [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
@@ -226,7 +259,7 @@ NSDictionary *dd;
         userRating--;
     }
 }
-
+*/
 
 -(void)eventClicked:(UIButton*)bt
 {

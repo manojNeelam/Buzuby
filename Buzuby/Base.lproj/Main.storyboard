@@ -1689,7 +1689,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="Q9r-dn-rOg"/>
                                                     <constraint firstAttribute="width" constant="20" id="gFK-v3-c6Y"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="catogery.png"/>
+                                                <state key="normal" backgroundImage="GPSIcon.png"/>
                                                 <connections>
                                                     <action selector="onClickLocationButon:" destination="fDr-zf-k24" eventType="touchUpInside" id="yqu-Bn-Pdp"/>
                                                 </connections>
@@ -1932,7 +1932,7 @@
                                                     <constraint firstAttribute="width" constant="68" id="zmK-gi-gnM"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catogery.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8W-xi-qNL">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8W-xi-qNL">
                                                 <rect key="frame" x="5" y="27" width="25" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="UBo-W9-doD"/>
@@ -2011,7 +2011,7 @@
                                                     <constraint firstAttribute="height" constant="49" id="OMS-6y-nW5"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catogery.png" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-u9-7hf">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-u9-7hf">
                                                 <rect key="frame" x="5" y="27" width="25" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="pB3-X4-Wyi"/>
@@ -4261,6 +4261,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DollerIcon.png" width="83" height="85"/>
+        <image name="GPSIcon.png" width="113" height="105"/>
         <image name="Rbttn_seprater.png" width="8" height="124"/>
         <image name="catogery.png" width="76" height="50"/>
         <image name="earth.png" width="20" height="20"/>

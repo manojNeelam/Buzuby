@@ -261,7 +261,9 @@
         
         [paramDict setObject:[[_txtFldCatOption.text componentsSeparatedByString:@","] objectAtIndex:0] forKey:@"latitude"];
         [paramDict setObject:[[_txtFldCatOption.text componentsSeparatedByString:@","] objectAtIndex:1] forKey:@"longitude"];
-        [paramDict setObject:[self.btnRadius titleForState:UIControlStateNormal] forKey:@"radius"];
+      //  [paramDict setObject:[self.btnRadius titleForState:UIControlStateNormal] forKey:@"radius"];
+        [paramDict setObject:@"0" forKey:@"radius"];
+
         [paramDict setObject:[self.btnPrice titleForState:UIControlStateNormal] forKey:@"currencySymbol"];
         [paramDict setObject:self.startPrice.text forKey:@"priceFrom"];
         [paramDict setObject:self.endPrice.text forKey:@"priceTo"];
