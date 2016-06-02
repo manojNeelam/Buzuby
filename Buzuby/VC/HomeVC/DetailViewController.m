@@ -95,7 +95,7 @@
     [_bannerImage setClipsToBounds:YES];
     
     _lblAdvertise.text=[NSString stringWithFormat:@"%@",dt.specialize_in];
-    _lblAvertise.text=[NSString stringWithFormat:@"%@",dt.province]; //about Us
+    _lblAvertise.text=[NSString stringWithFormat:@"%@",dt.shortDescription]; //about Us
     
     
     
@@ -492,7 +492,6 @@ UIButton *btn2;
             dt.address=[d objectForKey:@"address"];
             dt.amenities=[d objectForKey:@"amenities"];
             dt.city=[d objectForKey:@"city"];
-            dt.country=[d objectForKey:@"country"];
             dt.shortDescription=[d objectForKey:@"description"];
             dt.facebook_page=[d objectForKey:@"facebook_page"];
             dt.payment_status=[d objectForKey:@"payment_status"];

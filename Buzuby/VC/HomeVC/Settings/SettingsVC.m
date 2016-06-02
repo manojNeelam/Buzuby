@@ -157,6 +157,7 @@
                 break;
             case 2:
             {
+                NSLog(@"PreferenceViewController selected");
                 PreferenceViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
                 peferencevc.isFromSettings = YES;
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:peferencevc];

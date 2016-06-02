@@ -294,7 +294,7 @@ NSTimer *bannerTimer;
 
 -(void)openMap:(UIButton*)bt
 {
-    NSDictionary *dct=[dataArr objectAtIndex:bt.tag-2000];
+    NSDictionary *dct=[dataArr objectAtIndex:bt.tag-3000];
 
      NSString *nativeMapScheme = @"maps.apple.com";
     NSString* url = [NSString stringWithFormat:@"http://%@/maps?q=%@,%@", nativeMapScheme,[dct objectForKey:@"latitude"], [dct objectForKey:@"longitude"]];
