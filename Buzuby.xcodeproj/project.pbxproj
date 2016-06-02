@@ -83,6 +83,7 @@
 		2C57F3441CE865250036756B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F3431CE865250036756B /* DetailViewController.m */; };
 		2C57F3471CE887BB0036756B /* ForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F3461CE887BB0036756B /* ForgotPasswordVC.m */; };
 		2C57F34A1CE8ACF60036756B /* NIDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F3491CE8ACF60036756B /* NIDropDown.m */; };
+		2C696E9D1D003F6700AC90A5 /* CommonWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C696E9C1D003F6700AC90A5 /* CommonWebView.m */; };
 		2C72EB251CE379B1005E03A6 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */; };
 		2C72EB2A1CE38DE9005E03A6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB291CE38DE9005E03A6 /* BaseViewController.m */; };
 		2C72EB2D1CE38E52005E03A6 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C72EB2C1CE38E52005E03A6 /* LoginVC.m */; };
@@ -325,6 +326,8 @@
 		2C57F3461CE887BB0036756B /* ForgotPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordVC.m; sourceTree = "<group>"; };
 		2C57F3481CE8ACF60036756B /* NIDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIDropDown.h; sourceTree = "<group>"; };
 		2C57F3491CE8ACF60036756B /* NIDropDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIDropDown.m; sourceTree = "<group>"; };
+		2C696E9B1D003F6700AC90A5 /* CommonWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonWebView.h; sourceTree = "<group>"; };
+		2C696E9C1D003F6700AC90A5 /* CommonWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonWebView.m; sourceTree = "<group>"; };
 		2C72EB231CE379B1005E03A6 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
 		2C72EB241CE379B1005E03A6 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		2C72EB281CE38DE9005E03A6 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -869,6 +872,8 @@
 				8C0B2F3E1CE09BE0008C6A2E /* LaunchScreen.storyboard */,
 				8C0B2F411CE09BE0008C6A2E /* Info.plist */,
 				8C0B2F301CE09BDF008C6A2E /* Supporting Files */,
+				2C696E9B1D003F6700AC90A5 /* CommonWebView.h */,
+				2C696E9C1D003F6700AC90A5 /* CommonWebView.m */,
 			);
 			path = Buzuby;
 			sourceTree = "<group>";
@@ -1297,6 +1302,7 @@
 				2C1E4E051CEB14DC004B51A1 /* SubSubCategoryData.m in Sources */,
 				2C72EB301CE38E65005E03A6 /* RegisterVC.m in Sources */,
 				2C2810081CE4A2FD00D95B0E /* TestObj.m in Sources */,
+				2C696E9D1D003F6700AC90A5 /* CommonWebView.m in Sources */,
 				8C0B2F351CE09BE0008C6A2E /* AppDelegate.m in Sources */,
 				2C1E4E0A1CEBA515004B51A1 /* SearchDetailVC.m in Sources */,
 				8C0B2F321CE09BDF008C6A2E /* main.m in Sources */,

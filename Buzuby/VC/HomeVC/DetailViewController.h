@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDescription;
 @property (weak, nonatomic) IBOutlet UIView *baseSpecialityView;
 @property (weak, nonatomic) IBOutlet UIView *holderSpecialityView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aboutUsHeight_Cons;
 
 
 

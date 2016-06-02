@@ -11,6 +11,8 @@
 #import "UIImageView+JMImageCache.h"
 #import "ConnectionsManager.h"
 #import "DetailViewData.h"
+#import "CommonWebView.h"
+
 @interface DetailViewController ()<ServerResponseDelegate>
 {
     DetailViewData *dt;
@@ -26,9 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationItem setTitle:@"BuZuaby"];
     appdeligate = [[UIApplication sharedApplication] delegate];
-    
+    [self.navigationItem setTitle:appdeligate.selectedData.name];
+
     [self customScreen];
     
     // Do any additional setup after loading the view.
@@ -95,11 +97,21 @@
     [_bannerImage setClipsToBounds:YES];
     
     _lblAdvertise.text=[NSString stringWithFormat:@"%@",dt.specialize_in];
-    _lblAvertise.text=[NSString stringWithFormat:@"%@",dt.province]; //about Us
+    
+    CGSize size = [self stringSize:_lblAvertise forStr:dt.province];
+    float heightAboutus = ceilf(size.height);
+    if(heightAboutus > 18.0f)
+    {
+        //aboutUsHeight_Cons 81
+        
+        float diff = heightAboutus - 18.0f;
+        self.aboutUsHeight_Cons.constant = 81 + diff;
+    }
+    
+    _lblAvertise.text =[NSString stringWithFormat:@"%@",dt.province]; //about Us
     
     
     
-    _lblAminiti.text=[NSString stringWithFormat:@"%@",dt.amenities];
     
     NSArray *aminities = [dt.amenities componentsSeparatedByString:@","];
     
@@ -164,6 +176,18 @@
     
     [self drawStarOnView];
 }
+
+-(CGSize)stringSize:(UILabel *)lbl forStr:(NSString *)aStr
+{
+    CGSize maximumSize = CGSizeMake(lbl.frame.size.width, 9999);
+    UIFont *myFont = lbl.font;//[UIFont fontWithName:@"Helvetica" size:14];
+    CGSize myStringSize = [aStr sizeWithFont:myFont
+                           constrainedToSize:maximumSize
+                               lineBreakMode:lbl.lineBreakMode];
+    
+    return myStringSize;
+}
+
 
 -(void)drawStarOnView
 {
@@ -471,6 +495,8 @@ UIButton *btn2;
         {
             NSDictionary *d=[[params objectForKey:@"data"] objectAtIndex:0];
             dt.name=[d objectForKey:@"name"];
+            
+            
             dt.range=[d objectForKey:@"priceRangeTo"];
             dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
             dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
@@ -619,8 +645,22 @@ UIButton *btn2;
     NSURL *facebookURL = [NSURL URLWithString:dt.website_link];
     if ([[UIApplication sharedApplication] canOpenURL:facebookURL])
     {
+        
+        NSRange range = [dt.website_link rangeOfString:@"https://"];
+        
+        if (range.location == NSNotFound) {
+            
+            dt.website_link = [NSString stringWithFormat:@"https://%@", dt.website_link];
+        }
+        else {
+        }
+        
+        CommonWebView *webview = [self.storyboard instantiateViewControllerWithIdentifier:@"CommonWebView"];
+        webview.webviewUrl = dt.website_link;
+        [self.navigationController pushViewController:webview animated:YES];
+        
         NSLog(@"can open given url");
-        [[UIApplication sharedApplication] openURL:facebookURL];
+        //[[UIApplication sharedApplication] openURL:facebookURL];
     }
         else
             NSLog(@"in can open web No sorry");
