@@ -1363,7 +1363,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woJ-2Q-Pmd">
                                         <rect key="frame" x="193" y="155" width="142" height="50"/>
                                         <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
-                                        <state key="normal" title="Options">
+                                        <state key="normal" title="All">
                                             <color key="titleColor" red="0.2666666667" green="0.30588235289999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -1373,7 +1373,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJS-Z5-ImR">
                                         <rect key="frame" x="193" y="226" width="142" height="50"/>
                                         <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
-                                        <state key="normal" title="Options">
+                                        <state key="normal" title="All">
                                             <color key="titleColor" red="0.2666666667" green="0.30588235289999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>

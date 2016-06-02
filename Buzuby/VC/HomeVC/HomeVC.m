@@ -278,10 +278,9 @@
 
 -(void)openMap:(UIButton*)bt
 {
-    NSDictionary *dct=[list objectAtIndex:bt.tag-2000];
-    
+   HomeData *dt=[list objectAtIndex:bt.tag-3000];
     NSString *nativeMapScheme = @"maps.apple.com";
-    NSString* url = [NSString stringWithFormat:@"http://%@/maps?q=%@,%@", nativeMapScheme,[dct objectForKey:@"latitude"], [dct objectForKey:@"longitude"]];
+    NSString* url = [NSString stringWithFormat:@"http://%@/maps?q=%@,%@", nativeMapScheme,dt.latitude,dt.longitude];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     
 }
