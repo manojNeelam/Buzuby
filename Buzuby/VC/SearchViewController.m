@@ -197,7 +197,7 @@
         return NO;
     }
     
-   
+    
     
     return YES;
 }
@@ -207,18 +207,18 @@
 {
     if([self isValidData])
     {
-    resultForApi=4;
-    NSMutableDictionary* paramDict =
-    [NSMutableDictionary dictionaryWithCapacity:1];
-    
-    NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
-    [paramDict setObject:strToken forKey:@"token"];
-    
-    NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    [paramDict setObject:strUserId forKey:@"userId"];
-    
-    [paramDict setObject:_txtFldSearch.text forKey:@"keyword"];
-   // [paramDict setObject:selectedCategory.itemId forKey:@"categoryId"];
+        resultForApi=4;
+        NSMutableDictionary* paramDict =
+        [NSMutableDictionary dictionaryWithCapacity:1];
+        
+        NSString *strToken=[[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+        [paramDict setObject:strToken forKey:@"token"];
+        
+        NSString *strUserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+        [paramDict setObject:strUserId forKey:@"userId"];
+        
+        [paramDict setObject:_txtFldSearch.text forKey:@"keyword"];
+        // [paramDict setObject:selectedCategory.itemId forKey:@"categoryId"];
         
         
         
@@ -243,28 +243,28 @@
                 [paramDict setObject:[self.btnSubSubCat titleForState:UIControlStateNormal] forKey:@"subSubCategoryId"];
             
         }
-
         
         
-    /*[paramDict setObject:@"0" forKey:@"categoryId"];
-
-    [paramDict setObject:@"0" forKey:@"subCategoryId"];
-    [paramDict setObject:@"0" forKey:@"subSubCategoryId"];*/
-
+        
+        /*[paramDict setObject:@"0" forKey:@"categoryId"];
+         
+         [paramDict setObject:@"0" forKey:@"subCategoryId"];
+         [paramDict setObject:@"0" forKey:@"subSubCategoryId"];*/
+        
+        
+        [paramDict setObject:@"getBusinessByPreference" forKey:@"action"];
+        
+        NSLog(@"onClickNextButton paramDict=%@",paramDict);
+        
+        [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
+        
+    }
     
-    [paramDict setObject:@"getBusinessByPreference" forKey:@"action"];
-    
-    NSLog(@"onClickNextButton paramDict=%@",paramDict);
-    
-    [[ConnectionsManager sharedManager] getMyFaviroteData:paramDict withdelegate:self];
-
-}
-
     //token, userId, keyword, categoryId, subCategoryId, subSubCategoryId
-
-
-  //  UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
-  //  [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    //  UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
+    //  [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*
@@ -302,14 +302,14 @@
  [paramDict setObject:[self.btnSubSubCategory titleForState:UIControlStateNormal] forKey:@"subSubCategoryId"];
  
  }
-
+ 
  */
 
 -(void)goToSearchDetail
 {
-      UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
-     [self.navigationController pushViewController:vc animated:YES];
- 
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetailVC_SB_ID"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 -(void)success:(id)response
@@ -363,12 +363,12 @@
                     CategoryData *catData = [[CategoryData alloc] initwithDictionary:dict];
                     [catTemp addObject:catData];
                 }
-               
+                
                 
                 NSDictionary *d=[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"itemId",@"All",@"itemName", nil];
                 CategoryData *catData = [[CategoryData alloc] initwithDictionary:d];
                 [catTemp addObject:catData];
-
+                
                 catList = catTemp;
             }
         }
@@ -394,7 +394,7 @@
                 SubCategoryData *catData = [[SubCategoryData alloc] initwithDictionary:d];
                 [catTemp addObject:catData];
                 
-
+                
                 
                 subCatList = catTemp;
                 [self openDropdown:subCatList withSender:self.btnSubcat withDir:@"up"];
@@ -416,7 +416,7 @@
                 NSDictionary *d=[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"itemId",@"All",@"itemName", nil];
                 SubSubCategoryData *catData = [[SubSubCategoryData alloc] initwithDictionary:d];
                 [catTemp addObject:catData];
-
+                
                 
                 subSubCatList = catTemp;
                 [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];
@@ -433,19 +433,19 @@
             delegate.searchList=arr;
             
             [self goToSearchDetail];
-
+            
             /*if(arr.count)
-            {
-                NSMutableArray *catTemp = [NSMutableArray array];
-                for(NSDictionary *dict in arr)
-                {
-                    SubSubCategoryData *catData = [[SubSubCategoryData alloc] initwithDictionary:dict];
-                    [catTemp addObject:catData];
-                }
-                
-                subSubCatList = catTemp;
-                [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];
-            }*/
+             {
+             NSMutableArray *catTemp = [NSMutableArray array];
+             for(NSDictionary *dict in arr)
+             {
+             SubSubCategoryData *catData = [[SubSubCategoryData alloc] initwithDictionary:dict];
+             [catTemp addObject:catData];
+             }
+             
+             subSubCatList = catTemp;
+             [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];
+             }*/
         }
         
         
@@ -519,6 +519,6 @@
     [self makeRequestgetSubSubCategoryBySubCategoryId];
     
     //[self openDropdown:subSubCatList withSender:sender];
-
+    
 }
 @end

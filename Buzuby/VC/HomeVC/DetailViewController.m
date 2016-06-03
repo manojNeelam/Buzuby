@@ -30,7 +30,7 @@
     [super viewDidLoad];
     appdeligate = [[UIApplication sharedApplication] delegate];
     [self.navigationItem setTitle:appdeligate.selectedData.name];
-
+    
     [self customScreen];
     
     // Do any additional setup after loading the view.
@@ -110,7 +110,7 @@
     
     _lblAvertise.text =[NSString stringWithFormat:@"%@",dt.province]; //about Us
     
-
+    
     NSArray *aminities = [dt.amenities componentsSeparatedByString:@","];
     
     if(aminities.count)
@@ -147,27 +147,27 @@
     
     _lblMonStartTime.text=[[dt.operatingTimeArray objectAtIndex:0] objectForKey:@"startTime"];
     _lblMonEndTime.text=[[dt.operatingTimeArray objectAtIndex:0] objectForKey:@"endTime"];
-
+    
     _lblTueTitle.text=[[dt.operatingTimeArray objectAtIndex:1] objectForKey:@"startTime"];
     _lblTueTitle.text=[[dt.operatingTimeArray objectAtIndex:1] objectForKey:@"endTime"];
-
+    
     _lblWedStartTime.text=[[dt.operatingTimeArray objectAtIndex:2] objectForKey:@"startTime"];
     _lblWedEndTime.text=[[dt.operatingTimeArray objectAtIndex:2] objectForKey:@"endTime"];
-
+    
     _lblThurStartTime.text=[[dt.operatingTimeArray objectAtIndex:3] objectForKey:@"startTime"];
     _lblThurEndTime.text=[[dt.operatingTimeArray objectAtIndex:3] objectForKey:@"endTime"];
-
+    
     _lblFriStartTime.text=[[dt.operatingTimeArray objectAtIndex:4] objectForKey:@"startTime"];
     _lblFriEndTime.text=[[dt.operatingTimeArray objectAtIndex:4] objectForKey:@"endTime"];
-
+    
     _lblSatStartTime.text=[[dt.operatingTimeArray objectAtIndex:5] objectForKey:@"startTime"];
     _lblSatEndTime.text=[[dt.operatingTimeArray objectAtIndex:5] objectForKey:@"endTime"];
-
+    
     _lblSunStartTime.text=[[dt.operatingTimeArray objectAtIndex:6] objectForKey:@"startTime"];
     _lblSunEndTime.text=[[dt.operatingTimeArray objectAtIndex:6] objectForKey:@"endTime"];
-
     
-   
+    
+    
     
     //  _lblDesc.text=[NSString stringWithFormat:@"Price Range %@-%@ %@",dt.rangeFrom,dt.rangeTo,dt.currencySymbol];
     
@@ -312,49 +312,49 @@
             
         }
         //[ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
-       // [ratingArr2 replaceObjectAtIndex:n-1 withObject:@"0"];
+        // [ratingArr2 replaceObjectAtIndex:n-1 withObject:@"0"];
         
     }
     else
     {
         for(int i=0;i<n;i++)
         {
-        UIButton *bt1=(UIButton*)[bt.superview viewWithTag:i+1];
-    if([[bt1 backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
-    {
-        [ bt1 setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
-        [ratingArr2 replaceObjectAtIndex:i withObject:@"1"];
-    }
-   /* else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
-    {
-        [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
-        [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
-        
-        
-    }*/
+            UIButton *bt1=(UIButton*)[bt.superview viewWithTag:i+1];
+            if([[bt1 backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
+            {
+                [ bt1 setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+                [ratingArr2 replaceObjectAtIndex:i withObject:@"1"];
+            }
+            /* else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+             {
+             [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+             [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
+             
+             
+             }*/
             
         }
     }
 }
 
 /*
--(void)onStarClick:(UIButton*)bt
-{
-    int n=(int)bt.tag;
-    if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
-    {
-        [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
-        [ratingArr2 replaceObjectAtIndex:n withObject:@"1"];
-        
-    }
-    else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
-    {
-        [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
-        [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
-        
-        
-    }
-}*/
+ -(void)onStarClick:(UIButton*)bt
+ {
+ int n=(int)bt.tag;
+ if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_normal.png"]])
+ {
+ [ bt setBackgroundImage:[UIImage imageNamed:@"star_selected.png"] forState:UIControlStateNormal];
+ [ratingArr2 replaceObjectAtIndex:n withObject:@"1"];
+ 
+ }
+ else if([[bt backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"star_selected.png"]])
+ {
+ [ bt setBackgroundImage:[UIImage imageNamed:@"star_normal.png"] forState:UIControlStateNormal];
+ [ratingArr2 replaceObjectAtIndex:n withObject:@"0"];
+ 
+ 
+ }
+ }*/
 
 
 
@@ -423,26 +423,26 @@ UIButton *btn2;
     self.baseDaysView.layer.borderWidth = 1.0f;
     
     UITapGestureRecognizer *tapRecognizermail = [[UITapGestureRecognizer alloc]
-                                             initWithTarget:self action:@selector(openMail)];
+                                                 initWithTarget:self action:@selector(openMail)];
     [tapRecognizermail setNumberOfTouchesRequired:1];
     [self.lblLocation addGestureRecognizer:tapRecognizermail];
     [self.lblLocation setUserInteractionEnabled:YES];
     tapRecognizermail=nil;
     
     UITapGestureRecognizer *tapRecognizerWeb = [[UITapGestureRecognizer alloc]
-                                                 initWithTarget:self action:@selector(openWeb)];
+                                                initWithTarget:self action:@selector(openWeb)];
     [tapRecognizerWeb setNumberOfTouchesRequired:1];
     [self.lblLink addGestureRecognizer:tapRecognizerWeb];
     [self.lblLink setUserInteractionEnabled:YES];
     tapRecognizerWeb=nil;
-
+    
     UITapGestureRecognizer *tapRecognizerPhone = [[UITapGestureRecognizer alloc]
-                                                 initWithTarget:self action:@selector(makeCallTO)];
+                                                  initWithTarget:self action:@selector(makeCallTO)];
     [tapRecognizerPhone setNumberOfTouchesRequired:1];
     [self.lblContact addGestureRecognizer:tapRecognizerPhone];
     [self.lblContact setUserInteractionEnabled:YES];
     tapRecognizerPhone=nil;
-
+    
     
     
     
@@ -539,7 +539,7 @@ UIButton *btn2;
             dt.operatingTimeArray=[d objectForKey:@"operatingTime"];
             
             
-           [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
+            [self performSelector:@selector(setDataOnView) withObject:nil afterDelay:0.2];
             
         }
         else if([[str uppercaseString] containsString:[@"removed" uppercaseString]])
@@ -583,8 +583,8 @@ UIButton *btn2;
 {
     if(dt.address!=nil)
     {
-    
-    [self displayMailComposerSheet:dt.address Subj:@" " theText:@" "];
+        
+        [self displayMailComposerSheet:dt.address Subj:@" " theText:@" "];
     }
     
 }
@@ -630,9 +630,7 @@ UIButton *btn2;
             NSLog(@"Result: Mail not sent");
             break;
     }
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -641,34 +639,34 @@ UIButton *btn2;
     if(dt.website_link!=nil)
     {
         NSLog(@"in open web yes");
-    NSURL *facebookURL = [NSURL URLWithString:dt.website_link];
-    if ([[UIApplication sharedApplication] canOpenURL:facebookURL])
-    {
-        
-        NSRange range = [dt.website_link rangeOfString:@"https://"];
-        
-        if (range.location == NSNotFound) {
+        NSURL *facebookURL = [NSURL URLWithString:dt.website_link];
+        if ([[UIApplication sharedApplication] canOpenURL:facebookURL])
+        {
             
-            dt.website_link = [NSString stringWithFormat:@"https://%@", dt.website_link];
+            NSRange range = [dt.website_link rangeOfString:@"https://"];
+            
+            if (range.location == NSNotFound) {
+                
+                dt.website_link = [NSString stringWithFormat:@"https://%@", dt.website_link];
+            }
+            else {
+            }
+            
+            CommonWebView *webview = [self.storyboard instantiateViewControllerWithIdentifier:@"CommonWebView"];
+            webview.webviewUrl = dt.website_link;
+            [self.navigationController pushViewController:webview animated:YES];
+            
+            NSLog(@"can open given url");
+            //[[UIApplication sharedApplication] openURL:facebookURL];
         }
-        else {
-        }
-        
-        CommonWebView *webview = [self.storyboard instantiateViewControllerWithIdentifier:@"CommonWebView"];
-        webview.webviewUrl = dt.website_link;
-        [self.navigationController pushViewController:webview animated:YES];
-        
-        NSLog(@"can open given url");
-        //[[UIApplication sharedApplication] openURL:facebookURL];
-    }
         else
             NSLog(@"in can open web No sorry");
-
+        
         
     }
     else
         NSLog(@"in open web No");
-
+    
 }
 
 
@@ -680,7 +678,7 @@ UIButton *btn2;
         NSLog(@"open dilar to call =%@",dt.phone);
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",dt.phone]]];
     }
-
+    
 }
 
 

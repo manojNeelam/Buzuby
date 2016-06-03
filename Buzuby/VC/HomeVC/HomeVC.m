@@ -41,13 +41,13 @@
         self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:68.0f/255.0f green:78.0f/255.0f blue:85.0f/255.0f alpha:1.0f];;
     }
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-
+    
     
     
     [self customSetup];
     // Do any additional setup after loading the view.
-  // [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
-
+    // [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,7 +56,7 @@
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fromPreference"];
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"toPop"];
-
+    
     [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
 }
 -(void)makeRequestForFavariote
@@ -93,20 +93,20 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)onClickSearchButton:(id)sender
 {
-   // UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+    // UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:SearchSBID];
-
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -124,10 +124,10 @@
     
     cell.btnDelete.tag=indexPath.row+2000;
     [cell.btnDelete addTarget:self action:@selector(favoriteClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     cell.btnLocation.tag=3000+indexPath.row;
     [cell.btnLocation addTarget:self action:@selector(openMap:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     
     return cell;
 }
@@ -137,7 +137,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-
+    
     delegate.selectedData=[list objectAtIndex:indexPath.row];
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController_SB_ID"];
     [self.navigationController pushViewController:vc animated:YES];
@@ -163,9 +163,9 @@
 
 -(void)favoriteClicked:(UIButton*)bt
 {
-  //  NSDictionary *dct=[list objectAtIndex:bt.tag-2000];
+    //  NSDictionary *dct=[list objectAtIndex:bt.tag-2000];
     HomeData *dt=[list objectAtIndex:bt.tag-2000];
-
+    
     NSLog(@"favoriteClicked businessName=%@",dt.name);
     
     NSMutableDictionary* paramDict =
@@ -228,57 +228,57 @@
     if([statusStr isEqualToString:@"200"])
     {
         NSString *str=[params objectForKey:@"message"];
-
+        
         if([[str uppercaseString] containsString:[@"removed" uppercaseString]])
         {
             NSLog(@"Business removed from favorite sucessfully.");
             list=nil;
             
             [self performSelector:@selector(makeRequestForFavariote) withObject:nil afterDelay:0.2];
-
+            
         }
         else
         {
-
-         [_tableView reloadData];
-        NSArray *arr=[params objectForKey:@"data"];
-        NSMutableArray *listArr=[[NSMutableArray alloc] init];
-        for(NSDictionary *d in arr)
-        {
-            HomeData *dt=[[HomeData alloc] init];
-            dt.name=[d objectForKey:@"businessName"];
-            dt.range=[d objectForKey:@"priceRangeTo"];
-            dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
-            dt.busId=[d objectForKey:@"businessId"];
-            dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
-            dt.rangeTo=[d objectForKey:@"priceRangeTo"];
-            dt.currencySymbol=[d objectForKey:@"currencySymbol"];
-            dt.isFavorite=[d objectForKey:@"isFavorite"];
-            dt.latitude=[d objectForKey:@"latitude"];
             
-            dt.longitude=[d objectForKey:@"longitude"];
-            dt.rating=[d objectForKey:@"rating"];
-            dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
-            dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
-           
-            [listArr addObject:dt];
-        }
-        if(listArr.count>0)
-        {
-            self.view.backgroundColor=[UIColor colorWithRed:68.0/255 green:78.0/255 blue:84.0/255 alpha:1];
-            _tableView.backgroundColor=[UIColor clearColor];
-
-            list=listArr;
-            listArr=nil;
             [_tableView reloadData];
+            NSArray *arr=[params objectForKey:@"data"];
+            NSMutableArray *listArr=[[NSMutableArray alloc] init];
+            for(NSDictionary *d in arr)
+            {
+                HomeData *dt=[[HomeData alloc] init];
+                dt.name=[d objectForKey:@"businessName"];
+                dt.range=[d objectForKey:@"priceRangeTo"];
+                dt.imgCat=[d objectForKey:@"businessImageLogoUrl"];
+                dt.busId=[d objectForKey:@"businessId"];
+                dt.rangeFrom=[d objectForKey:@"priceRangeFrom"];
+                dt.rangeTo=[d objectForKey:@"priceRangeTo"];
+                dt.currencySymbol=[d objectForKey:@"currencySymbol"];
+                dt.isFavorite=[d objectForKey:@"isFavorite"];
+                dt.latitude=[d objectForKey:@"latitude"];
+                
+                dt.longitude=[d objectForKey:@"longitude"];
+                dt.rating=[d objectForKey:@"rating"];
+                dt.ratingProvidedByUser=[d objectForKey:@"ratingProvidedByUser"];
+                dt.bannerUrl=[d objectForKey:@"businessImageBannerUrl"];
+                
+                [listArr addObject:dt];
+            }
+            if(listArr.count>0)
+            {
+                self.view.backgroundColor=[UIColor colorWithRed:68.0/255 green:78.0/255 blue:84.0/255 alpha:1];
+                _tableView.backgroundColor=[UIColor clearColor];
+                
+                list=listArr;
+                listArr=nil;
+                [_tableView reloadData];
+            }
         }
-    }
     }
 }
 
 -(void)openMap:(UIButton*)bt
 {
-   HomeData *dt=[list objectAtIndex:bt.tag-3000];
+    HomeData *dt=[list objectAtIndex:bt.tag-3000];
     NSString *nativeMapScheme = @"maps.apple.com";
     NSString* url = [NSString stringWithFormat:@"http://%@/maps?q=%@,%@", nativeMapScheme,dt.latitude,dt.longitude];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
