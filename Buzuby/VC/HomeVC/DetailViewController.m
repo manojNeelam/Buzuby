@@ -110,9 +110,7 @@
     
     _lblAvertise.text =[NSString stringWithFormat:@"%@",dt.province]; //about Us
     
-    
-    
-    
+
     NSArray *aminities = [dt.amenities componentsSeparatedByString:@","];
     
     if(aminities.count)
@@ -518,7 +516,6 @@ UIButton *btn2;
             dt.address=[d objectForKey:@"address"];
             dt.amenities=[d objectForKey:@"amenities"];
             dt.city=[d objectForKey:@"city"];
-            dt.country=[d objectForKey:@"country"];
             dt.shortDescription=[d objectForKey:@"description"];
             dt.facebook_page=[d objectForKey:@"facebook_page"];
             dt.payment_status=[d objectForKey:@"payment_status"];
@@ -633,7 +630,9 @@ UIButton *btn2;
             NSLog(@"Result: Mail not sent");
             break;
     }
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 

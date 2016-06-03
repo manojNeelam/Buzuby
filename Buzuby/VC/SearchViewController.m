@@ -363,7 +363,12 @@
                     CategoryData *catData = [[CategoryData alloc] initwithDictionary:dict];
                     [catTemp addObject:catData];
                 }
+               
                 
+                NSDictionary *d=[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"itemId",@"All",@"itemName", nil];
+                CategoryData *catData = [[CategoryData alloc] initwithDictionary:d];
+                [catTemp addObject:catData];
+
                 catList = catTemp;
             }
         }
@@ -385,6 +390,12 @@
                     [catTemp addObject:catData];
                 }
                 
+                NSDictionary *d=[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"itemId",@"All",@"itemName", nil];
+                SubCategoryData *catData = [[SubCategoryData alloc] initwithDictionary:d];
+                [catTemp addObject:catData];
+                
+
+                
                 subCatList = catTemp;
                 [self openDropdown:subCatList withSender:self.btnSubcat withDir:@"up"];
             }
@@ -401,6 +412,11 @@
                     SubSubCategoryData *catData = [[SubSubCategoryData alloc] initwithDictionary:dict];
                     [catTemp addObject:catData];
                 }
+                
+                NSDictionary *d=[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"itemId",@"All",@"itemName", nil];
+                SubSubCategoryData *catData = [[SubSubCategoryData alloc] initwithDictionary:d];
+                [catTemp addObject:catData];
+
                 
                 subSubCatList = catTemp;
                 [self openDropdown:subSubCatList withSender:self.btnSubSubCat withDir:@"up"];

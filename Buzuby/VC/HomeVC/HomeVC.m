@@ -125,6 +125,10 @@
     cell.btnDelete.tag=indexPath.row+2000;
     [cell.btnDelete addTarget:self action:@selector(favoriteClicked:) forControlEvents:UIControlEventTouchUpInside];
 
+    cell.btnLocation.tag=3000+indexPath.row;
+    [cell.btnLocation addTarget:self action:@selector(openMap:) forControlEvents:UIControlEventTouchUpInside];
+
+    
     return cell;
 }
 
@@ -271,5 +275,15 @@
     }
     }
 }
+
+-(void)openMap:(UIButton*)bt
+{
+   HomeData *dt=[list objectAtIndex:bt.tag-3000];
+    NSString *nativeMapScheme = @"maps.apple.com";
+    NSString* url = [NSString stringWithFormat:@"http://%@/maps?q=%@,%@", nativeMapScheme,dt.latitude,dt.longitude];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    
+}
+
 
 @end
