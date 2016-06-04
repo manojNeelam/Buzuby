@@ -163,7 +163,7 @@
                 
                 peferencevc.isFromSettings = YES;
                 */
-                UIViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:@"Preference2"];
+                UIViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:@"PreferenceViewController_SB_ID"];
 
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:peferencevc];
                 [self presentViewController:nav animated:YES completion:^{
@@ -173,6 +173,7 @@
                 break;
             case 3:
             {
+                
                 SearchViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:SearchSBID];
                 peferencevc.isFromSettings = YES;
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:peferencevc];
