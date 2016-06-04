@@ -174,9 +174,17 @@
     }];
 }
 
--(void)viewDidLayoutSubviews
+/*-(void)viewDidLayoutSubviews
 {
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width,500)];
+}
+*/
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width,500)];
+    
 }
 
 - (void)didReceiveMemoryWarning {
