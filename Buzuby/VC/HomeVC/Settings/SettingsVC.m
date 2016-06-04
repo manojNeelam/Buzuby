@@ -158,8 +158,13 @@
             case 2:
             {
                 NSLog(@"PreferenceViewController selected");
-                PreferenceViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+               /* PreferenceViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:PreferenceSBID];
+                
+                
                 peferencevc.isFromSettings = YES;
+                */
+                UIViewController *peferencevc = [self.storyboard instantiateViewControllerWithIdentifier:@"Preference2"];
+
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:peferencevc];
                 [self presentViewController:nav animated:YES completion:^{
                     
